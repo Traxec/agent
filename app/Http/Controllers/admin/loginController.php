@@ -9,7 +9,7 @@ class loginController extends Controller
 {
     /**
      * @return function name index
-     * @cteate by Cui
+     * @cteate by Cui．
      */
     public function index(){
         return view('Admin.login');
