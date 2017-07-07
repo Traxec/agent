@@ -79,6 +79,7 @@
     </div>
 
     <!-- jQuery -->
+<<<<<<< HEAD
     <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -89,6 +90,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('admin/dist/js/sb-admin-2.js')}}"></script>
+=======
+
+
+>>>>>>> 84d51f911bff33cf662b0e26f43e706c54b00d1b
 
 </body>
 
