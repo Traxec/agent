@@ -22,7 +22,8 @@ route::get('/login', 'home\loginController@index');
 //前台xu路由
 //=================================================后台=======================================================　想==========
 //后台cui路由
-
+route::get('/admin/login','admin\loginController@index');
+route::get('/admin/index','admin\indexController@index');
 //后台xu路由
 route::get('/admin/person','admin\personController@index');//个人简介页面
 route::get('/admin/userlist','admin\userlistController@index');//用户列表页面
