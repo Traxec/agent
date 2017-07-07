@@ -15,16 +15,22 @@
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui/css/H-ui.min.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui.admin/css/H-ui.admin.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('admin/lib/Hui-iconfont/1.0.8/iconfont.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui.admin/skin/default/skin.css')}}" id="skin" />
+<link rel="stylesheet" type="text/css" href="{{asset('admin/dist/skin/default/skin.css')}}" id="skin" />
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui.admin/css/style.css')}}" />
+<link href="{{asset('admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{asset('admin/bower_components/metisMenu/dist/metisMenu.min.css')}}" rel="stylesheet">
+<link href="{{asset('admin/dist/css/sb-admin-2.css')}}" rel="stylesheet">
+<link href="{{asset('admin/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
-<!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
+
+
+
 <title>代理系统 - @yield('title')</title>
 </head>
 <body>
+@section('hidden')
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
 		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">代理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> 
@@ -52,17 +58,16 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 个人资料<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="user.html" data-title="个人资料" href="javascript:void(0)">个人资料</a></li>
-			</ul>
-		</dd>
-	</dl>
-		@section('sidebar')
+					<li><a data-href="{{url('/admin/person')}}" data-title="个人资料" href="javascript:void(0)">个人资料</a></li>
+				</ul>
+			</dd>
+		</dl>
 		<dl id="menu-member">
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a data-href="member-list.html" data-title="用户审核" href="javascript:;">用户审核</a></li>
-					<li><a data-href="userlist.html" data-title="用户列表" href="javascript:;">用户列表</a></li>
+					<li><a data-href="{{url('/admin/userlist')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -70,7 +75,7 @@
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 工单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="work.html" data-title="工单管理" href="javascript:;">工单管理</a></li>
+					<li><a data-href="{{url('/admin/work')}}" data-title="工单管理" href="javascript:;">工单管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -78,7 +83,7 @@
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 资金管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="capital.html" data-title="资金管理" href="javascript:;">资金管理</a></li>
+					<li><a data-href="{{url('/admin/capital')}}" data-title="资金管理" href="javascript:;">资金管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -105,7 +110,6 @@
 					<li><a data-href="system.html" data-title="系统管理" href="javascript:void(0)">系统管理</a></li>
 			</ul>
 		</dd>
-		@show
 	</dl>
 </div>
 </aside>
@@ -118,18 +122,20 @@
 					<span title="我的桌面" data-href="welcome.html">我的桌面</span>
 					<em></em>
 				</li>
-		</ul>
+			</ul>
+		</div>
+		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i>	</a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a>
+		</div>
 	</div>
-		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
-</div>
+@show
 	<div id="iframe_box" class="Hui-article">
 		<div class="show_iframe">
 			<div style="display:none" class="loading"></div>
             @section('content')
 
             @show
+		</div>
 	</div>
-</div>
 </section>
 
 <div class="contextMenu" id="Huiadminmenu">

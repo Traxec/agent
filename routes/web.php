@@ -25,5 +25,8 @@ route::get('/login', 'home\loginController@index');
 route::get('/admin/login','admin\loginController@index');
 route::get('/admin/index','admin\indexController@index');
 //后台xu路由
-
+route::get('/admin/person','admin\personController@index');//个人简介页面
+route::get('/admin/userlist','admin\userlistController@index');//用户列表页面
+route::get('/admin/work','admin\workController@index');//工单管理页面
+route::get('/admin/capital','admin\capitalController@index');//资金管理页面
 
