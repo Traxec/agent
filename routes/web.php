@@ -25,6 +25,7 @@ route::get('/login', 'home\loginController@index');
 route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/index', 'admin\indexController@index');//后台主页
 });
+
 route::get('/admin/login', 'admin\loginController@index');//后台登录
 route::post('/admin/login/check', 'admin\loginController@check');//登录验证
 route::get('/vcode', 'admin\loginController@vcode');//验证码
