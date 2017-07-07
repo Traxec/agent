@@ -37,18 +37,30 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        {{session('error')}}
+                    </div>
+                @endif
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">请登录</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form action="{{action('admin\loginController@check')}}" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="username" name="username" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label style="padding-left: 0px">
+                                        <input type="text" name="vcode" placeholder="验证码" class="form-control" style="width:210px;float:left" id="exampleInputPassword1">
+                                        <img src="/vcode" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
+                                    </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -56,7 +68,8 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                  {{ csrf_field() }}
+                                <input class="btn btn-lg btn-success btn-block" type="submit">
                             </fieldset>
                         </form>
                     </div>
@@ -66,16 +79,16 @@
     </div>
 
     <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="{{asset('admin/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="{{asset('admin/dist/js/sb-admin-2.js')}}"></script>
 
 </body>
 
