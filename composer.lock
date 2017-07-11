@@ -147,7 +147,6 @@
                 "parser"
             ],
             "time": "2017-05-14T14:47:48+00:00"
-<<<<<<< HEAD
         },
         {
             "name": "gregwar/captcha",
@@ -196,8 +195,6 @@
                 "spam"
             ],
             "time": "2017-04-19T08:10:55+00:00"
-=======
->>>>>>> 84d51f911bff33cf662b0e26f43e706c54b00d1b
         },
         {
             "name": "jakub-onderka/php-console-color",

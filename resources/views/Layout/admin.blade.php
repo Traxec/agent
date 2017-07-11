@@ -67,7 +67,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="member-list.html" data-title="用户审核" href="javascript:;">用户审核</a></li>
-					<li><a data-href="{{url('/admin/userlist')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
+					<li><a data-href="{{url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -107,7 +107,7 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="system.html" data-title="系统管理" href="javascript:void(0)">系统管理</a></li>
+					<li><a data-href="{{url('/admin/system')}}" data-title="系统管理" href="javascript:void(0)">系统管理</a></li>
 			</ul>
 		</dd>
 	</dl>

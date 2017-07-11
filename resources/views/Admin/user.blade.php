@@ -16,7 +16,6 @@
 					<th scope="col" colspan="6">角色管理</th>
 				</tr>
 				<tr class="text-c">
-					<th width="25"><input type="checkbox" value="" name=""></th>
 					<th width="40">客户编号</th>
 					<th width="40">客户名称</th>
 					<th width="40">性别</th>
@@ -28,7 +27,6 @@
 			</thead>
 			<tbody>
 				<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
 					<td>1</td>
 					<td>admin</td>
 					<td>男</td>
@@ -42,7 +40,6 @@
 					<a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
 					<td>1</td>
 					<td>admin</td>
 					<td>男</td>
@@ -56,7 +53,6 @@
 					<a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
 					<td>1</td>
 					<td>admin</td>
 					<td>男</td>
@@ -70,7 +66,6 @@
 					<a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
 					<td>1</td>
 					<td>admin</td>
 					<td>男</td>

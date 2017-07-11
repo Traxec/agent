@@ -5,10 +5,10 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class userlistController extends Controller
+class userController extends Controller
 {
     public function index()
     {
-    	return view('Admin.userlist');
+    	return view('Admin.user');
     }
 }
