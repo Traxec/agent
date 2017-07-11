@@ -5,6 +5,12 @@
 @section('content')
     <div class="page-container">
         <p class="f-20 text-success">欢迎使用云天代理系统 <span class="f-14"></span>后台！</p>
+        @if(session('success'))
+            <div class="alert alert-danger alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                {{session('success')}}
+            </div>
+        @endif
         <p>登录次数：18 </p>
         <p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
         <table class="table table-border table-bordered table-bg">
