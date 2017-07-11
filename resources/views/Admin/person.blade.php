@@ -13,30 +13,44 @@
                     <div class="col-lg-12">
                         <h1 class="col-md-offset-5">个人资料</h1>
                     </div>
-                    <div>
-                            <form>
+                    <div class="col-lg-12">
+                        <div class="col-md-offset-1 col-lg-8">
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissable">
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                {{session('success')}}
+                            </div>
+                        @elseif(session('error'))
+                            <div class="alert alert-danger alert-dismissable">
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                {{session('error')}}
+                            </div>
+                        @endif
+                            <form action="{{action('admin\personController@update')}}" method="post">
+                                <input type="hidden" name="id" value="{{$id}}">
                               <div class="container">
                                 <label for="exampleInputEmail1">昵称</label>
-                                <input type="account-type" class="form-control" id="account-type" placeholder="">
+                                <input type="account-type" class="form-control" name="nick" id="account-type" value="{{$nick}}">
                               </div><br/>
                               <div class="container">
                                 <label for="exampleInputEmail1">手机</label>
-                                <input type="phone" class="form-control" id="phone" placeholder="">
+                                <input type="phone" class="form-control" name="phone" id="phone" value="{{$phone}}">
                               </div><br/>
                               <div class="container">
                                 <label for="exampleInputEmail1">邮箱</label>
-                                <input type="mail" class="form-control" id="mail" placeholder="">
+                                <input type="mail" class="form-control" id="email" name="email" value="{{$email}}">
                               </div><br/>
                               <div class="col-md-offset-5">
                                 <button type="submit" class="btn btn-default">修改</button>　　　　　
                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demoModal">修改密码</button>
                               </div>
                               <!-- Button trigger modal -->
+                                {{csrf_field()}}
                             </form>
+                        </div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-
 
                 <!-- Modal -->
 

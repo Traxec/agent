@@ -24,6 +24,7 @@ class loginController extends Controller
      * 检查登录
      */
     public function check(Request $request){
+        date_default_timezone_set('Asia/Shanghai');
         $admin = DB::table('admin')->where('username',$request->input('username'))->first();
         if(empty($admin)){
             return back()->with('error','用户名不存在');
@@ -33,7 +34,14 @@ class loginController extends Controller
             $vcode = $request->session()->get('Vcode');
             if($v == $vcode){
                 session(['id'=>$admin->id]);
-                return redirect('/admin/index')->with('success','欢迎'.$admin->nick.'登录');
+                $loginTime = DB::table('admin')
+                    ->where('username',$request->input('username'))
+                    ->update(['logintime'=>date('Y-m-d H:i:s'),'ip'=>$request->getClientIp()]);
+                if($loginTime){
+                    return redirect('/admin/index')->with('success','欢迎'.$admin->nick.'登录,您上次登录ip为'.$admin->ip.',时间为'.$admin->logintime.'.本次登录ip为'.$request->get('remote_addr').'，时间为'.date('Y-m-d H:i:s'));
+                }else{
+                    return back()->with('error','未知错误,请联系管理员');
+                }
             }else{
                 return back()->with('error','验证码不正确');
             }
