@@ -1,4 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿@inject('judge', 'App\Http\Controllers\admin\adminController')
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -33,18 +34,16 @@
 @section('hidden')
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">代理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> 
-			<span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> 
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">代理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
+			<span class="logo navbar-slogan f-l mr-10 hidden-xs"></span>
 			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
-				<li>超级管理员</li>
+				<li>{{$judge->judge_admin(session('id'))->nick}}</li>
 				<li class="dropDown dropDown_hover">
-					<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<a href="#" class="dropDown_A">{{$judge->judge_admin(session('id'))->username}}<i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-						<li><a href="#">切换账户</a></li>
-						<li><a href="#">退出</a></li>
+						<li><a href="{{url('/admin/exit_admin')}}">退出</a></li>
 				</ul>
 			</li>
 			</ul>
@@ -95,6 +94,7 @@
 				</ul>
 			</dd>
 		</dl>
+        @if($judge->judge_keys(session('id'))['admin']==1)
 		<dl id="menu-admin">
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -103,6 +103,7 @@
 				</ul>
 			</dd>
 		</dl>
+        @endif
 		<dl id="menu-system">
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -160,7 +161,7 @@ $(function(){
 				console.log(t);
 				if(t.find("i")){
 					t.find("i").trigger("click");
-				}		
+				}
 			},
 			'closeall': function(t) {
 				alert('Trigger was '+t.id+'\nAction was Email');
@@ -214,7 +215,7 @@ function member_add(title,url,w,h){
 }
 
 
-</script> 
+</script>
 
 <!--此乃百度统计代码，请自行删除-->
 <script>
@@ -222,7 +223,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
