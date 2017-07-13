@@ -37,6 +37,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面
     route::get('/admin/admin','admin\adminController@index');//管理员页面
     route::get('/admin/system','admin\systemController@index');//系统管理页面
+    route::get('/admin/sign','admin\signController@index');//签到管理页面
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui
