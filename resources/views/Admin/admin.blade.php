@@ -53,12 +53,12 @@
                             编辑
                         </button>
 
-                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                        <button type="button" class="btn btn-primary btn-sm judge_show" data-toggle="modal"
                                 data-target="#demoModal3">
                             修改权限
                         </button>
                         &nbsp;
-                        <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5"
+                        <a title="删除" href="javascript:;" onclick="admin_role_del(this,{{$value->id}})" class="ml-5"
                            style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
                 </tr>
             @endforeach
@@ -66,6 +66,7 @@
             <input type="hidden" name="csrf-token" content="{{ csrf_token() }}">
         </table>
         <script>
+            //调用修改页面数据
             $('.update').click(function () {
                 var id = $(this).parent().parent().find('input[name="id"]').val();
                 $.ajax({
@@ -84,6 +85,27 @@
                     },
                     error: function (date) {
                         alert('系统错误,请联系管理员')
+                    }
+                })
+            })
+            //调用修改权限数据
+            $('.judge_show').click(function () {
+                var id = $(this).parent().parent().find('input[name="id"]').val();
+                $.ajax({
+                    type: 'post',
+                    url: "{{action('admin\adminController@judge_show')}}",
+                    dataType: 'json',
+                    data: {
+                        _token: $('input[name="csrf-token"]').attr('content'),
+                        id: id,
+                    },
+                    success: function (data) {
+                        $('#table3').find('input[name="id"]').val(data.id)
+                        data.admin == 1 ? $('#table3').find('input[name="admin"]').attr('checked', true) : $('#table3').find('input[name="admin"]').attr('checked', false);
+                        data.card == 1 ? $('#table3').find('input[name="card"]').attr('checked', true) : $('#table3').find('input[name="card"]').attr('checked', false);
+                    },
+                    error: function (date) {
+//                        alert('系统错误,请联系管理员')
                     }
                 })
             })
@@ -172,36 +194,28 @@
         <!-- 修改权限 -->
         <div class="modal fade" style="z-index='9999'" id="demoModal3" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel3">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content"><br/><br/>
-                    <div class="col-lg-12">
-                        <h3 class="col-md-offset-3">修改权限</h1>
-                    </div>
-                    &nbsp;&nbsp;
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 开代理账户
-                    </label>　　　　　　　　　　　　　　　
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 新建模板
-                    </label>　　　　　　　　
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 生成安装包
-                    </label>　　　　　　　　　　　　　　　
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox4" value="option1"> 修改安装包
-                    </label>　　　　　　　　　　　　
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox5" value="option2"> 生成系统
-                    </label>　　　　　　　　　　　　　　　　
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox6" value="option3"> 修改系统
-                    </label>　　　　　　　
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                        <button type="button" class="btn btn-default">取消</button>
+            <form action="{{action('admin\adminController@judge_update')}}" method="post">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="table3"><br/><br/>
+                        <div class="col-lg-12">
+                            <h3 class="col-md-offset-3">修改权限</h3>
+                        </div>
+                        &nbsp;&nbsp;
+                        <input type="hidden" name="id" value="">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="admin" value="1"> 管理员管理
+                        </label>　　　　　　　　　　　　　　　
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="card" value="1"> 打卡管理
+                        </label>　　　　　　　　
+                        <div class="modal-footer">
+                            {{csrf_field()}}
+                            <button type="submit" class="btn btn-default">确定</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -214,14 +228,18 @@
             layer.confirm('角色删除须谨慎，确认要删除吗？', function (index) {
                 $.ajax({
                     type: 'POST',
-                    url: '',
+                    url: '{{action('admin\adminController@delete')}}',
                     dataType: 'json',
+                    data: {
+                        _token: $('input[name="csrf-token"]').attr('content'),
+                        id: id,
+                    },
                     success: function (data) {
-                        $(obj).parents("tr").remove();
-                        layer.msg('已删除!', {icon: 1, time: 1000});
+                        $(obj).parents('tr').remove()
+                        layer.msg('已删除!');
                     },
                     error: function (data) {
-                        console.log(data.msg);
+                        layer.msg('删除失败');
                     },
                 });
             });
