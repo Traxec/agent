@@ -11,4 +11,8 @@ class signController extends Controller
     {
     	return view('Admin.sign');
     }
+    public function sign()
+    {
+    	return view('Admin.signup');
+    }
 }

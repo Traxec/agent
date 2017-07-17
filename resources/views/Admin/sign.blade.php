@@ -8,7 +8,7 @@
 @section('content')
 <div id="page-wrapper">
         <!-- <div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','admin_add.html','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div> -->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demoModal">添加</button><br/><br/>
+        <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demoModal">添加</button><br/><br/> -->
 
         <table class="table table-border table-bordered table-hover table-bg">
             <thead>
@@ -16,50 +16,22 @@
                     <th scope="col" colspan="8">签到信息</th>
                 </tr>
                 <tr class="text-c">
-                    <th width="40">客服编号</th>
-                    <th width="40">用户名</th>
                     <th width="40">客服名称</th>
-                    <th width="40">手机</th>
-                    <th width="40">邮箱</th>
-                    <th width="40">签到时间</th>
-                    <th width="40">状态</th>
-                    <th width="40">功能</th>
+                    <th width="40">联系方式</th>
+                    <th width="40">签到月份</th>
+                    <th width="60">签到日期</th>
+                   
                 </tr>
             </thead>
             <tbody>
                 <tr class="text-c">
-                    <td>1</td>
                     <td>下个雨季</td>
-                    <td>user1</td>
                     <td>15138679371</td>
-                    <td>274951642@qq.com</td>
                     <td>2017.7.13 8:20</td>
-                    <td class="td-status"><span class="label label-success radius">正常</span></td>
-                    <!-- <td class="td-manage"><a style="text-decoration:none" onClick="admin_start(this,'10001')" href="javascript:;" title="欠费"><i class="Hui-iconfont">&#xe615;</i></a>  -->
-                    <td>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改角色</button>
-
-                   
-                    <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-                <tr class="text-c">
-                    <td>2</td>
-                    <td>下个雨季</td>
-                    <td>user2</td>
-                    <td>15138679371</td>
-                    <td>274951642@qq.com</td>
-                    <td>2017.7.13 8:20</td>
-                    <td class="td-status"><span class="label label-success radius">正常</span></td>
-                    <!-- <td class="td-manage"><a style="text-decoration:none" onClick="admin_start(this,'10001')" href="javascript:;" title="欠费"><i class="Hui-iconfont">&#xe615;</i></a>  -->
-                    <td>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改角色</button>
-
-
-                    <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-               
-
-                    
+                    <td>1,2,3,4,5,6,7,8,9,</td>
+                    <!-- <td>
+                    <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->
+                </tr>     
             </tbody>
         </table>
         
