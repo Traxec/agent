@@ -24,6 +24,9 @@
 <link href="{{asset('admin/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<link rel="stylesheet" href="{{asset('admin/css/qiandao_style.css')}}">
+<script src="{{asset('admin/js/jquery-1.10.2.min.js')}}"></script>
+<script src="{{asset('admin/js/qiandao_js.js')}}"></script>
 
 
 
@@ -109,9 +112,11 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{url('/admin/sign')}}" data-title="签到管理" href="javascript:void(0)">签到管理</a></li>
+					<li><a data-href="{{url('/admin/sign/sign')}}" data-title="签到页面" href="javascript:void(0)">签到页面</a></li>
 				</ul>
 			</dd>
 		</dl>
+
 		<dl id="menu-system">
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>

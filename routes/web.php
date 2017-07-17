@@ -34,15 +34,18 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/exit_admin', 'admin\adminController@exit_admin');//后台退出cui
     route::post('/admin/sign/add','admin\signController@add');//后台签到cui
     //后台xu路由
+
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面xu
-    route::get('/admin/person','admin\personController@index');//个人简介页面xu
-    route::get('/admin/user','admin\userController@index');//用户列表页面xu
-    route::get('/admin/work','admin\workController@index');//工单管理页面xu
-    route::get('/admin/capital','admin\capitalController@index');//资金管理页面xu
-    route::get('/admin/admin','admin\adminController@index');//管理员页面xu
-    route::get('/admin/system','admin\systemController@index');//系统管理页面xu
-    route::get('/admin/sign','admin\signController@index');//签到管理页面xu
+    route::get('/admin/person','admin\personController@index');//个人简介页面
+    route::get('/admin/user','admin\userController@index');//用户列表页面
+    route::get('/admin/work','admin\workController@index');//工单管理页面
+    route::get('/admin/capital','admin\capitalController@index');//资金管理页面
+    route::get('/admin/admin','admin\adminController@index');//管理员页面
+    route::get('/admin/system','admin\systemController@index');//系统管理页面
+    route::get('/admin/sign','admin\signController@index');//签到管理页面
+    route::get('/admin/sign/sign','admin\signController@sign');//签到页面
+
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui

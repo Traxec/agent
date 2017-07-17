@@ -12,12 +12,8 @@ class signController extends Controller
     {
     	return view('Admin.sign');
     }
-
-    public function add(Request $request){
-        if($request->input('id')){
-
-        }else{
-
-        }
+    public function sign()
+    {
+    	return view('Admin.signup');
     }
 }

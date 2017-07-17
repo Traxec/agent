@@ -16,7 +16,10 @@
                     <th scope="col" colspan="8">签到信息</th>
                 </tr>
                 <tr class="text-c">
+<<<<<<< HEAD
                     <th width="40">编号</th>
+=======
+>>>>>>> fff6ec42b599fc5a354468efa3d86eb9a87d4ad9
                     <th width="40">客服名称</th>
                     <th width="40">联系方式</th>
                     <th width="40">签到月份</th>
@@ -26,7 +29,6 @@
             </thead>
             <tbody>
                 <tr class="text-c">
-                    <td>1</td>
                     <td>下个雨季</td>
                     <td>15138679371</td>
                     <td>2017.7.13 8:20</td>
