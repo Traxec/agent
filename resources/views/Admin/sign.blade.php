@@ -16,15 +16,12 @@
                     <th scope="col" colspan="8">签到信息</th>
                 </tr>
                 <tr class="text-c">
-<<<<<<< HEAD
-                    <th width="40">编号</th>
-=======
->>>>>>> fff6ec42b599fc5a354468efa3d86eb9a87d4ad9
                     <th width="40">客服名称</th>
                     <th width="40">联系方式</th>
                     <th width="40">签到月份</th>
                     <th width="60">签到日期</th>
-                   
+                    <th width="60">签到ip</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +30,7 @@
                     <td>15138679371</td>
                     <td>2017.7.13 8:20</td>
                     <td>1,2,3,4,5,6,7,8,9,</td>
+                    <td>192.168.1.1</td>
                     <!-- <td>
                     <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->
                 </tr>     

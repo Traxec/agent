@@ -32,7 +32,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/admin/judge_update','admin\adminController@judge_update');//管理员权限修改cui
     route::post('/admin/admin/update', 'admin\adminController@update');//管理员添加cui
     route::get('/admin/exit_admin', 'admin\adminController@exit_admin');//后台退出cui
-    route::post('/admin/sign/add','admin\signController@add');//后台签到cui
+    route::post('/admin/sign/add_sign','admin\signController@add_sign');//后台签到cui
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
