@@ -36,6 +36,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/sign/ban_ip', 'admin\signController@ban_ip');//ip黑名单cui
     route::post('/admin/sign/add_ban_ip', 'admin\signController@add_ban_ip');//添加ip黑名单cui
     route::post('/admin/sign/del_ban_ip', 'admin\signController@del_ban_ip');//移除ip黑名单cui
+    route::post('/admin/sign/sign_data', 'admin\signController@sign_data');//移除ip黑名单cui
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu

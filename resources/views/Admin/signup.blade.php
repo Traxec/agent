@@ -143,12 +143,25 @@
         </div>
         <div class="qiandao-layer-bg"></div>
     </div>
-
+    <input type="hidden" id="date">
     <script>
+        $(function(){
+            $.ajax({
+                type:'post',
+                url:"{{action('admin\signController@sign_data')}}",
+                dataType:'text',
+                data:{
+                    _token:"{{ csrf_token() }}",
+                    id:"{{session('id')}}",
+                },
+                success:function (data){
+                    $('#date').val(data)
+                },
+            })
+        })
         $(function() {
             var signFun = function() {
-
-                var dateArray = [0,1,2] // 假设已经签到的
+//                var dateArray = [date] // 假设已经签到的
 
                 var $dateBox = $("#js-qiandao-list"),
                     $currentDate = $(".current-date"),

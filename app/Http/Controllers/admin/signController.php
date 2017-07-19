@@ -64,6 +64,7 @@ class signController extends Controller
      */
     public function add_sign(Request $request)
     {
+        date_default_timezone_set('Asia/Shanghai');//'Asia/Shanghai'   亚洲/上海
         $check_ip = DB::table('ban_ip')->where('ip',$request->getClientIp())->first();
         if($check_ip){
             return '{"success":"false"}';
@@ -96,5 +97,24 @@ class signController extends Controller
         }else{
             return 'error';
         }
+    }
+
+    public function sign_data(Request $request)
+    {
+        date_default_timezone_set('Asia/Shanghai');//'Asia/Shanghai'   亚洲/上海
+        $data = DB::table('sign')->where([
+            ['aid',$request->input('id')],
+            ['datetime','like',date('Y-m').'%'],
+        ])->get();
+        $str = '';
+        foreach($data as $key => $value){
+            foreach($value as $k => $v){
+                if($k == 'datetime'){
+                    $str .= substr($v,8,2).',';
+                }
+            }
+        }
+        $str = rtrim($str,',');
+        return $str;
     }
 }
