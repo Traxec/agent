@@ -33,6 +33,9 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/admin/update', 'admin\adminController@update');//管理员添加cui
     route::get('/admin/exit_admin', 'admin\adminController@exit_admin');//后台退出cui
     route::post('/admin/sign/add_sign','admin\signController@add_sign');//后台签到cui
+    route::get('/admin/sign/ban_ip', 'admin\signController@ban_ip');//ip黑名单cui
+    route::post('/admin/sign/add_ban_ip', 'admin\signController@add_ban_ip');//添加ip黑名单cui
+    route::post('/admin/sign/del_ban_ip', 'admin\signController@del_ban_ip');//移除ip黑名单cui
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu

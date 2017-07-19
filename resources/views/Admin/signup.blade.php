@@ -115,33 +115,132 @@
             <a href="javascript:;" class="close-qiandao-layer qiandao-sprits"></a>
             <div class="yiqiandao clear">
                 <div class="yiqiandao-icon qiandao-sprits"></div>
-                您已连续签到<span>{}</span>天
+            </div>
+        </div>
+        <div class="qiandao-layer-bg"></div>
+    </div>
+    <!-- 签到失败 layer start -->
+    <div class="qiandao-layer qiandao-noactive">
+        <div class="qiandao-layer-con qiandao-radius">
+            <a href="javascript:;" class="close-qiandao-layer qiandao-sprits"></a>
+            <div class="yiqiandao clear">
+                <div style="font-size: 30px;color:red">
+                签到失败,未知错误
+                </div>
+            </div>
+        </div>
+        <div class="qiandao-layer-bg"></div>
+    </div>
+    <!-- 签到失败 layer start -->
+    <div class="qiandao-layer qiandao-ipactive">
+        <div class="qiandao-layer-con qiandao-radius">
+            <a href="javascript:;" class="close-qiandao-layer qiandao-sprits"></a>
+            <div class="yiqiandao clear">
+                <div style="font-size: 30px;color:red">
+                    签到失败,ip已被拉入黑名单
+                </div>
             </div>
         </div>
         <div class="qiandao-layer-bg"></div>
     </div>
 
     <script>
-        $('#js-just-qiandao').click(function(){
-            if($(this).hasClass('actived')){
-            }else{
-                $.ajax({
-                    type:'post',
-                    url:"{{action('admin\signController@add_sign')}}",
-                    dataType:'json',
-                    data:{
-                        _token:"{{ csrf_token() }}",
-                        id:"{{session('id')}}",
-                    },
-                    success:function (data){
+        $(function() {
+            var signFun = function() {
 
-                    },
-                    error:function(data){
+                var dateArray = [0,1,2] // 假设已经签到的
 
-                    },
+                var $dateBox = $("#js-qiandao-list"),
+                    $currentDate = $(".current-date"),
+                    $qiandaoBnt = $("#js-just-qiandao"),
+                    _html = '',
+                    _handle = true,
+                    myDate = new Date();
+                $currentDate.text(myDate.getFullYear() + '年' + parseInt(myDate.getMonth() + 1) + '月' + myDate.getDate() + '日');
+
+                var monthFirst = new Date(myDate.getFullYear(), parseInt(myDate.getMonth()), 1).getDay();
+
+                var d = new Date(myDate.getFullYear(), parseInt(myDate.getMonth() + 1), 0);
+                var totalDay = d.getDate(); //获取当前月的天数
+
+                for (var i = 0; i < 42; i++) {
+                    _html += ' <li><div class="qiandao-icon"></div></li>'
+                }
+                $dateBox.html(_html) //生成日历网格
+
+                var $dateLi = $dateBox.find("li");
+                for (var i = 0; i < totalDay; i++) {
+                    $dateLi.eq(i + monthFirst).addClass("date" + parseInt(i + 1));
+                    for (var j = 0; j < dateArray.length; j++) {
+                        if (i == dateArray[j]) {
+                            $dateLi.eq(i + monthFirst).addClass("qiandao");
+                        }
+                    }
+                } //生成当月的日历且含已签到
+
+                $(".date" + myDate.getDate()).addClass('able-qiandao');
+
+                $dateBox.on("click", "li", function() {
+                    if ($(this).hasClass('able-qiandao') && _handle) {
+                        $(this).addClass('qiandao');
+                        qiandaoFun();
+                    }
+                }) //签到
+
+                $qiandaoBnt.on("click", function() {
+                    if (_handle) {
+                        qiandaoFun();
+                        $.ajax({
+                            type:'post',
+                            url:"{{action('admin\signController@add_sign')}}",
+                            dataType:'json',
+                            data:{
+                                _token:"{{ csrf_token() }}",
+                                id:"{{session('id')}}",
+                            },
+                            success:function (data){
+                                if(data.success == "true"){
+                                    openLayer("qiandao-active", qianDao);
+                                }else{
+                                    openLayer("qiandao-ipactive");
+                                }
+                            },
+                            error:function(data){
+                                openLayer("qiandao-noactive");
+                                $('#js-just-qiandao').removeClass('actived');
+                            },
+                        })
+                    }
+                }); //签到
+
+                function qiandaoFun() {
+                    $qiandaoBnt.addClass('actived');
+                    _handle = false;
+                }
+
+                function qianDao() {
+                    $(".date" + myDate.getDate()).addClass('qiandao');
+                }
+            }();
+
+            function openLayer(a, Fun) {
+                $('.' + a).fadeIn(Fun)
+            } //打开弹窗
+
+            var closeLayer = function() {
+                $("body").on("click", ".close-qiandao-layer", function() {
+                    $(this).parents(".qiandao-layer").fadeOut()
                 })
+            }() //关闭弹窗
 
-            }
+            $("#js-qiandao-history").on("click", function() {
+                openLayer("qiandao-history-layer", myFun);
+
+                function myFun() {
+                    console.log(1)
+                } //打开弹窗返回函数
+            })
+
         })
     </script>
 

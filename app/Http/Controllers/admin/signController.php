@@ -28,15 +28,73 @@ class signController extends Controller
         return view('Admin.signup');
     }
 
+    /**
+     * @return function name ip
+     * ip黑名单
+     */
+    public function ban_ip()
+    {
+        $ban_ip = DB::table('ban_ip')->get();
+        return view('Admin.ban_ip',['ip'=>$ban_ip]);
+    }
+
+    /**
+     * @return function name ip
+     * 添加ip黑名单
+     */
+    public function add_ban_ip(Request $request)
+    {
+        $this->validate($request,[
+            'ip'=>'required|unique:ban_ip|ip',
+        ]);
+
+        $ban_ip = DB::table('ban_ip')->insert([
+           'ip' => $request->input('ip'),
+        ]);
+        if($ban_ip){
+           return back()->with('success','添加成功');
+        }else{
+           return back()->with('error','添加失败');
+        }
+    }
+
+    /**
+     * @return function name add_sign
+     * 签到
+     */
     public function add_sign(Request $request)
     {
+        $check_ip = DB::table('ban_ip')->where('ip',$request->getClientIp())->first();
+        if($check_ip){
+            return '{"success":"false"}';
+        }
+
         $admin = DB::table('admin')->where('id', $request->input('id'))->first();
-        $ip = DB::table('sign_up')->where('ip',$request->input('ip'))->get();
-        $sign  = DB::table('sign')->where('id', $request->input('id'))->install([
+        $sign  = DB::table('sign')->where('id', $request->input('id'))->insert([
             'aid'      => $request->input('id'),
-            'signcard' => 1,
+            'sign_card' => 1,
             'nick'     => $admin->nick,
             'ip' => $request->getClientIp(),
+            'datetime' => date('Y-m-d H:i:s'),
         ]);
+        if($sign){
+            return '{"success":"true"}';
+        }else{
+            return 'error';
+        }
+    }
+
+    /**
+     * @return function name del_ban_ip
+     * 删除ip
+     */
+    public function del_ban_ip(Request $request)
+    {
+        $sign = DB::table('ban_ip')->where('id',$request->input('id'))->delete();
+        if($sign){
+            return '{"success":"true"}';
+        }else{
+            return 'error';
+        }
     }
 }

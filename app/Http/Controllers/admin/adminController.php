@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationData;
 
 class adminController extends Controller
 {
@@ -26,28 +26,31 @@ class adminController extends Controller
      */
     public function add(Request $request)
     {
-        $unique_username = DB::table('admin')->where('username', $request->input('username'))->first();
-        $unique_phone    = DB::table('admin')->where('phone', $request->input('phone'))->first();
-        $unique_email    = DB::table('admin')->where('email', $request->input('email'))->first();
-        if ($unique_username) {
-            return back()->with('error', '用户名已被占用');
-        } elseif ($unique_phone) {
-            return back()->with('error', '手机号已被占用');
-        } elseif ($unique_email) {
-            return back()->with('error', '该邮箱已被占用');
-        } else {
-            $admin = DB::table('admin')->insert(
-                [
-                    'pid'      => '1',
-                    'username' => $request->input('username'),
-                    'nick'     => $request->input('nick'),
-                    'phone'    => $request->input('phone'),
-                    'email'    => $request->input('email'),
-                    'password' => hash::make('123456'),
-                    'key'      => '1,1',
-                ]
-            );
+        $data = $request->input();
+        foreach($data as $key => $value){
+            if(!$value){
+                unset($data[$key]);
+            }
         }
+        $this->validate($request, [
+            'username' => 'required|unique:admin|max:255|alpha',
+            'nick'     => 'required',
+//            'phone'    => 'regex:/^1[34578][0-9]{9}$/',
+        ]);
+
+
+
+        $admin = DB::table('admin')->insert(
+            [
+                'pid'      => '1',
+                'username' => $request->input('username'),
+                'nick'     => $request->input('nick'),
+                'phone'    => $request->input('phone'),
+                'email'    => $request->input('email'),
+                'password' => hash::make('123456'),
+                'key'      => '0,0',
+            ]
+        );
         if ($admin) {
             return back()->with('success', '添加成功');
         } else {
