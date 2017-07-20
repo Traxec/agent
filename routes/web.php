@@ -11,12 +11,12 @@
 |
 */
 
-route::get('/', function () {
-    return view('welcome');
-});
+//route::get('/', function () {
+//    return view('welcome');
+//});
 //=================================================前台=================================================================
 route::get('/login', 'home\loginController@index');//登录cui
-route::get('/home/index','home\indexController@index');//前台主页
+route::get('/','home\indexController@index');//前台主页
 route::get('/home/person','home\personController@index');//个人资料
 route::get('/home/person/password','home\personController@password');//修改个人密码
 route::get('/home/system','home\systemController@index');//生成系统
