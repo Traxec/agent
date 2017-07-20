@@ -16,6 +16,22 @@ route::get('/', function () {
 });
 //=================================================前台=================================================================
 route::get('/login', 'home\loginController@index');//登录cui
+route::get('/home/index','home\indexController@index');//前台主页
+route::get('/home/person','home\personController@index');//个人资料
+route::get('/home/person/password','home\personController@password');//修改个人密码
+route::get('/home/system','home\systemController@index');//生成系统
+route::get('/home/package','home\packageController@index');//生成安装包
+route::get('/home/pay','home\payController@index');//缴费页面
+route::get('/home/contribution','home\contributionController@index');//缴费记录页面
+route::get('/home/work/order','home\workController@order');//工单发布
+route::get('/home/work/record','home\workController@record');//工单记录
+route::get('/home/withdrawals','home\withdrawalsController@index');//提现页面
+route::get('/home/user/check','home\userController@check');//普通账户审核页面
+route::get('/home/agency/check','home\agencyController@check');//代理账户审核页面
+route::get('/home/user/index','home\userController@index');//普通账户管理
+route::get('/home/agency/index','home\agencyController@index');//普通账户管理
+route::get('/home/customer','home\customerController@index');//客户系统管理
+
 
 
 //=================================================后台=======================================================　想==========
