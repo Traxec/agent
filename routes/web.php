@@ -11,12 +11,12 @@
 |
 */
 
-route::get('/', function () {
-    return view('welcome');
-});
+//route::get('/', function () {
+//    return view('welcome');
+//});
 //=================================================前台=================================================================
 route::get('/login', 'home\loginController@index');//登录cui
-route::get('/home/index','home\indexController@index');//前台主页
+route::get('/','home\indexController@index');//前台主页
 route::get('/home/person','home\personController@index');//个人资料
 route::get('/home/person/password','home\personController@password');//修改个人密码
 route::get('/home/system','home\systemController@index');//生成系统
@@ -47,7 +47,13 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/admin/judge_show','admin\adminController@judge_show');//管理员权限修改展示cui
     route::post('/admin/admin/judge_update','admin\adminController@judge_update');//管理员权限修改cui
     route::post('/admin/admin/update', 'admin\adminController@update');//管理员添加cui
-    route::get('/admin/exit_admin', 'admin\adminController@exit_admin');//管理员添加cui
+    route::get('/admin/exit_admin', 'admin\adminController@exit_admin');//后台退出cui
+    route::post('/admin/sign/add_sign','admin\signController@add_sign');//后台签到cui
+    route::get('/admin/sign/ban_ip', 'admin\signController@ban_ip');//ip黑名单cui
+    route::post('/admin/sign/add_ban_ip', 'admin\signController@add_ban_ip');//添加ip黑名单cui
+    route::post('/admin/sign/del_ban_ip', 'admin\signController@del_ban_ip');//移除ip黑名单cui
+    route::post('/admin/sign/sign_data', 'admin\signController@sign_data');//签到日期cui
+    route::post('/admin/sign/signed', 'admin\signController@signed');//当天是否签到cui
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu

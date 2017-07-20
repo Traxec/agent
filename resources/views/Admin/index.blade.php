@@ -5,7 +5,7 @@
 @section('content')
     <div class="page-container">
         <p class="f-20 text-success">欢迎使用云天代理系统 <span class="f-14"></span>后台！</p>
-        @if(session('success'))
+    @if(session('success'))
             <div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
                 {{session('success')}}

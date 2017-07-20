@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use DB;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 use Gregwar\Captcha\CaptchaBuilder;
 use Hash;
+use Illuminate\Http\Request;
 
 
 class loginController extends Controller
@@ -15,7 +15,8 @@ class loginController extends Controller
      * @return function name index
      * @登录页面
      */
-    public function index(){
+    public function index()
+    {
         return view('Admin.login');
     }
 
@@ -23,30 +24,31 @@ class loginController extends Controller
      * @return function name check
      * 检查登录
      */
-    public function check(Request $request){
+    public function check(Request $request)
+    {
         date_default_timezone_set('Asia/Shanghai');
-        $admin = DB::table('admin')->where('username',$request->input('username'))->first();
-        if(empty($admin)){
-            return back()->with('error','用户名不存在');
+        $admin = DB::table('admin')->where('username', $request->input('username'))->first();
+        if (empty($admin)) {
+            return back()->with('error', '用户名不存在');
         }
-        if(Hash::check($request->input('password'),$admin->password)){
-            $v = $request->input('vcode');
+        if (Hash::check($request->input('password'), $admin->password)) {
+            $v     = $request->input('vcode');
             $vcode = $request->session()->get('Vcode');
-            if($v == $vcode){
-                session(['id'=>$admin->id]);
+            if ($v == $vcode) {
+                session(['id' => $admin->id]);
                 $loginTime = DB::table('admin')
-                    ->where('username',$request->input('username'))
-                    ->update(['logintime'=>date('Y-m-d H:i:s'),'ip'=>$request->getClientIp()]);
-                if($loginTime){
-                    return redirect('/admin/index')->with('success','欢迎'.$admin->nick.'登录,您上次登录ip为'.$admin->ip.',时间为'.$admin->logintime.'.本次登录ip为'.$request->get('remote_addr').'，时间为'.date('Y-m-d H:i:s'));
-                }else{
-                    return back()->with('error','未知错误,请联系管理员');
+                    ->where('username', $request->input('username'))
+                    ->update(['logintime' => date('Y-m-d H:i:s'), 'ip' => $request->getClientIp()]);
+                if ($loginTime) {
+                    return redirect('/admin/index')->with('success', '欢迎' . $admin->nick . '登录,您上次登录ip为' . $admin->ip . ',时间为' . $admin->logintime . '.本次登录ip为' . $request->getClientIp() . '，时间为' . date('Y-m-d H:i:s'));
+                } else {
+                    return back()->with('error', '未知错误,请联系管理员');
                 }
-            }else{
-                return back()->with('error','验证码不正确');
+            } else {
+                return back()->with('error', '验证码不正确');
             }
-        }else{
-            return back()->with('error','用户名或者密码不正确');
+        } else {
+            return back()->with('error', '用户名或者密码不正确');
         }
 
     }
@@ -63,7 +65,7 @@ class loginController extends Controller
         $phrase = $builder->getPhrase();
 
         //把内容存入session
-        session(['Vcode'=>$phrase]);
+        session(['Vcode' => $phrase]);
 
         //生成图片
         header("Cache-Control: no-cache, must-revalidate");
