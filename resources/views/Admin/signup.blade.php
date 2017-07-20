@@ -15,7 +15,7 @@
                 <div class="qiandao-left">
                     <div class="qiandao-left-top clear">
                         <div class="current-date">2016年1月6日</div>
-                        <div class="qiandao-history qiandao-tran qiandao-radius" id="js-qiandao-history">我的签到</div>
+                        {{--<div class="qiandao-history qiandao-tran qiandao-radius" id="js-qiandao-history">我的签到</div>--}}
                     </div>
                     <div class="qiandao-main" id="js-qiandao-main">
                         <ul class="qiandao-list" id="js-qiandao-list">
@@ -145,11 +145,29 @@
     </div>
     <input type="hidden" id="date">
     <script>
+        $(function () {
+            $.ajax({
+                type: 'post',
+                url: "{{action('admin\signController@signed')}}",
+                dataType: 'json',
+                async: false,
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: "{{session('id')}}",
+                },
+                success: function (data) {
+                    if (data.success == 'true') {
+                        $('#js-just-qiandao').addClass('actived');
+                    }
+                },
+            })
+        })
         $(function(){
             $.ajax({
                 type:'post',
                 url:"{{action('admin\signController@sign_data')}}",
                 dataType:'text',
+                async: false,
                 data:{
                     _token:"{{ csrf_token() }}",
                     id:"{{session('id')}}",
@@ -161,8 +179,9 @@
         })
         $(function() {
             var signFun = function() {
-//                var dateArray = [date] // 假设已经签到的
-
+                var date = $('#date').val()
+                var dateArray = date.split(",") // 假设已经签到的
+                console.log(dateArray)
                 var $dateBox = $("#js-qiandao-list"),
                     $currentDate = $(".current-date"),
                     $qiandaoBnt = $("#js-just-qiandao"),
@@ -201,28 +220,31 @@
                 }) //签到
 
                 $qiandaoBnt.on("click", function() {
-                    if (_handle) {
-                        qiandaoFun();
-                        $.ajax({
-                            type:'post',
-                            url:"{{action('admin\signController@add_sign')}}",
-                            dataType:'json',
-                            data:{
-                                _token:"{{ csrf_token() }}",
-                                id:"{{session('id')}}",
-                            },
-                            success:function (data){
-                                if(data.success == "true"){
-                                    openLayer("qiandao-active", qianDao);
-                                }else{
-                                    openLayer("qiandao-ipactive");
-                                }
-                            },
-                            error:function(data){
-                                openLayer("qiandao-noactive");
-                                $('#js-just-qiandao').removeClass('actived');
-                            },
-                        })
+                    if ($(this).hasClass('actived')) {
+                    } else {
+                        if (_handle) {
+                            qiandaoFun();
+                            $.ajax({
+                                type:'post',
+                                url:"{{action('admin\signController@add_sign')}}",
+                                dataType:'json',
+                                data:{
+                                    _token:"{{ csrf_token() }}",
+                                    id:"{{session('id')}}",
+                                },
+                                success:function (data){
+                                    if(data.success == "true"){
+                                        openLayer("qiandao-active", qianDao);
+                                    }else{
+                                        openLayer("qiandao-ipactive");
+                                    }
+                                },
+                                error:function(data){
+                                    openLayer("qiandao-noactive");
+                                    $('#js-just-qiandao').removeClass('actived');
+                                },
+                            })
+                        }
                     }
                 }); //签到
 

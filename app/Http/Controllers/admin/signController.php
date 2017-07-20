@@ -15,7 +15,10 @@ class signController extends Controller
      */
     public function index()
     {
-        return view('Admin.sign');
+        $data = DB::table('sign')->where([
+            ['datetime','like',date('Y-m-d').'%'],
+        ])->get();
+        return view('Admin.sign',['data'=>$data]);
     }
 
     /**
@@ -99,6 +102,11 @@ class signController extends Controller
         }
     }
 
+    /**
+     * @return function name sign_data
+     * @return string
+     * 判断本月签到天数
+     */
     public function sign_data(Request $request)
     {
         date_default_timezone_set('Asia/Shanghai');//'Asia/Shanghai'   亚洲/上海
@@ -110,11 +118,29 @@ class signController extends Controller
         foreach($data as $key => $value){
             foreach($value as $k => $v){
                 if($k == 'datetime'){
-                    $str .= substr($v,8,2).',';
+                    $str .= substr($v, 8, 2) - 1 . ',';
                 }
             }
         }
         $str = rtrim($str,',');
         return $str;
+    }
+
+    /**
+     * @return function name signed
+     * 是否签到
+     */
+    public function signed(Request $request)
+    {
+        date_default_timezone_set('Asia/Shanghai');//'Asia/Shanghai'   亚洲/上海
+        $data = DB::table('sign')->where([
+            ['aid',$request->input('id')],
+            ['datetime','like',date('Y-m-d').'%'],
+        ])->first();
+        if($data){
+            return '{"success":"true"}';
+        }else{
+            return '{"success":"false"}';
+        }
     }
 }
