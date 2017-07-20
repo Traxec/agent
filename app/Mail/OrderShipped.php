@@ -16,10 +16,11 @@ class OrderShipped extends Mailable
      *
      * @return void
      */
-    protected $message;
+    protected $order;
+
     public function __construct($message)
     {
-        $this->$message = $message;
+        $this->order = $message;
     }
 
     /**
@@ -31,9 +32,8 @@ class OrderShipped extends Mailable
     {
         return $this -> view('Email.test')
             ->with([
-                'messagename' => $this->message->name,
-                'messageprice' => $this->message->price,
-            ])
-            ;
+                'messagename' => $this->order->nick,
+                'messagephone' => $this->order->phone,
+            ]);
     }
 }
