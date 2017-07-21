@@ -1,6 +1,6 @@
 @extends('Layout.admin')
 
-@section('title','普通用户列表')
+@section('title','代理商列表')
 
 @section('hidden')
 @endsection
@@ -28,10 +28,10 @@
 	@endif
 	<div id="page-wrapper">
 		<div class="col-lg-6">
-			<button type="button" class="btn btn-default col-lg-2" data-toggle="modal" data-target="#demoModal">添加普通客户
+			<button type="button" class="btn btn-default col-lg-2" data-toggle="modal" data-target="#demoModal">添加代理商
 			</button>
 			<button type="button" id="role" class="btn btn-default col-lg-2 col-offset-1" data-toggle="modal"
-					data-target="#demoModal3">修改普通客户权限
+					data-target="#demoModal3">修改代理商权限
 			</button>
 			<br/><br/>
 		</div>

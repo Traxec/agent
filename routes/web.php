@@ -32,8 +32,8 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/work/record', 'home\workController@record');//工单记录
     route::get('/home/withdrawals', 'home\withdrawalsController@index');//提现页面
     route::get('/home/user/check', 'home\userController@check');//普通账户审核页面
-    route::get('/home/agency/check', 'home\agencyController@check');//代理账户审核页面
     route::get('/home/user/index', 'home\userController@index');//普通账户管理
+    route::get('/home/agency/check', 'home\agencyController@check');//代理账户审核页面
     route::get('/home/agency/index', 'home\agencyController@index');//普通账户管理
     route::get('/home/customer', 'home\customerController@index');//客户系统管理
 });
@@ -60,12 +60,17 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/sign/del_ban_ip', 'admin\signController@del_ban_ip');//移除ip黑名单cui
     route::post('/admin/sign/sign_data', 'admin\signController@sign_data');//签到日期cui
     route::post('/admin/sign/signed', 'admin\signController@signed');//当天是否签到cui
+    route::post('/admin/role/show','admin\roleController@show');//普通客户权限展示
+    route::post('/admin/role/update','admin\roleController@update');//普通客户权限展示
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面xu
     route::get('/admin/person','admin\personController@index');//个人简介页面
     route::get('/admin/user','admin\userController@index');//用户列表页面
+    route::get('/admin/user_audit','admin\user_auditController@index');//用户审核列表页面
+    route::get('/admin/agent','admin\agentController@index');//代理商列表页面
+    route::get('/admin/agent_audit','admin\agent_auditController@index');//代理商列表页面
     route::get('/admin/work','admin\workController@index');//工单管理页面
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面
     route::get('/admin/admin','admin\adminController@index');//管理员页面

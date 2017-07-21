@@ -65,11 +65,20 @@
 			</dd>
 		</dl>
 		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户审核<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="{{ url('/admin/user_audit') }}" data-title="普通客户审核" href="javascript:;">普通客户审核</a></li>
+					<li><a data-href="{{url('/admin/agent_audit')}}" data-title="代理商审核" href="javascript:;">代理商审核</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="member-list.html" data-title="用户审核" href="javascript:;">用户审核</a></li>
-					<li><a data-href="{{url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
+					<li><a data-href="{{ url('/admin/user')}}" data-title="普通客户管理" href="javascript:;">普通客户管理</a></li>
+					<li><a data-href="{{url('/admin/agent')}}" data-title="代理商管理" href="javascript:;">代理商管理</a></li>
 				</ul>
 			</dd>
 		</dl>

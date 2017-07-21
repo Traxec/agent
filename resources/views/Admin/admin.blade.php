@@ -112,6 +112,7 @@
                         $('#table3').find('input[name="id"]').val(data.id)
                         data.admin == 1 ? $('#table3').find('input[name="admin"]').attr('checked', true) : $('#table3').find('input[name="admin"]').attr('checked', false);
                         data.card == 1 ? $('#table3').find('input[name="card"]').attr('checked', true) : $('#table3').find('input[name="card"]').attr('checked', false);
+                        data.user == 1 ? $('#table3').find('input[name="user"]').attr('checked', true) : $('#table3').find('input[name="user"]').attr('checked', false);
                     },
                     error: function (date) {
 //                        alert('系统错误,请联系管理员')
@@ -216,6 +217,9 @@
                         </label>　　　　　　　　　　　　　　　
                         <label class="checkbox-inline">
                             <input type="checkbox" name="card" value="1"> 打卡管理
+                        </label>　　　　　　　　
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="user" value="1"> 客户注册管理
                         </label>　　　　　　　　
                         <div class="modal-footer">
                             {{csrf_field()}}
