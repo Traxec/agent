@@ -20,6 +20,7 @@ route::get('/','home\indexController@index');//前台主页
 route::get('/home/person','home\personController@index');//个人资料
 route::get('/home/person/password','home\personController@password');//修改个人密码
 route::get('/home/system','home\systemController@index');//生成系统
+route::post('/home/system/add','home\systemController@add');//系统生成(添加)
 route::get('/home/package','home\packageController@index');//生成安装包
 route::get('/home/pay','home\payController@index');//缴费页面
 route::get('/home/contribution','home\contributionController@index');//缴费记录页面
@@ -31,6 +32,11 @@ route::get('/home/agency/check','home\agencyController@check');//代理账户审
 route::get('/home/user/index','home\userController@index');//普通账户管理
 route::get('/home/agency/index','home\agencyController@index');//普通账户管理
 route::get('/home/customer','home\customerController@index');//客户系统管理
+route::get('/home/send/mail','home\sendController@mail');//发送邮件
+route::get('/home/send/box','home\sendController@box');//邮件收件箱
+route::get('/home/send/message','home\sendController@message');//发送短信
+route::get('/home/send/inbox','home\sendController@inbox');//短信收件箱
+
 
 
 

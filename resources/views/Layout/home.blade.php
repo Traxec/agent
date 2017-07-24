@@ -106,18 +106,18 @@
                     <ul class="nav child_menu">
                       <li><a href="#">邮箱<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="#">写信</a>
+                            <li class="sub_menu"><a href="{{url('/home/send/mail')}}">写信</a>
                             </li>
-                            <li><a href="#">已发送</a>
+                            <li><a href="{{url('/home/send/box')}}">已发送</a>
                             </li>
                             
                           </ul>
                       </li>
                       <li><a href="#">短信<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="#">写信</a>
+                            <li class="sub_menu"><a href="{{url('/home/send/message')}}">写信</a>
                             </li>
-                            <li><a href="#">已发送</a>
+                            <li><a href="{{url('/home/send/inbox')}}">已发送</a>
                             </li>
                             
                           </ul>
@@ -170,9 +170,7 @@
               </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
             
-            <!-- /menu footer buttons -->
           </div>
 
         </div>
