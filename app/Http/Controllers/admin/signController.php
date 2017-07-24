@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\admin\adminController;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Http\Request;
@@ -15,10 +16,16 @@ class signController extends Controller
      */
     public function index()
     {
-        $data = DB::table('sign')->where([
-            ['datetime','like',date('Y-m-d').'%'],
-        ])->get();
-        return view('Admin.sign',['data'=>$data]);
+        $judge_keys = new adminController();
+        $judge = $judge_keys -> judge_keys(session('id'));
+        if($judge['card']==1){
+            $data = DB::table('sign')->where([
+                ['datetime','like',date('Y-m-d').'%'],
+            ])->get();
+            return view('Admin.sign',['data'=>$data]);
+        }else{
+            return redirect('/admin/index')->with('error','非法操作');
+        }
     }
 
     /**
@@ -28,7 +35,13 @@ class signController extends Controller
      */
     public function sign()
     {
-        return view('Admin.signup');
+        $judge_keys = new adminController();
+        $judge = $judge_keys -> judge_keys(session('id'));
+        if($judge['card']!=1){
+            return view('Admin.signup');
+        }else{
+            return redirect('/admin/index')->with('error','非法操作');
+        }
     }
 
     /**
@@ -37,8 +50,14 @@ class signController extends Controller
      */
     public function ban_ip()
     {
-        $ban_ip = DB::table('ban_ip')->get();
-        return view('Admin.ban_ip',['ip'=>$ban_ip]);
+        $judge_keys = new adminController();
+        $judge = $judge_keys -> judge_keys(session('id'));
+        if($judge['card']==1){
+            $ban_ip = DB::table('ban_ip')->get();
+            return view('Admin.ban_ip',['ip'=>$ban_ip]);
+        }else{
+            return redirect('/admin/index')->with('error','非法操作');
+        }
     }
 
     /**

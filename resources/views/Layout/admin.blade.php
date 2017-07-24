@@ -65,11 +65,20 @@
 			</dd>
 		</dl>
 		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户审核<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="{{ url('/admin/user_audit') }}" data-title="普通客户审核" href="javascript:;">普通客户审核</a></li>
+					<li><a data-href="{{url('/admin/agent_audit')}}" data-title="代理商审核" href="javascript:;">代理商审核</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="member-list.html" data-title="用户审核" href="javascript:;">用户审核</a></li>
-					<li><a data-href="{{url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
+					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
+					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">邮件开户</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -111,11 +120,11 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 签到管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					@if($judge->judge_keys(session('id'))['admin']==1)
+					@if($judge->judge_keys(session('id'))['card']==1)
 					<li><a data-href="{{url('/admin/sign')}}" data-title="签到管理" href="javascript:void(0)">签到管理</a></li>
                     <li><a data-href="{{url('/admin/sign/ban_ip')}}" data-title="ip黑名单" href="javascript:void(0)">ip黑名单</a></li>
 					@endif
-					@if($judge->judge_keys(session('id'))['admin']!=1)
+					@if($judge->judge_keys(session('id'))['card']!=1)
 					<li><a data-href="{{url('/admin/sign/sign')}}" data-title="签到页面" href="javascript:void(0)">签到页面</a></li>
 					@endif
 

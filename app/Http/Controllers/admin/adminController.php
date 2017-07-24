@@ -5,7 +5,6 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationData;
 
 class adminController extends Controller
 {
@@ -16,8 +15,13 @@ class adminController extends Controller
      */
     public function index()
     {
-        $admin = DB::table('admin')->where('pid', '1')->get();
-        return view('Admin.admin', ['admin' => $admin]);
+        $judge = $this -> judge_keys(session('id'));
+        if($judge['admin']==1){
+            $admin = DB::table('admin')->where('pid', '1')->get();
+            return view('Admin.admin', ['admin' => $admin]);
+        }else{
+            return redirect('/admin/index')->with('error','非法操作');
+        }
     }
 
     /**
@@ -139,6 +143,7 @@ class adminController extends Controller
         $key           = explode(',', $admin->key);
         $data['admin'] = $key['0'];
         $data['card']  = $key['1'];
+        $data['user'] = $key['2'];
         return $data;
     }
 
@@ -153,6 +158,7 @@ class adminController extends Controller
         $key           = explode(',', $admin->key);
         $data['admin'] = $key['0'];
         $data['card']  = $key['1'];
+        $data['user'] = $key['2'];
         $json_data     = json_encode($data);
         return $json_data;
     }
@@ -161,6 +167,7 @@ class adminController extends Controller
     {
         $arr['admin'] = $request->input('admin')??0;
         $arr['card']  = $request->input('card')??0;
+        $arr['user'] = $request->input('user')??0;
         $key          = implode(',', $arr);
         $admin        = DB::table('admin')->where('id', $request->id)->update([
             'key' => $key,

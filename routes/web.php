@@ -15,28 +15,32 @@
 //    return view('welcome');
 //});
 //=================================================前台=================================================================
-route::get('/login', 'home\loginController@index');//登录cui
-route::get('/','home\indexController@index');//前台主页
-route::get('/home/person','home\personController@index');//个人资料
-route::get('/home/person/password','home\personController@password');//修改个人密码
-route::get('/home/system','home\systemController@index');//生成系统
-route::post('/home/system/add','home\systemController@add');//系统生成(添加)
-route::get('/home/package','home\packageController@index');//生成安装包
-route::get('/home/pay','home\payController@index');//缴费页面
-route::get('/home/contribution','home\contributionController@index');//缴费记录页面
-route::get('/home/work/order','home\workController@order');//工单发布
-route::get('/home/work/record','home\workController@record');//工单记录
-route::get('/home/withdrawals','home\withdrawalsController@index');//提现页面
-route::get('/home/user/check','home\userController@check');//普通账户审核页面
-route::get('/home/agency/check','home\agencyController@check');//代理账户审核页面
-route::get('/home/user/index','home\userController@index');//普通账户管理
-route::get('/home/agency/index','home\agencyController@index');//普通账户管理
-route::get('/home/customer','home\customerController@index');//客户系统管理
-route::get('/home/send/mail','home\sendController@mail');//发送邮件
-route::get('/home/send/box','home\sendController@box');//邮件收件箱
-route::get('/home/send/message','home\sendController@message');//发送短信
-route::get('/home/send/inbox','home\sendController@inbox');//短信收件箱
+route::get('mail/send','MailController@send');
+route::get('/login', 'home\loginController@index');//前台登录cui
+route::get('/forget', 'home\forgetController@index');//前台忘记密码cui
+route::get('/regedit', 'home\regeditController@index');//前台注册cui
 
+route::group(['middleware' => 'homeLogin'], function () {
+    route::get('/', 'home\indexController@index');//前台主页
+    route::get('/home/person', 'home\personController@index');//个人资料
+    route::get('/home/person/password', 'home\personController@password');//修改个人密码
+    route::get('/home/system', 'home\systemController@index');//生成系统
+    route::get('/home/package', 'home\packageController@index');//生成安装包
+    route::get('/home/pay', 'home\payController@index');//缴费页面
+    route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
+    route::get('/home/work/order', 'home\workController@order');//工单发布
+    route::get('/home/work/record', 'home\workController@record');//工单记录
+    route::get('/home/withdrawals', 'home\withdrawalsController@index');//提现页面
+    route::get('/home/user/check', 'home\userController@check');//普通账户审核页面
+    route::get('/home/user/index', 'home\userController@index');//普通账户管理
+    route::get('/home/agency/check', 'home\agencyController@check');//代理账户审核页面
+    route::get('/home/agency/index', 'home\agencyController@index');//普通账户管理
+    route::get('/home/customer', 'home\customerController@index');//客户系统管理
+    route::get('/home/send/mail','home\sendController@mail');//发送邮件
+    route::get('/home/send/box','home\sendController@box');//邮件收件箱
+    route::get('/home/send/message','home\sendController@message');//发送短信
+    route::get('/home/send/inbox','home\sendController@inbox');//短信收件箱
+});
 
 
 
@@ -60,12 +64,18 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/sign/del_ban_ip', 'admin\signController@del_ban_ip');//移除ip黑名单cui
     route::post('/admin/sign/sign_data', 'admin\signController@sign_data');//签到日期cui
     route::post('/admin/sign/signed', 'admin\signController@signed');//当天是否签到cui
+    route::post('/admin/role/show','admin\roleController@show');//普通客户权限展示
+    route::post('/admin/role/update','admin\roleController@update');//普通客户权限展示
+    route::post('/admin/user/add','admin\userController@add');//普通用户添加
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面xu
     route::get('/admin/person','admin\personController@index');//个人简介页面
     route::get('/admin/user','admin\userController@index');//用户列表页面
+    route::get('/admin/user_audit','admin\user_auditController@index');//用户审核列表页面
+    route::get('/admin/agent','admin\agentController@index');//代理商列表页面
+    route::get('/admin/agent_audit','admin\agent_auditController@index');//代理商列表页面
     route::get('/admin/work','admin\workController@index');//工单管理页面
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面
     route::get('/admin/admin','admin\adminController@index');//管理员页面
@@ -78,4 +88,3 @@ route::group(['middleware' => 'adminLogin'], function () {
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui
 route::post('/admin/login/check', 'admin\loginController@check');//登录验证cui
 route::get('/vcode', 'admin\loginController@vcode');//验证码cui
-
