@@ -57,7 +57,6 @@
 				<th width="40">支行</th>
 				<th width="40">银行账户</th>
 				<th width="40">户主</th>
-				<th width="40">最近登录时间</th>
 				<th width="40">功能</th>
 			</tr>
 			</thead>
@@ -76,7 +75,6 @@
 				<td>{{ $value->b_branch }}</td>
 				<td>{{ $value->b_account }}</td>
 				<td>{{ $value->b_master }}</td>
-				<td>{{ $value->date }}</td>
 				<td>
 					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改角色</button>
 
