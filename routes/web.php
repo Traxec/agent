@@ -62,6 +62,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/sign/signed', 'admin\signController@signed');//当天是否签到cui
     route::post('/admin/role/show','admin\roleController@show');//普通客户权限展示
     route::post('/admin/role/update','admin\roleController@update');//普通客户权限展示
+    route::post('/admin/user/add','admin\userController@add');//普通用户添加
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
@@ -83,4 +84,3 @@ route::group(['middleware' => 'adminLogin'], function () {
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui
 route::post('/admin/login/check', 'admin\loginController@check');//登录验证cui
 route::get('/vcode', 'admin\loginController@vcode');//验证码cui
-
