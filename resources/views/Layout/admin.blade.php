@@ -78,7 +78,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
-					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">邮件开户</a></li>
+					<li><a data-href="{{ url('/admin/regedit')}}" data-title="用户列表" href="javascript:;">邮件开户</a></li>
 				</ul>
 			</dd>
 		</dl>

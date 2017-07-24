@@ -67,6 +67,8 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/role/show','admin\roleController@show');//普通客户权限展示
     route::post('/admin/role/update','admin\roleController@update');//普通客户权限展示
     route::post('/admin/user/add','admin\userController@add');//普通用户添加
+    route::get('/admin/user/','admin\userController@add');//普通用户添加cui
+    route::get('/admin/regedit','admin\regeditController@index');//用户邮件注册
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
