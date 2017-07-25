@@ -22,6 +22,7 @@ class adminController extends Controller
         }else{
             return redirect('/admin/index')->with('error','非法操作');
         }
+        // return view('Email/register_email');
     }
 
     /**

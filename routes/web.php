@@ -20,7 +20,7 @@ route::get('/login', 'home\loginController@index');//前台登录cui
 route::get('/forget', 'home\forgetController@index');//前台忘记密码cui
 route::get('/regedit', 'home\regeditController@index');//前台注册cui
 
-route::group(['middleware' => 'homeLogin'], function () {
+// route::group(['middleware' => 'homeLogin'], function () {
     route::get('/', 'home\indexController@index');//前台主页
     route::get('/home/person', 'home\personController@index');//个人资料
     route::get('/home/person/password', 'home\personController@password');//修改个人密码
@@ -40,7 +40,7 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/send/box','home\sendController@box');//邮件收件箱
     route::get('/home/send/message','home\sendController@message');//发送短信
     route::get('/home/send/inbox','home\sendController@inbox');//短信收件箱
-});
+// });
 
 
 
@@ -68,7 +68,8 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/role/update','admin\roleController@update');//普通客户权限展示
     route::post('/admin/user/add','admin\userController@add');//普通用户添加
     route::get('/admin/user/','admin\userController@add');//普通用户添加cui
-    route::get('/admin/regedit','admin\regeditController@index');//用户邮件注册
+    route::get('/admin/register_email','admin\register_emailController@index');//用户邮件注册
+    route::post('/admin/register_email/send','admin\register_emailController@send');//用户邮件注册发送邮件
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
