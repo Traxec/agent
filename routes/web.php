@@ -18,7 +18,8 @@
 route::get('mail/send','MailController@send');
 route::get('/login', 'home\loginController@index');//前台登录cui
 route::get('/forget', 'home\forgetController@index');//前台忘记密码cui
-route::get('/regedit', 'home\regeditController@index');//前台注册cui
+route::get('/register', 'home\registerController@index');//前台注册页面cui
+route::post('/register/add', 'home\registerController@add');//前台注册cui
 
 // route::group(['middleware' => 'homeLogin'], function () {
     route::get('/', 'home\indexController@index');//前台主页
@@ -85,7 +86,6 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/system','admin\systemController@index');//系统管理页面
     route::get('/admin/sign','admin\signController@index');//签到管理页面
     route::get('/admin/sign/sign','admin\signController@sign');//签到页面
-
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui

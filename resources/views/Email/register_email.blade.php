@@ -309,7 +309,7 @@ a.signup {
       </span>
       <br>
       <span style="text-align:left">
-        点击<a href="http://www.baidu.com?id={{ $id }}">此处</a>注册您的账号
+        点击<a href="{{ url('/register').$json}}">此处</a>注册您的账号
       </span>
       <div class="tlg">
         <div class="tlg-img">

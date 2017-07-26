@@ -18,7 +18,11 @@ class register_emailController extends Controller
 
     public function send(register_emailRequest $request)
     {
-        $message = DB::table('admin')->where('id',session('id'))->first();
+      $data = DB::table('admin')->where('id',session('id'))->first();
+      $email = $request->input('email');
+      $catid = $request->input('catid');
+      $message['data'] = "{'email':'$email','catid':'$catid'}";
+      $message['database'] = $data;
         Mail::to($request->input('email'))
             ->send(new register_mail($message));
     }

@@ -48,65 +48,36 @@
       <a class="hiddenanchor" id="signin"></a>
       <!--登录-->
       <div class="login_wrapper">
-        <div class="animate form login_form">
-          <section class="login_content">
-            <form>
-              <h1>登录</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="账号" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="密码" required="" />
-              </div>
-              <div>
-                <input  style="width:50%;" type="text" class="form-control" placeholder="验证码" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="#">登录</a>
-                <a class="reset_pass" href="{{ url('/forget') }}">忘记密码?</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> </h1>
-                  <p>©2016 All Rights Reserved. 版权信息</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
         <!--注册-->
-        <div id="register" class="animate form registration_form">
+        <div id="register" class="animate form">
           <section class="login_content">
-            <form>
+              <form  action="{{ action('home\registerController@add')}}" method="post">
               <h1>注册</h1>
               <div>
-                <input type="text" class="form-control" placeholder="用户名" required="" />
+                <input type="hidden" name="catid" value="{{ $data->catid }}">
+                <input name="username" type="text" class="form-control" placeholder="用户名" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="邮箱" required="" />
+                <input name="email" type="email" class="form-control" placeholder="邮箱" required="" value="{{ $data->email }}" readonly />
               </div>
               <div style="margin-bottom:20px;">
-                <input type="phone" class="form-control" placeholder="电话" required="" />
+                <input name="phone" type="phone" class="form-control" placeholder="电话" required="" />
               </div>
               <div >
-                <input  type="password" class="form-control" placeholder="密码" required="" />
+                <input  name="password" type="password" class="form-control" placeholder="密码" required="" />
+              </div>
+              <div >
+                <input  name="repassword" type="password" class="form-control" placeholder="重复密码" required="" />
+
               </div>
               <div>
-                <a class="btn btn-default submit" href="#">提交</a>
+                {{ csrf_field() }}
+                <button class="btn btn-default submit">提交</button>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">已经注册 ?
-                  <a href="#" class="to_register"> 登录 </a>
-                </p>
 
                 <div class="clearfix"></div>
                 <br />
@@ -119,8 +90,6 @@
             </form>
           </section>
         </div>
-
-
       </div>
     </div>
   </body>

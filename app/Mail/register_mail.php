@@ -32,11 +32,11 @@ class register_mail extends Mailable
      */
     public function build()
     {
-        return $this->
-          view('Email.register_email')
-          ->with([
-            'id'=>Hash::make($this->message->id),
-            'nick'=>$this->message->nick,
-          ]);
+      $str = '?'.encrypt($this->message['data']);
+      return $this->view('Email.register_email')
+        ->with([
+          'json'=>$str,
+          'nick'=>$this->message['database']->nick,
+        ]);
     }
 }

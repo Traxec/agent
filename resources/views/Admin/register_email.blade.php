@@ -41,6 +41,17 @@
       <a href="#" class="signup">Sign up right now!</a>
       <form action="{{ action('admin\register_emailController@send') }}" method="post">
         <input type="text" name="email" value="Enter Your email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your email address';}">
+        <br>
+        <div class="col-md-12">
+          <input type="radio" id='catid' name="catid" value="1" checked>
+          <label for="catid">
+            普通用户
+          </label>
+          <input type="radio" id='catid2' name="catid" value="2">
+          <label for="catid2">
+            代理商
+          </label>
+        </div>
         {{ csrf_field() }}
         <input type="submit" value="Get Goodies">
       </form>
