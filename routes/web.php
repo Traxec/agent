@@ -17,12 +17,15 @@
 //=================================================前台=================================================================
 route::get('mail/send','MailController@send');
 route::get('/login', 'home\loginController@index');//前台登录cui
+route::post('/login/check', 'home\loginController@check');//前台登录cui
 route::get('/forget', 'home\forgetController@index');//前台忘记密码cui
-route::get('/regedit', 'home\regeditController@index');//前台注册cui
+route::get('/register', 'home\registerController@index');//前台注册页面cui
+route::post('/register/add', 'home\registerController@add');//前台注册cui
 
 //route::group(['middleware' => 'homeLogin'], function () {
     route::get('/', 'home\indexController@index');//前台主页
     route::get('/home/person', 'home\personController@index');//个人资料
+    route::post('/home/person/update', 'home\personController@update');//个人资料
     route::get('/home/person/password', 'home\personController@password');//修改个人密码
     route::get('/home/system', 'home\systemController@index');//生成系统
     route::get('/home/package', 'home\packageController@index');//生成安装包
@@ -67,6 +70,8 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/role/show','admin\roleController@show');//普通客户权限展示
     route::post('/admin/role/update','admin\roleController@update');//普通客户权限展示
     route::post('/admin/user/add','admin\userController@add');//普通用户添加
+    route::get('/admin/register_email','admin\register_emailController@index');//用户邮件注册
+    route::post('/admin/register_email/send','admin\register_emailController@send');//用户邮件注册发送邮件
     route::post('/admin/user/edit','admin\userController@edit');//普通用户修改
     route::post('/admin/user/update','admin\userController@update');//普通用户修改
     route::post('/admin/user/delete','admin\userController@delete');//删除用户
@@ -85,7 +90,6 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/system','admin\systemController@index');//系统管理页面
     route::get('/admin/sign','admin\signController@index');//签到管理页面
     route::get('/admin/sign/sign','admin\signController@sign');//签到页面
-
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui

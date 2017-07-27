@@ -13,6 +13,7 @@
 <script type="text/javascript" src="lib/html5shiv.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <![endif]-->
+<link href="{{asset('admin/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui/css/H-ui.min.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui.admin/css/H-ui.admin.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('admin/lib/Hui-iconfont/1.0.8/iconfont.css')}}" />
@@ -46,9 +47,10 @@
 				<li class="dropDown dropDown_hover">
 					<a href="#" class="dropDown_A">{{$judge->judge_admin(session('id'))->username}}<i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="{{url('/admin/exit_admin')}}">退出</a></li>
-				</ul>
-			</li>
+						<li><a href="{{url('/admin/exit_admin')}}">退出</a>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 	</div>
@@ -78,7 +80,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
-					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">邮件开户</a></li>
+					<li><a data-href="{{ url('/admin/register_email')}}" data-title="用户列表" href="javascript:;">邮件开户</a></li>
 				</ul>
 			</dd>
 		</dl>

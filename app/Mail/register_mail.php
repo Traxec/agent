@@ -6,8 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Hash;
 
-class OrderShipped extends Mailable
+class register_mail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,11 +17,12 @@ class OrderShipped extends Mailable
      *
      * @return void
      */
-    protected $order;
+
+     protected $message;
 
     public function __construct($message)
     {
-        $this->order = $message;
+      $this->message = $message;
     }
 
     /**
@@ -30,10 +32,11 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this -> view('Email.register_email')
-            ->with([
-                'messagename' => $this->order->nick,
-                'messagephone' => $this->order->phone,
-            ]);
+      $str = '?'.encrypt($this->message['data']);
+      return $this->view('Email.register_email')
+        ->with([
+          'json'=>$str,
+          'nick'=>$this->message['database']->nick,
+        ]);
     }
 }

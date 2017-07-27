@@ -48,42 +48,49 @@
       <a class="hiddenanchor" id="signin"></a>
       <!--登录-->
       <div class="login_wrapper">
-        <div class="animate form login_form">
+        <!--注册-->
+        <div id="register" class="animate form">
           <section class="login_content">
-              <form class="" action="{{ action('home\loginController@check') }}" method="post">
-              <h1>登录</h1>
+              <form  action="{{ action('home\registerController@add')}}" method="post">
+              <h1>注册</h1>
               <div>
-                <input type="text" name="username" class="form-control" placeholder="账号" required="123" />
+                <input type="hidden" name="catid" value="{{ $data->catid }}">
+                <input name="username" type="text" class="form-control" placeholder="用户名" required="" />
               </div>
               <div>
-                <input type="password" name="password" class="form-control" placeholder="密码" required="" />
+                <input name="email" type="email" class="form-control" placeholder="邮箱" required="" value="{{ $data->email }}" readonly />
               </div>
-              <div>
-                <input style="width:50%;float:left;margin-right:30px" name="vcode" type="text" class="form-control" placeholder="验证码" required="" />
-                <img src="/vcode" style="width:30%;float:left" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
-                <div class="clearfix">
-                </div>
+              <div style="margin-bottom:20px;">
+                <input name="phone" type="phone" class="form-control" placeholder="电话" required="" />
+              </div>
+              <div >
+                <input  name="password" type="password" class="form-control" placeholder="密码" required="" />
+              </div>
+              <div >
+                <input  name="repassword" type="password" class="form-control" placeholder="重复密码" required="" />
+
               </div>
               <div>
                 {{ csrf_field() }}
-                <button type="submit" class="btn btn-default submit" href="#">登录</button>
-                <a class="reset_pass" href="{{ url('/forget') }}">忘记密码?</a>
+                <button class="btn btn-default submit">提交</button>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
+
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
                   <h1><i class="fa fa-paw"></i> </h1>
-                  <p>©2016 All Rights Reserved. 版权信息</p>
+                  <p>©2016 All Rights Reserved.版权信息</p>
                 </div>
               </div>
             </form>
           </section>
         </div>
+      </div>
     </div>
   </body>
 </html>
