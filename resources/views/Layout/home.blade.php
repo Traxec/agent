@@ -161,6 +161,10 @@
                 </ul>
               </div>
 
+            </div>
+
+            <!-- /sidebar menu -->
+
             </ul>
           </div>
 
@@ -173,16 +177,99 @@
 
       </div>
 
-    </div>
 
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="">
+                    <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      John Doe
+                      <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                      <li><a href="#"> Profile</a></li>
+                      <li>
+                        <a href="#">
+                          <span class="badge bg-red pull-right">50%</span>
+                          <span>Settings</span>
+                        </a>
+                      </li>
+                      <li><a href="#">Help</a></li>
+                      <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    </ul>
+                  </li>
 
+                  <li role="presentation" class="dropdown">
+                    <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-envelope-o"></i>
+                      <span class="badge bg-green">6</span>
+                    </a>
+                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                      <li>
+                        <a>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a>
+                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a>
+                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a>
+                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <div class="text-center">
+                          <a>
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
 
-    <!-- top navigation -->
-    <div class="top_nav">
-      <div class="nav_menu">
-        <nav>
-          <div class="nav toggle">
-            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </nav>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <li class="">
@@ -297,75 +384,61 @@
       @show
     </div>
 
+    <!-- jQuery -->
+    <script src="{{asset('home/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('home/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- FastClick -->
+    <script src="{{asset('home/vendors/fastclick/lib/fastclick.js')}}"></script>
+    <!-- NProgress -->
+    <script src="{{asset('home/vendors/nprogress/nprogress.js')}}"></script>
+    <!-- Chart.js -->
+    <script src="{{asset('home/vendors/Chart.js/dist/Chart.min.js')}}"></script>
+    <!-- gauge.js -->
+    <script src="{{asset('home/vendors/gauge.js/dist/gauge.min.js')}}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{asset('home/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <!-- iCheck -->
+    <script src="{{asset('home/vendors/iCheck/icheck.min.js')}}"></script>
+    <!-- Skycons -->
+    <script src="{{asset('home/vendors/skycons/skycons.js')}}"></script>
+    <!-- Flot -->
+    <script src="{{asset('home/vendors/Flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('home/vendors/Flot/jquery.flot.pie.js')}}"></script>
+    <script src="{{asset('home/vendors/Flot/jquery.flot.time.js')}}"></script>
+    <script src="{{asset('home/vendors/Flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{asset('home/vendors/Flot/jquery.flot.resize.js')}}"></script>
+    <!-- Flot plugins -->
+    <script src="{{asset('home/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
+    <script src="{{asset('home/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
+    <script src="{{asset('home/vendors/flot.curvedlines/curvedLines.js')}}"></script>
+    <!-- DateJS -->
+    <script src="{{asset('home/vendors/DateJS/build/date.js')}}"></script>
+    <!-- JQVMap -->
+    <script src="{{asset('home/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
+    <script src="{{asset('home/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{asset('home/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{asset('home/vendors/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('home/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-    <!-- /top navigation -->
-
-    <!-- page content -->
-
-    <!-- /page content -->
-
-    <!-- footer content -->
-    <!-- /footer content -->
-  </div>
-</div>
-
-<!-- jQuery -->
-<script src="{{asset('home/vendors/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap -->
-<script src="{{asset('home/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('home/vendors/fastclick/lib/fastclick.js')}}"></script>
-<!-- NProgress -->
-<script src="{{asset('home/vendors/nprogress/nprogress.js')}}"></script>
-<!-- Chart.js -->
-<script src="{{asset('home/vendors/Chart.js/dist/Chart.min.js')}}"></script>
-<!-- gauge.js -->
-<script src="{{asset('home/vendors/gauge.js/dist/gauge.min.js')}}"></script>
-<!-- bootstrap-progressbar -->
-<script src="{{asset('home/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-<!-- iCheck -->
-<script src="{{asset('home/vendors/iCheck/icheck.min.js')}}"></script>
-<!-- Skycons -->
-<script src="{{asset('home/vendors/skycons/skycons.js')}}"></script>
-<!-- Flot -->
-<script src="{{asset('home/vendors/Flot/jquery.flot.js')}}"></script>
-<script src="{{asset('home/vendors/Flot/jquery.flot.pie.js')}}"></script>
-<script src="{{asset('home/vendors/Flot/jquery.flot.time.js')}}"></script>
-<script src="{{asset('home/vendors/Flot/jquery.flot.stack.js')}}"></script>
-<script src="{{asset('home/vendors/Flot/jquery.flot.resize.js')}}"></script>
-<!-- Flot plugins -->
-<script src="{{asset('home/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-<script src="{{asset('home/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-<script src="{{asset('home/vendors/flot.curvedlines/curvedLines.js')}}"></script>
-<!-- DateJS -->
-<script src="{{asset('home/vendors/DateJS/build/date.js')}}"></script>
-<!-- JQVMap -->
-<script src="{{asset('home/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
-<script src="{{asset('home/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-<script src="{{asset('home/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-<!-- bootstrap-daterangepicker -->
-<script src="{{asset('home/vendors/moment/min/moment.min.js')}}"></script>
-<script src="{{asset('home/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="{{asset('home/build/js/custom.min.js')}}"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="{{asset('home/build/js/custom.min.js')}}"></script>
 
 
-<script src="{{asset('home/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
-<script src="{{asset('home/vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
-<script src="{{asset('home/vendors/google-code-prettify/src/prettify.js')}}"></script>
-<script src="{{asset('home/vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
-<script src="{{asset('home/vendors/switchery/dist/switchery.min.js')}}"></script>
-<script src="{{asset('home/vendors/select2/dist/js/select2.full.min.js')}}"></script>
-<script src="{{asset('home/vendors/parsleyjs/dist/parsley.min.js')}}"></script>
-<script src="{{asset('home/vendors/autosize/dist/autosize.min.js')}}"></script>
-<script src="{{asset('home/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
-<script src="{{asset('home/vendors/starrr/dist/starrr.js')}}"></script>
-<script src="{{asset('home/js/updownload/jquery-1.10.2.js')}}"></script>
-<script src="{{asset('home/js/updownload/bootstrap.js')}}"></script>
-<script src="{{asset('home/js/updownload/jquery.metisMenu.js')}}"></script>
-<script type="text/javascript" src="{{asset('home/js/admin/H-ui.admin.js')}}"></script>
+    <script src="{{asset('home/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
+    <script src="{{asset('home/vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
+    <script src="{{asset('home/vendors/google-code-prettify/src/prettify.js')}}"></script>
+    <script src="{{asset('home/vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
+    <script src="{{asset('home/vendors/switchery/dist/switchery.min.js')}}"></script>
+    <script src="{{asset('home/vendors/select2/dist/js/select2.full.min.js')}}"></script>
+    <script src="{{asset('home/vendors/parsleyjs/dist/parsley.min.js')}}"></script>
+    <script src="{{asset('home/vendors/autosize/dist/autosize.min.js')}}"></script>
+    <script src="{{asset('home/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
+    <script src="{{asset('home/vendors/starrr/dist/starrr.js')}}"></script>
+
+    <script src="{{asset('home/js/updownload/jquery.metisMenu.js')}}"></script>
 
 
-</body>
+  </body>
 </html>

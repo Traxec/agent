@@ -1,4 +1,4 @@
-@extends('Layout.admin')
+ @extends('Layout.admin')
 
 @section('title','普通用户列表')
 
@@ -44,7 +44,7 @@
 		<table class="table table-border table-bordered table-hover table-bg">
 			<thead>
 			<tr>
-				<th scope="col" colspan="6">普通用户列表</th>
+				<th scope="col" colspan="15">普通用户列表</th>
 			</tr>
 			<tr class="text-c">
 				<th width="40">客户编号</th>
@@ -75,15 +75,18 @@
 				<td>{{ $value->b_branch }}</td>
 				<td>{{ $value->b_account }}</td>
 				<td>{{ $value->b_master }}</td>
+				<input type="hidden" name="id"  value="{{ $value->id }}">
 				<td>
-					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改角色</button>
+					<button type="button" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#demoModal2">修改角色</button>
 
 					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal3">修改权限</button>&nbsp;
-					<a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<a title="删除" href="javascript:;" onclick="user_role_del(this,{{$value->id}})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+				</td>
 			</tr>
 		 @endforeach
 			</tbody>
 		</table>
+
 
 		<!-- 添加角色 -->
 		<div class="modal fade" style="z-index='9999'" id="demoModal" tabindex="-1" role="dialog"
@@ -126,46 +129,58 @@
 		</div>
 		<!-- 修改角色 -->
 		<div class="modal fade" style="z-index='9999'" id="demoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-									aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">客户编号</h4>
-					</div>
-					<div class="modal-body">
-						　<div class="container col-lg-12">
-							<label for="exampleInputEmail1">客户名称</label>
-							<input type="usenanme" class="form-control" id="usenanme" placeholder="">
-						</div><br/>
-						<div class="container col-lg-12">
-							<label for="exampleInputEmail1">联系方式</label>
-							<input type="iphone" class="form-control" id="iphone" placeholder="">
-						</div><br/>
-						<div class="container col-lg-12">
-							<label for="exampleInputEmail1">邮箱</label>
-							<input type="email" class="form-control" id="email" placeholder="">
-						</div><br/>
-						<div class="container col-lg-12">
-							<label for="exampleInputEmail1">客户地址</label>
-							<input type="address" class="form-control" id="address" placeholder="">
-						</div><br/><br/>
-						<div>
-							<label class="radio-inline">
-								<label for="exampleInputEmail1">性别</label>　　　
-								<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">男
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">女
-							</label>
+			<form action="{{action('admin\userController@update')}}" method="post">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content" id="table2">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+										aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">修改角色</h4>
 						</div>
-					</div>　　　　　　　
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-						<button type="button" class="btn btn-default">取消</button>
+						<div class="modal-body">
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">用户名</label>
+								<input type="hidden" class="form-control" name="id" />
+								<input type="text" class="form-control" name="username" id="username" disabled />
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">客户名称</label>
+								<input type="text" class="form-control" name="nick" id="nick" placeholder="">
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">联系方式</label>
+								<input type="text" class="form-control" name="phone" id="phone" placeholder="">
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">邮箱</label>
+								<input type="text" class="form-control" name="email" id="email" placeholder="">
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">开户行</label>
+								<input type="text" class="form-control" name="b_bank" id="b_bank" placeholder="">
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">支行</label>
+								<input type="text" class="form-control" name="b_branch" id="b_branch" placeholder="">
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">银行账户</label>
+								<input type="text" class="form-control" name="b_account" id="b_account" placeholder="">
+							</div><br/>
+							<div class="container col-lg-12">
+								<label for="exampleInputEmail1">户主</label>
+								<input type="text" class="form-control" name="b_master" id="b_master" placeholder="">
+							</div><br/>
+							
+						</div>　　　　　　　
+						<div class="modal-footer">
+						{{csrf_field()}}
+							<button type="submit" class="btn btn-default">确定</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 		<!-- 修改普通权限 -->
 		<div class="modal fade" style="z-index='9999'" id="demoModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
@@ -243,25 +258,34 @@
 				</div>
 			</form>
 		</div>
+		
 
 
 	<script>
+		
         //调用修改页面数据
-        $('.update').click(function () {
+        $('.edit').click(function () {
             var id = $(this).parent().parent().find('input[name="id"]').val();
             $.ajax({
                 type: 'post',
-                url: "{{action('admin\adminController@edit')}}",
+                url: "{{action('admin\userController@edit')}}",
                 dataType: 'json',
+                async: false,
                 data: {
-                    _token: $('input[name="csrf-token"]').attr('content'),
+                    _token: "{{ csrf_token() }}",
                     id: id,
                 },
                 success: function (data) {
                     $('#table2').children().find('input[name="id"]').val(data.id)
+                    $('#table2').children().find('input[name="username"]').val(data.username)
                     $('#table2').children().find('input[name="nick"]').val(data.nick)
                     $('#table2').children().find('input[name="phone"]').val(data.phone)
                     $('#table2').children().find('input[name="email"]').val(data.email)
+                    $('#table2').children().find('input[name="key"]').val(data.key)
+                    $('#table2').children().find('input[name="b_bank"]').val(data.b_bank)
+                    $('#table2').children().find('input[name="b_branch"]').val(data.b_branch)
+                    $('#table2').children().find('input[name="b_account"]').val(data.b_account)
+                    $('#table2').children().find('input[name="b_master"]').val(data.b_master)
                 },
                 error: function (date) {
                     alert('系统错误,请联系管理员')
@@ -318,18 +342,22 @@
         })
 		/*管理员-角色-添加*/
 		/*管理员-角色-删除*/
-        function admin_role_del(obj,id){
+        function user_role_del(obj,id){
             layer.confirm('角色删除须谨慎，确认要删除吗？',function(index){
                 $.ajax({
                     type: 'POST',
-                    url: '',
+                    url: "{{ action('admin\userController@delete') }}",
                     dataType: 'json',
+                    data: {
+                        _token: $('input[name="csrf-token"]').attr('content'),
+                        id: id,
+                    },
                     success: function(data){
                         $(obj).parents("tr").remove();
-                        layer.msg('已删除!',{icon:1,time:1000});
+                        layer.msg('已删除!');
                     },
                     error:function(data) {
-                        console.log(data.msg);
+                        layer.msg('删除失败!');
                     },
                 });
             });
