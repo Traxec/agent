@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gentelella Alela! | </title>
+  <title>代理系统 - @yield('title')</title>
 
   <!-- Bootstrap -->
   <link href="{{asset('home/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -35,6 +35,7 @@
   <link href="{{asset('home/vendors/starrr/dist/starrr.css')}}" rel="stylesheet">
   <link href="{{asset('home/css/maps/bootstrap-fileupload.min.css')}}" rel="stylesheet">
   <link href="{{asset('home/css/maps/basic.css')}}" rel="stylesheet">
+  <link href="{{asset('admin/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
 </head>
 
 <body class="nav-md">
@@ -100,7 +101,6 @@
                     </ul>
                   </li>
                   <li><a href="{{url('/home/withdrawals')}}"><i class="fa fa-bar-chart-o"></i>提现管理 </a>
-
                   </li>
                   <li><a><i class="fa fa-bug"></i>常用工具 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -130,6 +130,12 @@
               <div class="menu_section">
                 <h3>我的客户</h3>
                 <ul class="nav side-menu">
+                  <li><a><i class="fa fa-desktop"></i> 客户管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{url('/home/register_email')}}">发展客户</a></li>
+                      <li><a href="{{url('/home/my_users')}}">我的客户</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-windows"></i>客户账户管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">账户审核<span class="fa fa-chevron-down"></span></a>
@@ -138,7 +144,6 @@
                           </li>
                           <li><a href="{{url('/home/agency/check')}}">代理账户审核</a>
                           </li>
-
                         </ul>
                       </li>
                       <li><a href="#">账户管理<span class="fa fa-chevron-down"></span></a>
@@ -272,7 +277,7 @@
         </nav>
       </div>
       @if(session('success'))
-      <div class="alert alert-success alert-dismissable">
+      <div class="alert alert-success alert-dismissable" style="text-align:center">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
         {{session('success')}}
       </div>

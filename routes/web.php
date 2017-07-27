@@ -22,7 +22,7 @@ route::get('/forget', 'home\forgetController@index');//前台忘记密码cui
 route::get('/register', 'home\registerController@index');//前台注册页面cui
 route::post('/register/add', 'home\registerController@add');//前台注册cui
 
-//route::group(['middleware' => 'homeLogin'], function () {
+route::group(['middleware' => 'homeLogin'], function () {
     route::get('/', 'home\indexController@index');//前台主页
     route::get('/home/person', 'home\personController@index');//个人资料
     route::post('/home/person/update', 'home\personController@update');//个人资料
@@ -43,7 +43,10 @@ route::post('/register/add', 'home\registerController@add');//前台注册cui
     route::get('/home/send/box','home\sendController@box');//邮件收件箱
     route::get('/home/send/message','home\sendController@message');//发送短信
     route::get('/home/send/inbox','home\sendController@inbox');//短信收件箱
-//});
+    route::get('/home/register_email','home\register_emailController@index');//前台发注册
+    route::post('/home/register_email/send','home\register_emailController@send');//前台发邮件
+    route::get('/home/my_users','home\my_usersController@index');//前台我的用户列表
+});
 
 
 
