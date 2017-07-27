@@ -23,6 +23,7 @@ class registerController extends Controller
   }
 
   public function add(registerRequest $request){
+    date_default_timezone_set('Asia/Shanghai');
     $data = $request->all();
     foreach ($data as $key => $value) {
       if (preg_match("/[\x7f-\xff]/", $value)) {
@@ -41,6 +42,8 @@ class registerController extends Controller
       'pid'=>'1',
       'path'=>'0,1',
       'audit'=>'0',
+      'audit'=>'0',
+      'date'=>date('Y-m-d H:i:s');
     ]);
     if($users){
       return redirect('/login')->with('success','恭喜'.$data['username'].',您已注册成功,请登录');

@@ -47,9 +47,10 @@
 				<li class="dropDown dropDown_hover">
 					<a href="#" class="dropDown_A">{{$judge->judge_admin(session('id'))->username}}<i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="{{url('/admin/exit_admin')}}">退出</a></li>
-				</ul>
-			</li>
+						<li><a href="{{url('/admin/exit_admin')}}">退出</a>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 	</div>

@@ -50,19 +50,23 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+              <form class="" action="{{ action('home\loginController@check') }}" method="post">
               <h1>登录</h1>
               <div>
-                <input type="text" class="form-control" placeholder="账号" required="" />
+                <input type="text" name="username" class="form-control" placeholder="账号" required="123" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="密码" required="" />
+                <input type="password" name="password" class="form-control" placeholder="密码" required="" />
               </div>
               <div>
-                <input  style="width:50%;" type="text" class="form-control" placeholder="验证码" required="" />
+                <input style="width:50%;float:left;margin-right:30px" name="vcode" type="text" class="form-control" placeholder="验证码" required="" />
+                <img src="/vcode" style="width:30%;float:left" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
+                <div class="clearfix">
+                </div>
               </div>
               <div>
-                <a class="btn btn-default submit" href="#">登录</a>
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-default submit" href="#">登录</button>
                 <a class="reset_pass" href="{{ url('/forget') }}">忘记密码?</a>
               </div>
 
@@ -80,48 +84,6 @@
             </form>
           </section>
         </div>
-        <!--注册-->
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>注册</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="用户名" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="邮箱" required="" />
-              </div>
-              <div style="margin-bottom:20px;">
-                <input type="phone" class="form-control" placeholder="电话" required="" />
-              </div>
-              <div >
-                <input  type="password" class="form-control" placeholder="密码" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="#">提交</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">已经注册 ?
-                  <a href="#" class="to_register"> 登录 </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> </h1>
-                  <p>©2016 All Rights Reserved.版权信息</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
-
-
-      </div>
     </div>
   </body>
 </html>

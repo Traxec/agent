@@ -17,13 +17,15 @@
 //=================================================前台=================================================================
 route::get('mail/send','MailController@send');
 route::get('/login', 'home\loginController@index');//前台登录cui
+route::post('/login/check', 'home\loginController@check');//前台登录cui
 route::get('/forget', 'home\forgetController@index');//前台忘记密码cui
 route::get('/register', 'home\registerController@index');//前台注册页面cui
 route::post('/register/add', 'home\registerController@add');//前台注册cui
 
-// route::group(['middleware' => 'homeLogin'], function () {
+route::group(['middleware' => 'homeLogin'], function () {
     route::get('/', 'home\indexController@index');//前台主页
     route::get('/home/person', 'home\personController@index');//个人资料
+    route::post('/home/person/update', 'home\personController@update');//个人资料
     route::get('/home/person/password', 'home\personController@password');//修改个人密码
     route::get('/home/system', 'home\systemController@index');//生成系统
     route::get('/home/package', 'home\packageController@index');//生成安装包
@@ -41,7 +43,7 @@ route::post('/register/add', 'home\registerController@add');//前台注册cui
     route::get('/home/send/box','home\sendController@box');//邮件收件箱
     route::get('/home/send/message','home\sendController@message');//发送短信
     route::get('/home/send/inbox','home\sendController@inbox');//短信收件箱
-// });
+});
 
 
 
