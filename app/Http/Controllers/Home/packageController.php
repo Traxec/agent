@@ -11,4 +11,9 @@ class packageController extends Controller
     {
     	return view('Home.package');
     }
+
+    public function add()
+    {
+      return view('Home.package_add');
+    }
 }

@@ -19,21 +19,12 @@ class userController extends Controller
 	 */
 	 public function index(Request $request)
 	 {
-		 //分页查询
-		 $num = $request->input('num',10);
 
-		 if($request->input('keywords')){
-			 $user = DB::table('users')
-			 ->select(DB::raw("*,concat(path,',',id) as paths"))
-			 ->where('name','like','%'.$request->input('keywords').'%')
-			 ->orderBy('paths')
-			 ->paginate($num);
-		 }else{
-			 $user = DB::table('users')
-			 ->select(DB::raw("*,concat(path,',',id) as paths"))
-			 ->orderBy('paths')
-			 ->paginate($num);
-		 }
+		 $user = DB::table('users')
+		 ->select(DB::raw("*,concat(path,',',id) as paths"))
+		 ->where('audit',1)
+		 ->orderBy('paths')
+		 ->paginate(15);
 		 foreach($user as $k=>$v){
 			 $arr = explode(',',$v->path);
 			 $num = count($arr);
@@ -78,7 +69,7 @@ class userController extends Controller
     }
 
     /**
-     * @return  function name update 
+     * @return  function name update
      *修改用户信息
      */
     public function update(users_updateRequest $request)
@@ -96,7 +87,7 @@ class userController extends Controller
 				'b_master'	=> $request->input('b_master'),
 			]
 		);
-    	
+
     	if($admin)
     	{
     		return back()->with('success', '修改成功');
@@ -107,14 +98,14 @@ class userController extends Controller
     }
 
     /**
-    * @return  function name delete 
+    * @return  function name delete
     * 用户删除
      */
     public function delete(Request $request)
     {
-    	
+
     	$admin = DB::table('users')->where('id',$request->input('id'))->delete();
-    	
+
     	if($admin)
     	{
     		return '{"success":"true"}';

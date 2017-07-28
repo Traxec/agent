@@ -1,3 +1,4 @@
+﻿@inject('judge', 'App\Http\Controllers\home\exit_signController')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +56,7 @@
 
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <h2>{!! $judge->info()->nick==''?$judge->info()->username:$judge->info()->nick; !!}</h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -81,10 +82,14 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 系统管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-
-                      <li><a href="{{url('/home/system')}}">生成系统</a></li>
-                      <li><a href="{{url('/home/package')}}">生成安装包</a></li>
-
+                      <li><a href="{{url('/home/system/add')}}">生成系统</a></li>
+                      <li><a href="{{url('/home/system')}}">系统列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> 安装包管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{url('/home/package/add')}}">生成安装包</a></li>
+                      <li><a href="{{url('/home/package')}}">安装包列表</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> 缴费管理<span class="fa fa-chevron-down"></span></a>
@@ -189,29 +194,23 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
                 <ul class="nav navbar-nav navbar-right">
+                  @if(session('user_id'))
                   <li class="">
                     <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      John Doe
+                      {!! $judge->info()->nick==''?$judge->info()->username:$judge->info()->nick; !!}
                       <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                      <li><a href="#"> Profile</a></li>
-                      <li>
-                        <a href="#">
-                          <span class="badge bg-red pull-right">50%</span>
-                          <span>Settings</span>
-                        </a>
-                      </li>
-                      <li><a href="#">Help</a></li>
-                      <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                      <li><a href="{{ url('home/exit') }}"><i class="fa fa-sign-out pull-right"></i>退出</a></li>
                     </ul>
                   </li>
+                  @endif
 
                   <li role="presentation" class="dropdown">
-                    <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <!-- <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                       <i class="fa fa-envelope-o"></i>
                       <span class="badge bg-green">6</span>
-                    </a>
+                    </a> -->
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                       <li>
                         <a>

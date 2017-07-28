@@ -31,7 +31,7 @@
   <div class="newsletter">
     <div class="newsletter-main">
       <div class="stamp">
-        <img src="images/stamp.png" alt="">
+        <img src="../admin/images/stamp.png" alt="">
       </div>
       <h1>邮件开户</h1>
       <h2>发展你的客户</h2>

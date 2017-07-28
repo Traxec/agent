@@ -74,6 +74,7 @@
             </tbody>
             <input type="hidden" name="csrf-token" content="{{ csrf_token() }}">
         </table>
+        {{ $admin->links() }}
         <script>
             //调用修改页面数据
             $('.update').click(function () {

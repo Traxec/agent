@@ -27,8 +27,10 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/person', 'home\personController@index');//个人资料
     route::post('/home/person/update', 'home\personController@update');//个人资料
     route::get('/home/person/password', 'home\personController@password');//修改个人密码
-    route::get('/home/system', 'home\systemController@index');//生成系统
-    route::get('/home/package', 'home\packageController@index');//生成安装包
+    route::get('/home/system', 'home\systemController@index');//系统列表
+    route::get('/home/system/add', 'home\systemController@add');//生成系统
+    route::get('/home/package', 'home\packageController@index');//安装包列表
+    route::get('/home/package/add', 'home\packageController@add');//生成安装包
     route::get('/home/pay', 'home\payController@index');//缴费页面
     route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
     route::get('/home/work/order', 'home\workController@order');//工单发布
@@ -46,6 +48,7 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/register_email','home\register_emailController@index');//前台发注册
     route::post('/home/register_email/send','home\register_emailController@send');//前台发邮件
     route::get('/home/my_users','home\my_usersController@index');//前台我的用户列表
+    route::get('/home/exit','home\exit_signController@exit');//前台我的用户列表
 });
 
 
