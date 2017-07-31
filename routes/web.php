@@ -31,6 +31,7 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/system/add', 'home\systemController@add');//生成系统
     route::get('/home/package', 'home\packageController@index');//安装包列表
     route::get('/home/package/add', 'home\packageController@add');//生成安装包
+    route::post('/home/package/insert', 'home\packageController@insert');//执行生成安装包
     route::get('/home/pay', 'home\payController@index');//缴费页面
     route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
     route::get('/home/work/order', 'home\workController@order');//工单发布

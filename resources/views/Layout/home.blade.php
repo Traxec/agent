@@ -281,13 +281,13 @@
         {{session('success')}}
       </div>
       @elseif(session('error'))
-      <div class="alert alert-danger alert-dismissable">
+      <div class="alert alert-danger alert-dismissable" style="text-align:center">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
         {{session('error')}}
       </div>
       @endif
       @if (count($errors) > 0)
-      <div class="alert alert-danger">
+      <div class="alert alert-danger" style="text-align:center">
         <ul>
           @foreach ($errors->all() as $error)
           <li>{{ $error }}</li>
