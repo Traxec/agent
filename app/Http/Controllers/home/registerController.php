@@ -39,11 +39,10 @@ class registerController extends Controller
       'email'=>$data['email'],
       'password'=>Hash::make($data['password']),
       'catid'=>$data['catid'],
-      'pid'=>'1',
-      'path'=>'0,1',
+      'pid'=>$data['pid'],
+      'path'=>$data['path'],
       'audit'=>'0',
-      'audit'=>'0',
-      'date'=>date('Y-m-d H:i:s');
+      'date'=>date('Y-m-d H:i:s'),
     ]);
     if($users){
       return redirect('/login')->with('success','恭喜'.$data['username'].',您已注册成功,请登录');

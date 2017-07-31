@@ -55,6 +55,8 @@
               <h1>注册</h1>
               <div>
                 <input type="hidden" name="catid" value="{{ $data->catid }}">
+                <input type="hidden" name="pid" value="{{ $data->pid??'1' }}">
+                <input type="hidden" name="path" value="{{ $data->path??'0,1' }}">
                 <input name="username" type="text" class="form-control" placeholder="用户名" required="" />
               </div>
               <div>

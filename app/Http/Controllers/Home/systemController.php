@@ -10,12 +10,10 @@ class systemController extends Controller
 {
     public function index()
     {
-    	$admin = DB::table('system')->where('pid','1')->get();
-    	return view('Home.system',['system'=> $admin]);
+    	return view('Home.system');
     }
     public function add()
     {
-    	$input = Request::all;
-    	return $input;
+      return view('Home.system_add');
     }
 }

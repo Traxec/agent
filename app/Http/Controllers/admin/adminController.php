@@ -18,12 +18,11 @@ class adminController extends Controller
     {
         $judge = $this -> judge_keys(session('id'));
         if($judge['admin']==1){
-            $admin = DB::table('admin')->where('pid', '1')->get();
+            $admin = DB::table('admin')->where('pid', '1')->paginate(15);
             return view('Admin.admin', ['admin' => $admin]);
         }else{
             return redirect('/admin/index')->with('error','非法操作');
         }
-        // return view('Email/register_email');
     }
 
     /**

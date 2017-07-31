@@ -86,6 +86,7 @@
 		 @endforeach
 			</tbody>
 		</table>
+    {{ $user->links() }}
 
 
 		<!-- 添加角色 -->
@@ -171,7 +172,7 @@
 								<label for="exampleInputEmail1">户主</label>
 								<input type="text" class="form-control" name="b_master" id="b_master" placeholder="">
 							</div><br/>
-							
+
 						</div>　　　　　　　
 						<div class="modal-footer">
 						{{csrf_field()}}
@@ -258,11 +259,11 @@
 				</div>
 			</form>
 		</div>
-		
+
 
 
 	<script>
-		
+
         //调用修改页面数据
         $('.edit').click(function () {
             var id = $(this).parent().parent().find('input[name="id"]').val();

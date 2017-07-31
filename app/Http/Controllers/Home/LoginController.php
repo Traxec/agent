@@ -26,7 +26,6 @@ class loginController extends Controller
      */
     public function check(Request $request)
     {
-      // dd($request->all());
         date_default_timezone_set('Asia/Shanghai');
         $admin = DB::table('users')->where('username', $request->input('username'))->first();
         if (empty($admin)) {

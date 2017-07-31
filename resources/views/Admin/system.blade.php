@@ -43,7 +43,7 @@
 					<td>400</td>
 					<td>3</td>
 					<td>100</td>
-					
+
 					<td>
 					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">编辑</button>
 
@@ -56,7 +56,7 @@
 					<td>400</td>
 					<td>3</td>
 					<td>100</td>
-					
+
 					<td>
 					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">编辑</button>
 
@@ -69,7 +69,7 @@
 					<td>400</td>
 					<td>3</td>
 					<td>100</td>
-					
+
 					<td>
 					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">编辑</button>
 
@@ -77,7 +77,7 @@
 				</tr>
 			</tbody>
 		</table>
-		
+
 		<!-- 添加 -->
 		 <div class="modal fade" style="z-index='9999'" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
@@ -150,7 +150,7 @@
                         </div>
                     </div>
          </div>
-         
+
 	</div>
 
 
@@ -171,7 +171,7 @@ function admin_role_del(obj,id){
 			error:function(data) {
 				console.log(data.msg);
 			},
-		});		
+		});
 	});
 }
 </script>

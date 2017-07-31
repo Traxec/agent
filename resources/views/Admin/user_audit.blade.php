@@ -79,7 +79,7 @@
 				</tr>
 			</tbody>
 		</table>
-		
+
 		<!-- 添加角色 -->
 		 <div class="modal fade" style="z-index='9999'" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
@@ -218,7 +218,7 @@ function admin_role_del(obj,id){
 			error:function(data) {
 				console.log(data.msg);
 			},
-		});		
+		});
 	});
 }
 </script>
