@@ -42,10 +42,12 @@ class personController extends Controller
      */
     public function password(Request $request)
     {
-//        dd($request->all());
+        //dd($request->all());
         $sel = DB::table('admin')->where('id', session('id'))->first();
-        if (Hash::check($request->input('old_password'),$sel->password)) {
-            if ($request->input('new_password') == $request->input('re_password')) {
+        if (Hash::check($request->input('old_password'),$sel->password))
+        {
+            if ($request->input('new_password') == $request->input('re_password'))
+            {
                 $admin  = DB::table('admin')
                     ->where('id', session('id'))
                     ->update([
@@ -55,10 +57,12 @@ class personController extends Controller
                 $reload = new adminController();
                 $reload->exit_admin();
                 return back();
-            } else {
+            } else
+            {
                 return back()->with('error', '两次密码不一致，请重新填写');
             }
-        } else {
+        } else
+        {
             return back()->with('error', '旧密码错误');
         }
     }

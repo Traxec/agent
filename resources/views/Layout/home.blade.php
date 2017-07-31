@@ -272,18 +272,19 @@
         </nav>
       </div>
       @if(session('success'))
-      <div class="alert alert-success alert-dismissable">
+      <div style="text-align:center" class="alert alert-success alert-dismissable">
+
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
         {{session('success')}}
       </div>
       @elseif(session('error'))
-      <div class="alert alert-danger alert-dismissable">
+      <div style="text-align:center" class="alert alert-danger alert-dismissable">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
         {{session('error')}}
       </div>
       @endif
       @if (count($errors) > 0)
-      <div class="alert alert-danger">
+      <div style="text-align:center" class="alert alert-danger">
         <ul>
           @foreach ($errors->all() as $error)
           <li>{{ $error }}</li>
