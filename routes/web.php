@@ -25,13 +25,14 @@ route::post('/register/add', 'home\registerController@add');//前台注册cui
 route::group(['middleware' => 'homeLogin'], function () {
     route::get('/', 'home\indexController@index');//前台主页
     route::get('/home/person', 'home\personController@index');//个人资料
-    route::post('/home/person/update', 'home\personController@update');//个人资料
+    route::post('/home/person/update', 'home\personController@update');//个人资料修改
     route::get('/home/person/password', 'home\personController@password');//修改个人密码
     route::get('/home/system', 'home\systemController@index');//系统列表
     route::get('/home/system/add', 'home\systemController@add');//生成系统
     route::get('/home/package', 'home\packageController@index');//安装包列表
     route::get('/home/package/add', 'home\packageController@add');//生成安装包
     route::post('/home/package/insert', 'home\packageController@insert');//执行生成安装包
+    route::post('/home/person/pwdupdate','home\personController@pwdupdate');//修改个人密码
     route::get('/home/pay', 'home\payController@index');//缴费页面
     route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
     route::get('/home/work/order', 'home\workController@order');//工单发布

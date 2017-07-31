@@ -350,7 +350,7 @@
                     url: "{{ action('admin\userController@delete') }}",
                     dataType: 'json',
                     data: {
-                        _token: $('input[name="csrf-token"]').attr('content'),
+                        _token: "{{csrf_token()}}",
                         id: id,
                     },
                     success: function(data){
