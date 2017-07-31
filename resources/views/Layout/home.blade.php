@@ -98,7 +98,7 @@
                       <li><a href="{{url('/home/contribution')}}">缴费记录</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i> 工单管理 <span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-clone"></i> 工单管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('/home/work/order')}}">工单发布</a></li>
                       <li><a href="{{url('/home/work/record')}}">工单记录</a></li>
@@ -106,8 +106,8 @@
                     </ul>
                   </li>
                   <li><a href="{{url('/home/withdrawals')}}"><i class="fa fa-bar-chart-o"></i>提现管理 </a>
-                  </li>
-                  <li><a><i class="fa fa-bug"></i>常用工具 <span class="fa fa-chevron-down"></span></a>
+                  </li> -->
+                  <!-- <li><a><i class="fa fa-bug"></i>常用工具 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">邮箱<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -129,7 +129,7 @@
                       </li>
 
                     </ul>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
               <div class="menu_section">
@@ -141,7 +141,7 @@
                       <li><a href="{{url('/home/my_users')}}">我的客户</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-windows"></i>客户账户管理 <span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-windows"></i>客户账户管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">账户审核<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -162,8 +162,8 @@
                       </li>
 
                     </ul>
-                  </li>
-                  <li><a href="{{url('/home/customer')}}"><i class="fa fa-desktop"></i>客户系统管理 <span class="fa fa-chevron-down"></span></a>
+                  </li> -->
+                  <!-- <li><a href="{{url('/home/customer')}}"><i class="fa fa-desktop"></i>客户系统管理 <span class="fa fa-chevron-down"></span></a> -->
 
                   </li>
 
