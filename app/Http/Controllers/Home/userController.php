@@ -15,5 +15,5 @@ class userController extends Controller
     {
     	return view('Home.user_index');
     }
-    
+
 }

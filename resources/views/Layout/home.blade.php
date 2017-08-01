@@ -37,6 +37,8 @@
   <link href="{{asset('home/css/maps/bootstrap-fileupload.min.css')}}" rel="stylesheet">
   <link href="{{asset('home/css/maps/basic.css')}}" rel="stylesheet">
   <link href="{{asset('admin/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
+  <!-- jQuery -->
+  <script src="{{asset('home/vendors/jquery/dist/jquery.min.js')}}"></script>
 </head>
 
 <body class="nav-md">
@@ -300,8 +302,6 @@
       @show
     </div>
 
-    <!-- jQuery -->
-    <script src="{{asset('home/vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
     <script src="{{asset('home/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->

@@ -41,8 +41,9 @@ class registerController extends Controller
       'catid'=>$data['catid'],
       'pid'=>$data['pid'],
       'path'=>$data['path'],
-      'audit'=>'0',
+      'audit'=>'1',
       'date'=>date('Y-m-d H:i:s'),
+      'keys'=>'0,0,0,0,0,0',
     ]);
     if($users){
       return redirect('/login')->with('success','恭喜'.$data['username'].',您已注册成功,请登录');

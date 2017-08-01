@@ -33,15 +33,9 @@
 			<button type="button" class="btn btn-default col-lg-2" data-toggle="modal" data-target="#demoModal">添加用户
 			</button>
 			@endif
-			<button type="button" id="role" class="btn btn-default col-lg-2 col-offset-1" data-toggle="modal"
-					data-target="#demoModal3">修改普通用户权限
-			</button>
-			<button type="button" id="roles" class="btn btn-default col-lg-2 col-offset-1" data-toggle="modal"
-					data-target="#demoModal4">修改代理商权限
-			</button>
 			<br/><br/>
 		</div>
-		<table class="table table-border table-bordered table-hover table-bg">
+		<table id="table3" class="table table-border table-bordered table-hover table-bg">
 			<thead>
 			<tr>
 				<th scope="col" colspan="15">普通用户列表</th>
@@ -79,7 +73,7 @@
 				<td>
 					<button type="button" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#demoModal2">修改角色</button>
 
-					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal3">修改权限</button>&nbsp;
+					<button type="button" class="btn btn-primary btn-sm role" data-toggle="modal" data-target="#demoModal3">修改权限</button>&nbsp;
 					<a title="删除" href="javascript:;" onclick="user_role_del(this,{{$value->id}})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 				</td>
 			</tr>
@@ -187,13 +181,13 @@
 		<div class="modal fade" style="z-index='9999'" id="demoModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
 			<form action="{{ action('admin\roleController@update') }}" method="post">
 				<div class="modal-dialog" role="document">
-					<div id="table3" class="modal-content"><br/><br/>
+					<div id="table3" class="modal-content table3"><br/><br/>
 						<div class="col-lg-12">
 							<h3 class="col-md-offset-3">修改普通用户权限</h3>
 						</div>
 						<label class="checkbox-inline col-lg-4 col-offset-2">
 							<input type="checkbox" name="agent" id="inlineCheckbox1" value="1"> 开代理账户
-							<input type="hidden" name="id" value="1">
+							<input type="hidden" name="id" value="">
 						</label>
 						<label class="checkbox-inline col-lg-4 col-offset-2">
 							<input type="checkbox" name="template" id="inlineCheckbox1" value="1"> 新建模板
@@ -221,47 +215,6 @@
 				</div>
 			</form>
 		</div>
-		<!-- 修改代理商权限 -->
-		<div class="modal fade" style="z-index='9999'" id="demoModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
-			<form action="{{ action('admin\roleController@update') }}" method="post">
-				<div class="modal-dialog" role="document">
-					<div id="table4" class="modal-content"><br/><br/>
-						<div class="col-lg-12">
-							<h3 class="col-md-offset-3">修改代理商权限</h3>
-						</div>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
-							<input type="checkbox" name="agent" id="inlineCheckbox1" value="1"> 开代理账户
-							<input type="hidden" name="id" value="2">
-						</label>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
-							<input type="checkbox" name="template" id="inlineCheckbox1" value="1"> 新建模板
-						</label>
-						<br>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
-							<input type="checkbox" name="package_add" id="inlineCheckbox3" value="1"> 生成安装包
-						</label>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
-							<input type="checkbox" name="package_update" id="inlineCheckbox4" value="1"> 修改安装包
-						</label>
-						<br>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
-							<input type="checkbox" name="system_add" id="inlineCheckbox5" value="1"> 生成系统
-						</label>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
-							<input type="checkbox" name="system_update" id="inlineCheckbox6" value="1"> 修改系统
-						</label>　　　　　　　　　　　　　　
-						<div class="modal-footer">
-							{{ csrf_field() }}
-							<button type="submit" class="btn btn-default">确定</button>
-							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-
-
-
 	<script>
 
         //调用修改页面数据
@@ -294,8 +247,8 @@
             })
         })
         //调用修改权限数据
-        $('#role').click(function () {
-            var id = $('#table3').find('input[name="id"]').val();
+        $('.role').click(function () {
+            var id = $(this).parent().parent().find('input[name="id"]').val();
             $.ajax({
                 type: 'post',
                 url: "{{action('admin\roleController@show')}}",
@@ -305,43 +258,19 @@
                     id: id,
                 },
                 success: function (data) {
-                    data.agent == 1 ? $('#table3').find('input[name="agent"]').attr('checked', true) : $('#table3').find('input[name="agent"]').attr('checked', false);
-                    data.template == 1 ? $('#table3').find('input[name="template"]').attr('checked', true) : $('#table3').find('input[name="template"]').attr('checked', false);
-                    data.package_add == 1 ? $('#table3').find('input[name="package_add"]').attr('checked', true) : $('#table3').find('input[name="package_add"]').attr('checked', false);
-                    data.package_update == 1 ? $('#table3').find('input[name="package_update"]').attr('checked', true) : $('#table3').find('input[name="package_update"]').attr('checked', false);
-                    data.system_add == 1 ? $('#table3').find('input[name="system_add"]').attr('checked', true) : $('#table3').find('input[name="system_add"]').attr('checked', false);
-                    data.system_update == 1 ? $('#table3').find('input[name="system_update"]').attr('checked', true) : $('#table3').find('input[name="system_update"]').attr('checked', false);
+                    data.agent == 1 ? $('.table3').find('input[name="agent"]').attr('checked', true) : $('.table3').find('input[name="agent"]').attr('checked', false);
+                    data.template == 1 ? $('.table3').find('input[name="template"]').attr('checked', true) : $('.table3').find('input[name="template"]').attr('checked', false);
+                    data.package_add == 1 ? $('.table3').find('input[name="package_add"]').attr('checked', true) : $('.table3').find('input[name="package_add"]').attr('checked', false);
+                    data.package_update == 1 ? $('.table3').find('input[name="package_update"]').attr('checked', true) : $('.table3').find('input[name="package_update"]').attr('checked', false);
+                    data.system_add == 1 ? $('.table3').find('input[name="system_add"]').attr('checked', true) : $('.table3').find('input[name="system_add"]').attr('checked', false);
+                    data.system_update == 1 ? $('.table3').find('input[name="system_update"]').attr('checked', true) : $('.table3').find('input[name="system_update"]').attr('checked', false);
+                    $('.table3').find('input[name="id"]').val(id)
                 },
                 error: function (date) {
 //                        alert('系统错误,请联系管理员')
                 }
             })
         })
-        //调用修改权限数据
-        $('#roles').click(function () {
-            var id = $('#table4').find('input[name="id"]').val();
-            $.ajax({
-                type: 'post',
-                url: "{{action('admin\roleController@show')}}",
-                dataType: 'json',
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    id: id,
-                },
-                success: function (data) {
-                    data.agent == 1 ? $('#table4').find('input[name="agent"]').attr('checked', true) : $('#table4').find('input[name="agent"]').attr('checked', false);
-                    data.template == 1 ? $('#table4').find('input[name="template"]').attr('checked', true) : $('#table4').find('input[name="template"]').attr('checked', false);
-                    data.package_add == 1 ? $('#table4').find('input[name="package_add"]').attr('checked', true) : $('#table4').find('input[name="package_add"]').attr('checked', false);
-                    data.package_update == 1 ? $('#table4').find('input[name="package_update"]').attr('checked', true) : $('#table4').find('input[name="package_update"]').attr('checked', false);
-                    data.system_add == 1 ? $('#table4').find('input[name="system_add"]').attr('checked', true) : $('#table4').find('input[name="system_add"]').attr('checked', false);
-                    data.system_update == 1 ? $('#table4').find('input[name="system_update"]').attr('checked', true) : $('#table4').find('input[name="system_update"]').attr('checked', false);
-                },
-                error: function (date) {
-//                        alert('系统错误,请联系管理员')
-                }
-            })
-        })
-		/*管理员-角色-添加*/
 		/*管理员-角色-删除*/
         function user_role_del(obj,id){
             layer.confirm('角色删除须谨慎，确认要删除吗？',function(index){

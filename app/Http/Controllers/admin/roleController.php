@@ -10,7 +10,8 @@ class roleController extends Controller
 {
     public function show(Request $request)
     {
-        $user = DB::table('role')->where('catid',$request->input('id'))->first();
+      dd($request->all());
+        $user = DB::table('users')->where('id',$request->input('id'))->first();
         $key= explode(',',$user->keys);
         $data['agent'] = $key[0];
         $data['template'] = $key[1];
@@ -30,7 +31,7 @@ class roleController extends Controller
         $arr['system_add'] = $request->input('system_add')??0;
         $arr['system_update'] = $request->input('system_update')??0;
         $keys          = implode(',', $arr);
-        $admin        = DB::table('role')->where('id', $request->id)->update([
+        $admin        = DB::table('users')->where('id', $request->id)->update([
             'keys' => $keys,
         ]);
         if ($admin) {

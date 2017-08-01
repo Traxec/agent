@@ -26,56 +26,7 @@
               <div class="col-sm-12">
                 <div class="card-box table-responsive">
                   <form class="" action="" method="post">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">新增</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">生成链接</button>
-
                   </form>
-                  <!-- 新增 -->
-                  <div class="modal fade" style="z-index='9999'" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                            <h4 style="margin-left:10px; font-weight:bold; ">新增</h4>
-                          </div>
-                          <div class="modal-body">
-                            <div class="container col-lg-12">
-                              <label for="exampleInputEmail1">姓名</label>
-                              <input type="useranme" class="form-control" id="usenanme" placeholder="">
-                            </div><br/>
-                            <div class="container col-lg-12">
-                              <label for="exampleInputEmail1">电话</label>
-                              <input type="iphone" class="form-control" id="iphone" placeholder="">
-                            </div><br/>
-                            <div class="container col-lg-12">
-                              <label for="exampleInputEmail1">邮箱</label>
-                              <input type="email" class="form-control" id="email" placeholder="">
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                            <button type="button" class="btn btn-default">取消</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--生成链接 -->
-                    <div class="modal fade" style="z-index='9999'" id="demoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                              aria-hidden="true">&times;</span></button>
-                              <h4 style="margin-left:10px; font-weight:bold;">普通账户注册链接</h4>
-                            </div>
-                            <h4 style="margin-left:30px;">http://fnksadhjkewhfkasjksjafkafkjahfkjasfh.com</h4>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <table id="datatable-keytable" class="table table-striped table-bordered">
                         <thead>
                           <tr>
@@ -85,27 +36,9 @@
                             <th>姓名</th>
                             <th>电话</th>
                             <th>邮箱</th>
+                            <th>功能</th>
                           </tr>
                         </thead>
-                        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="demoModal6">
-                          <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                                </button>
-                                <h4 class="modal-title" id="myModalLabel2">提示</h4>
-                              </div>
-                              <div class="modal-body">
-                                <h4>确定要删除吗？</h4>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
                         <tbody>
                           <?php $a = 0 ?>
                           @foreach ($my_users as $key => $value)
@@ -117,10 +50,13 @@
                             <td>{{$value->nick}}</td>
                             <td>{{$value->phone}}</td>
                             <td>{{$value->email}}</td>
+                            <input type="hidden" name="id" value="{{$value->id}}">
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm role" id='ccc' data-toggle="modal" data-target="#demoModal4">设置权限</button>
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>
-
                       </table>
                     </div>
                   </div>
@@ -133,111 +69,73 @@
 
       </div>
 
-      <!--查看详情 -->
+      <!-- 修改普通权限 -->
       <div class="modal fade" style="z-index='9999'" id="demoModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                aria-hidden="true">&times;</span></button>
-                <h4 style="margin-left:10px; font-weight:bold;">设置权限</h4>
-              </div>
-
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">开代理账户
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">新建模板
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">生成安装包
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">修改安装包
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">生成系统
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">修改系统
-                  </label>
-                </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                <button type="button" class="btn btn-default">取消</button>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" style="z-index='9999'" id="demoModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <form action="{{ action('admin\roleController@update') }}" method="post">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 style="margin-left:10px; font-weight:bold; ">代理客户详细信息</h4>
+            <div id="table3" class="modal-content table3" style="padding-left:160px"><br/><br/>
+              <div class="col-lg-12">
+                <h3 class="col-lg-offset-1">修改普通用户权限</h3>
               </div>
-              <div class="modal-body">
-                <div class="container col-lg-12">
-                  <label for="exampleInputEmail1">账号</label><br>
-                  <input type="text" class="form-control" placeholder="">
-                </div><br/>
-                <div class="container col-lg-12">
-                  <label for="exampleInputEmail1">姓名</label><br>
-                  <input type="useranme" class="form-control" id="usenanme" placeholder="">
-                </div><br/>
-                <div class="container col-lg-12">
-                  <label for="exampleInputEmail1">电话</label><br>
-                  <input type="iphone" class="form-control" id="iphone" placeholder="">
-                </div><br/>
-                <div class="container col-lg-12">
-                  <label for="exampleInputEmail1">邮箱</label><br>
-                  <input type="email" class="form-control" id="email" placeholder="">
-                </div>
-                <div class="container col-lg-12">
-                  <label>户主</label><br>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-                <div class="container col-lg-12">
-                  <label>开户行</label><br>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-                <div class="container col-lg-12">
-                  <label>支行</label><br>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-                <div class="container col-lg-12">
-                  <label>卡号</label><br>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
+              <label class="checkbox-inline col-lg-4 col-offset-1">
+                <input type="checkbox" name="agent" id="inlineCheckbox1" value="1"> 开代理账户
+                <input type="hidden" name="id" value="">
+              </label>
+              <label class="checkbox-inline col-lg-4 col-offset-1">
+                <input type="checkbox" name="template" id="inlineCheckbox1" value="1"> 新建模板
+              </label>
+              <br>
+              <label class="checkbox-inline col-lg-4 col-offset-1">
+                <input type="checkbox" name="package_add" id="inlineCheckbox3" value="1"> 生成安装包
+              </label>
+              <label class="checkbox-inline col-lg-4 col-offset-1">
+                <input type="checkbox" name="package_update" id="inlineCheckbox4" value="1"> 修改安装包
+              </label>
+              <br>
+              <label class="checkbox-inline col-lg-4 col-offset-1">
+                <input type="checkbox" name="system_add" id="inlineCheckbox5" value="1"> 生成系统
+              </label>
+              <label class="checkbox-inline col-lg-4 col-offset-1">
+                <input type="checkbox" name="system_update" id="inlineCheckbox6" value="1"> 修改系统
+              </label>　　　　　　　　　　　　　　
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                <button type="button" class="btn btn-default">取消</button>
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-default">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
               </div>
             </div>
           </div>
-        </div>
-
-
-
+        </form>
       </div>
 
+      </div>
+      <script type="text/javascript">
+        //调用修改权限数据
+        $('.role').click(function () {
+            var id = $(this).parent().parent().find('input[name="id"]').val();
+            $.ajax({
+                type: 'post',
+                url: "{{action('admin\roleController@show')}}",
+                dataType: 'json',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: id,
+                },
+                success: function (data) {
+                    data.agent == 1 ? $('.table3').find('input[name="agent"]').attr('checked', true) : $('.table3').find('input[name="agent"]').attr('checked', false);
+                    data.template == 1 ? $('.table3').find('input[name="template"]').attr('checked', true) : $('.table3').find('input[name="template"]').attr('checked', false);
+                    data.package_add == 1 ? $('.table3').find('input[name="package_add"]').attr('checked', true) : $('.table3').find('input[name="package_add"]').attr('checked', false);
+                    data.package_update == 1 ? $('.table3').find('input[name="package_update"]').attr('checked', true) : $('.table3').find('input[name="package_update"]').attr('checked', false);
+                    data.system_add == 1 ? $('.table3').find('input[name="system_add"]').attr('checked', true) : $('.table3').find('input[name="system_add"]').attr('checked', false);
+                    data.system_update == 1 ? $('.table3').find('input[name="system_update"]').attr('checked', true) : $('.table3').find('input[name="system_update"]').attr('checked', false);
+                    $('.table3').find('input[name="id"]').val(id)
+                },
+                error: function (date) {
+//                        alert('系统错误,请联系管理员')
+                }
+            })
+        })
+		/*管理员-角色-删除*/
+      </script>
 
       @endsection

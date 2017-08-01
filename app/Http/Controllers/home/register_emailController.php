@@ -28,5 +28,6 @@ class register_emailController extends Controller
       $message['database'] = $data;
         Mail::to($request->input('email'))
             ->send(new register_mail($message));
+      return back()->with('success','发送成功');
     }
 }
