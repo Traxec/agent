@@ -15,4 +15,8 @@ class workController extends Controller
     {
     	return view('Home.record');
     }
+    public function insert()
+    {
+      dd($request->all());
+    }
 }
