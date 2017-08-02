@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class package_addRequest extends FormRequest
+class system_addRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,8 @@ class package_addRequest extends FormRequest
     public function rules()
     {
         return [
+          'port'=>'required|digits_between:1,8',
+          'template'=>'required',
           'title'=>'required|max:8',
           'nav'=>'required|max:50',
           'server'=>'required|max:50',
@@ -41,6 +43,9 @@ class package_addRequest extends FormRequest
     public function messages()
     {
       return [
+        'template'=>'请选择一个系统模板',
+        'port.required'=>'标题不能为空',
+        'port.digits_between'=>'标题为1-8位长度',
         'title.required'=>'标题不能为空',
         'title.max'=>'标题最多8位长度',
         'nav.required'=>'导航不能为空',

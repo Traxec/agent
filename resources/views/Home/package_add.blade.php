@@ -128,4 +128,11 @@
                   <button type="reset" class="btn btn-primary">重置</button>
                 </div>
               </div>
-              @endsection
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

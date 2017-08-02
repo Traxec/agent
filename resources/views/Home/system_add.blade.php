@@ -12,145 +12,147 @@
       <div class="title_left">
         <h3>系统管理</h3>
       </div>
-
-
     </div>
     <div class="clearfix"></div>
-
-
     <div class="row">
-
       <div class="col-md-6 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>生成系统 <small>请上传系统所需信息</small></h2>
-
-            <div class="clearfix">
-            </div>
+            <h2>生成系统<small>请上传系统所需信息</small></h2>
+            <div class="clearfix"></div>
           </div>
           <div class="x_content">
             <br />
-            <form class="form-horizontal form-label-left">
-             <div class="form-group">
-
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号 </label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input" value="port">
+            <form class="form-horizontal form-label-left" action="{{action('home\systemController@insert')}}" method="post"  enctype="multipart/form-data">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号 </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="port" placeholder="port" value="">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <select class="select2_multiple form-control" multiple="multiple">
-                  <option>Choose option</option>
-                  <option>Option one</option>
-                  <option>Option two</option>
-                  <option>Option three</option>
-                  <option>Option four</option>
-                  <option>Option five</option>
-                  <option>Option six</option>
-                </select>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_multiple form-control" name="template" multiple="multiple">
+                    <option value="Choose option">Choose option</option>
+                    <option value="Option one">Option one</option>
+                    <option value="Option two">Option two</option>
+                    <option value="Option three">Option three</option>
+                    <option value="Option four">Option four</option>
+                    <option value="Option five">Option five</option>
+                    <option value="Option six">Option six</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="title" value="titl"">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="title" placeholder="title">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="title" value="navi">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="nav" placeholder="nav">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
-              </label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <textarea class="form-control" rows="5" placeholder="Five lines of information" value="serv"}"></textarea>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea class="form-control" rows="5" name="server" placeholder="Five lines of information"></textarea>
+                </div>
               </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="phone" value="phon"">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="phone" placeholder="phone">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="web sites" value="webs"}">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="website" placeholder="website">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="Email" value="emai"">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="email" placeholder="Email">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">地址</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="address" value="addr"}}">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">地址</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="address" placeholder="address">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" class="form-control" placeholder="title" value="comp"}}">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="company" placeholder="company">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">140*140 bmp图片</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="fileupload fileupload-new" data-provides="fileupload">
-
-                  <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
-                  <div>
-                    <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
-                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">140*140 bmp图片</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                    <div>
+                      <span class="btn btn-file btn-success">
+                        <span class="fileupload-new">选择图片</span>
+                        <span class="fileupload-exists">更换图片</span>
+                        <input type="file" name="img1">
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">500*60 bmp图片</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="fileupload fileupload-new" data-provides="fileupload">
-
-                  <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
-                  <div>
-                    <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
-                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">500*60 bmp图片</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                    <div>
+                      <span class="btn btn-file btn-success">
+                        <span class="fileupload-new">选择图片</span>
+                        <span class="fileupload-exists">更换图片</span>
+                        <input type="file" name="img2">
+                      </span>
+                      <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="fileupload fileupload-new" data-provides="fileupload">
-
-                  <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
-                  <div>
-                    <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
-                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                    <div>
+                      <span class="btn btn-file btn-success">
+                        <span class="fileupload-new">选择图片</span>
+                        <span class="fileupload-exists">更换图片</span>
+                        <input type="file" name="img3">
+                      </span>
+                      <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-
-
-            <div class="ln_solid"></div>
-            <div class="form-group">
-              <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                <button type="button" class="btn btn-primary">取消</button>
-                <button type="reset" class="btn btn-primary">重置</button>
-                <button type="submit" class="btn btn-success">提交</button>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn btn-success">提交</button>
+                  <button type="reset" class="btn btn-primary">重置</button>
+                </div>
               </div>
-            </div>
-
-            @endsection
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

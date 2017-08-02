@@ -29,9 +29,14 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/person/password', 'home\personController@password');//修改个人密码
     route::get('/home/system', 'home\systemController@index');//系统列表
     route::get('/home/system/add', 'home\systemController@add');//生成系统
+    route::post('/home/system/insert', 'home\systemController@insert');//执行生成系统
+    route::post('/home/system/edit', 'home\systemController@edit');//修改系统
+    route::post('/home/system/update', 'home\systemController@update');//执行修改系统
     route::get('/home/package', 'home\packageController@index');//安装包列表
     route::get('/home/package/add', 'home\packageController@add');//生成安装包
     route::post('/home/package/insert', 'home\packageController@insert');//执行生成安装包
+    route::post('/home/package/edit', 'home\packageController@edit');//修改安装包
+    route::post('/home/package/update', 'home\packageController@update');//执行修改安装包
     route::post('/home/person/pwdupdate','home\personController@pwdupdate');//修改个人密码
     route::get('/home/pay', 'home\payController@index');//缴费页面
     route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
