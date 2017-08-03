@@ -66,6 +66,7 @@
               <div class="ln_solid"></div>
               <div class="form-group">
                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  {{ csrf_field() }}
                   <button type="button" class="btn btn-primary">取消</button>
                   <button type="reset" class="btn btn-primary">重置</button>
                   <button type="submit" class="btn btn-success">提交工单</button>

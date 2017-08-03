@@ -41,7 +41,7 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/pay', 'home\payController@index');//缴费页面
     route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
     route::get('/home/work/order', 'home\workController@order');//工单发布
-    route::post('/home/work/order_insert', 'home\workController@order_insert');//执行工单发布
+    route::post('/home/work/insert', 'home\workController@insert');//执行工单发布
     route::get('/home/work/record', 'home\workController@record');//工单记录
     route::get('/home/withdrawals', 'home\withdrawalsController@index');//提现页面
     route::get('/home/user/check', 'home\userController@check');//普通账户审核页面

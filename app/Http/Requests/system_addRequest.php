@@ -61,11 +61,11 @@ class system_addRequest extends FormRequest
         'address.max'=>'地址不能超过255个长度',
         'company.required'=>'公司名称不能为空',
         'company.max'=>'公司名称不能超过50位长度',
-        'img1.required'=>'图片1不能为空',
+        'img1.max'=>'图片大小不能超过2M',
         'img1.image'=>'图片1格式不对',
-        'img2.required'=>'图片2不能为空',
+        'img2.max'=>'图片大小不能超过2M',
         'img2.image'=>'图片2格式不对',
-        'img3.required'=>'图片3不能为空',
+        'img3.max'=>'图片大小不能超过2M',
         'img3.image'=>'图片3格式不对',
       ];
     }
