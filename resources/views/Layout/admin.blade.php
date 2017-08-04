@@ -13,6 +13,7 @@
 <script type="text/javascript" src="lib/html5shiv.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <![endif]-->
+
 <link href="{{asset('admin/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui/css/H-ui.min.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('admin/static/h-ui.admin/css/H-ui.admin.css')}}" />
@@ -28,6 +29,11 @@
 <link rel="stylesheet" href="{{asset('admin/css/qiandao_style.css')}}">
 <script src="{{asset('admin/js/jquery-1.10.2.min.js')}}"></script>
 <script src="{{asset('admin/js/qiandao_js.js')}}"></script>
+
+
+<script type="text/javascript" src="{{asset('admin/bower_components/jquery/dist/lhgcore.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/bower_components/jquery/dist/lhgcalendar.js')}}"></script>
+
 
 
 
@@ -80,7 +86,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
-					<li><a data-href="{{ url('/admin/register_email')}}" data-title="用户列表" href="javascript:;">邮件开户</a></li>
+					<li><a data-href="{{ url('/admin/register_email')}}" data-title="邮件开户" href="javascript:;">邮件开户</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -89,6 +95,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{url('/admin/work')}}" data-title="工单管理" href="javascript:;">工单管理</a></li>
+					<li><a data-href="{{url('/admin/work')}}" data-title="工单页面" href="javascript:;">工单页面</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -123,7 +130,7 @@
 			<dd>
 				<ul>
 					@if($judge->judge_keys(session('id'))['card']==1)
-					<li><a data-href="{{url('/admin/sign')}}" data-title="签到管理" href="javascript:void(0)">签到管理</a></li>
+					<li><a data-href="{{url('/admin/sign')}}" data-title="签到信息" href="javascript:void(0)">签到信息</a></li>
                     <li><a data-href="{{url('/admin/sign/ban_ip')}}" data-title="ip黑名单" href="javascript:void(0)">ip黑名单</a></li>
 					@endif
 					@if($judge->judge_keys(session('id'))['card']!=1)

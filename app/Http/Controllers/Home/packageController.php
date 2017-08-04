@@ -9,6 +9,7 @@ use DB;
 
 class packageController extends Controller
 {
+  //安装包列表
     public function index()
     {
       $package = DB::table('package')->where('aid',session('user_id'))->paginate(15);

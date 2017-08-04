@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\adminController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\adminperson_updateRequest;
 use DB;
 
 class personController extends Controller
@@ -24,7 +25,7 @@ class personController extends Controller
      * @return function name person
      * 修改个人资料
      */
-    public function update(Request $request)
+    public function update(adminperson_updateRequest $request)
     {
         $user = DB::table('admin')
             ->where('id', $request->input('id'))

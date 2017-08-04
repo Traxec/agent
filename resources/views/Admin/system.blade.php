@@ -16,8 +16,8 @@
 					<th scope="col" colspan="8">系统管理</th>
 				</tr>
 				<tr class="text-c">
-					<th width="40">编号</th>
-					<th width="40">系统ID</th>
+					<th width="20">编号</th>
+					<th width="40">用户ID</th>
 					<th width="40">系统端口号</th>
 					<th width="40">免费次数</th>
 					<th width="40">超出价格</th>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="modal-body">
                             　<div class="container col-lg-12">
-                                    <label for="exampleInputEmail1">系统ID</label>
+                                    <label for="exampleInputEmail1">用户ID</label>
                                     <input type="usenanme" class="form-control" id="usenanme" placeholder="">
                               </div><br/>
                               <div class="container col-lg-12">
@@ -122,12 +122,9 @@
                                 <h4 class="modal-title" id="myModalLabel">修改</h4>
                             </div>
                             <div class="modal-body">
-                            　<div class="container col-lg-12">
-                                    <label for="exampleInputEmail1">编号</label>
-                                    <input type="usenanme" class="form-control" id="usenanme" placeholder="">
-                              </div><br/>
+
                               <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">系统ID</label>
+                                <label for="exampleInputEmail1">用户ID</label>
                                 <input type="iphone" class="form-control" id="iphone" placeholder="">
                               </div><br/>
                               <div class="container col-lg-12">

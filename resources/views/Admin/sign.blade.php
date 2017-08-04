@@ -18,8 +18,8 @@
                 <tr class="text-c">
                     <th width="40">编号</th>
                     <th width="40">客服名称</th>
-                    <th width="40">签到年月</th>
-                    <th width="60">签到日期</th>
+                    <th width="40">签到年月日</th>
+                    <th width="60">签到时间</th>
                     <th width="60">签到ip</th>
 
                 </tr>
@@ -31,8 +31,8 @@
                 <tr class="text-c">
                     <td>{{$a}}</td>
                     <td>{{$value->nick}}</td>
-                    <td>{{substr($value->datetime,0,7)}}</td>
-                    <td>{{substr($value->datetime,8,2)}}</td>
+                    <td>{{substr($value->datetime,0,10)}}</td>
+                    <td>{{substr($value->datetime,10,18)}}</td>
                     <td>{{$value->ip}}</td>
                     <!-- <td>
                     <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->
@@ -40,7 +40,7 @@
             @endforeach
             </tbody>
         </table>
-        
+
     </div>
 
 @endsection
