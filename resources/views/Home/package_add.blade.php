@@ -23,7 +23,7 @@
           </div>
           <div class="x_content">
             <br />
-            <form class="form-horizontal form-label-left" action="action('home\packageController@insert')" method="post"  enctype="multipart/form-data">
+            <form class="form-horizontal form-label-left" action="{{ action('home\packageController@insert') }}" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">

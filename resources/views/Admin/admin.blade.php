@@ -153,8 +153,7 @@
                                 <input type="email" name="email" class="form-control" id="email" placeholder="">
                             </div>
                             <br/>
-                        </div>
-                        　　　　　　　
+                        </div>　　　　　　　　
                         <div class="modal-footer">
                             {{csrf_field()}}
                             <button type="submit" class="btn btn-default">确定</button>
@@ -191,8 +190,7 @@
                                 <label for="exampleInputEmail1">邮箱</label>
                                 <input type="text" name="email" class="form-control" id="email" placeholder="">
                             </div>
-                        </div>
-
+                        </div>　　　　　　
                         <div class="modal-footer">
                             {{csrf_field()}}
                             <button type="submit" class="btn btn-default">确定</button>
@@ -215,12 +213,12 @@
                         <input type="hidden" name="id" value="">
                         <label class="checkbox-inline">
                             <input type="checkbox" name="admin" value="1"> 管理员管理
-                        </label>　　　　　　　　　　　　　　　
-                        <label class="checkbox-inline">
-                            <input type="checkbox" name="card" value="1"> 打卡管理
                         </label>　　　　　　　　
                         <label class="checkbox-inline">
-                            <input type="checkbox" name="user" value="1"> 客户注册管理
+                            <input type="checkbox" name="card" value="1"> 签到管理
+                        </label>　　　　　　　　
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="user" value="1"> 邮件开户
                         </label>　　　　　　　　
                         <div class="modal-footer">
                             {{csrf_field()}}

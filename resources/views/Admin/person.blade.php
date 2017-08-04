@@ -89,7 +89,7 @@
                                         <input type="password" name="re_password" class="form-control" id="password" placeholder="">
                                     </div>
                                     <br/>
-                                </div>
+                                </div>　　　　　
                                 <div class="modal-footer">
                                     {{ csrf_field() }}
                                     <button type="submit" class="btn btn-default">确定</button>

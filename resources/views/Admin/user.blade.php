@@ -109,11 +109,11 @@
 														</select>
 												</div>
 												<div class="container col-lg-12">
-														<label for="exampleInputEmail1">用户名</label>
+														<label for="exampleInputEmail1">用户ID</label>
 														<input type="text" name="username" class="form-control" id="username" placeholder="">
 												</div>
 												<div class="container col-lg-12">
-														<label for="exampleInputEmail1">用户名称</label>
+														<label for="exampleInputEmail1">姓名</label>
 														<input type="text" name="nick" class="form-control" id="nick" placeholder="">
 												</div>
 												<br/>
