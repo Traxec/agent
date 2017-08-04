@@ -75,25 +75,25 @@
                         </div>
                       </div>
                       <tbody>
-                        <?php $a = 0 ?> @foreach ($package as $package)
+                        <?php $a = 0 ?> @foreach ($package as $packages)
                         <?php $a++ ?>
                         <tr>
                           <td>{{$a}}</td>
-                          <td>{{$package->title}}</td>
-                          <td>{{$package->nav}}</td>
-                          <td>{{$package->server}}</td>
-                          <td>{{$package->phone}}</td>
-                          <td>{{$package->website}}</td>
-                          <td>{{$package->email}}</td>
-                          <td>{{$package->address}}</td>
-                          <td>{{$package->company}}</td>
-                          <td><img width="50px" src="{{asset($package->img1)}}" /></td>
-                          <td><img width="50px" src="{{asset($package->img2)}}" /></td>
-                          <td><img width="50px" src="{{asset($package->img3)}}" /></td>
-                          <td>{{$package->time}}</td>
-                          <td>{{$package->state}}</td>
-                          <td>{{$package->number}}</td>
-                          <input type="hidden" name="id" value="{{$package->id}}">
+                          <td>{{$packages->title}}</td>
+                          <td>{{$packages->nav}}</td>
+                          <td>{{$packages->server}}</td>
+                          <td>{{$packages->phone}}</td>
+                          <td>{{$packages->website}}</td>
+                          <td>{{$packages->email}}</td>
+                          <td>{{$packages->address}}</td>
+                          <td>{{$packages->company}}</td>
+                          <td><img width="50px" src="{{asset($packages->img1)}}" /></td>
+                          <td><img width="50px" src="{{asset($packages->img2)}}" /></td>
+                          <td><img width="50px" src="{{asset($packages->img3)}}" /></td>
+                          <td>{{$packages->time}}</td>
+                          <td>{{$packages->state}}</td>
+                          <td>{{$packages->number}}</td>
+                          <input type="hidden" name="id" value="{{$packages->id}}">
                           <td>
                             <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
                           </td>
@@ -101,6 +101,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                    {{ $package->links() }}
                   </div>
                 </div>
               </div>

@@ -42,6 +42,8 @@
                                 <th>问题内容</th>
                                 <th>问题截图</th>
                                 <th>提交时间</th>
+                                <th>问题回复</th>
+                                <th>回复时间</th>
                               </tr>
                               <?php $a = 0 ?>
                               @foreach($order as $order)
@@ -54,6 +56,8 @@
                                 <td>{{$order->content}}</td>
                                 <td><img width="50px" src="{{asset($order->img)}}" /></td>
                                 <td>{{$order->time}}</td>
+                                <td>{{$order->recontent}}</td>
+                                <td>{{$order->retime}}</td>
                               </tr>
                               @endforeach
                             </thead>

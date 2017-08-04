@@ -6,60 +6,41 @@
 @endsection
 
 @section('content')
-<div id="wrapper">
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="col-md-offset-5">请详细写出您的问题</h1>
-                    </div>
-                    <div>
-                            <form>
-                              <div class="container">
-                                <label for="exampleInputEmail1">代理商信息</label>
-                                <input type="account-type" class="form-control" id="account-type" placeholder="">
-                              </div><br/>
-                              <div class="container">
-                                <label for="exampleInputEmail1">系统端口号</label>
-                                <input type="phone" class="form-control" id="phone" placeholder="">
-                              </div><br/>
-                              <div class="container">
-                                <label for="exampleInputEmail1">系统简称</label>
-                                <input type="mail" class="form-control" id="mail" placeholder="">
-                              </div><br/>
-                              <div class="container">
-                                <label>问题类型：</label>
-                                        <select class="select" name="adminRole" size="1">
-                                            <option value="0">超级管理员</option>
-                                            <option value="1">总编</option>
-                                            <option value="2">栏目主辑</option>
-                                            <option value="3">栏目编辑</option>
-                                        </select></span> 
-                              </div><br/>
-                              <div class="container">
-                                <label for="exampleInputEmail1">问题内容</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                              </div><br/>
-                              <div class="container">
-                                  <label for="exampleInputFile">上传图片</label>
-                                  <input type="file" id="picture">
-                                  <p class="help-block">请上传您的图片。</p>
-                                </div>
-
-                              <div class="col-md-offset-6">
-                                <button type="submit" class="btn btn-default">提交</button>　　　　　
-                              </div>
-                              <!-- Button trigger modal -->
-                            </form>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-
+<div id="page-wrapper">
+  <!-- <div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','admin_add.html','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div> -->
+  <div class="x_title">
+    <h2>工单记录 <small>查询工单记录发布信息</small></h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content col-lg-12">
+        <table class="table table-border table-bordered table-hover table-bg">
+            <thead>
+              <tr>
+                <th class="col-lg-1">序号</th>
+                <th class="col-lg-1">用户</th>
+                <th class="col-lg-1">系统端口号</th>
+                <th class="col-lg-1">系统简称</th>
+                <th class="col-lg-1">问题类型</th>
+                <th class="col-lg-1">问题内容</th>
+                <th class="col-lg-1">问题截图</th>
+                <th class="col-lg-1">提交时间</th>
+              </tr>
+              <?php $a = 0 ?>
+              @foreach($order as $order)
+              <?php $a++ ?>
+              <tr>
+                <td>{{$a}}</td>
+                <td>{{$order->port}}</td>
+                <td>{{$order->port}}</td>
+                <td>{{$order->system}}</td>
+                <td>{{$order->type}}</td>
+                <td>{{$order->content}}</td>
+                <td><img width="50px" src="{{asset($order->img)}}" /></td>
+                <td>{{$order->time}}</td>
+              </tr>
+              @endforeach
+            </thead>
+          </table>
+  </div>
 </div>
-
 @endsection

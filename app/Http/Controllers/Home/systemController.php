@@ -11,7 +11,7 @@ class systemController extends Controller
 {
     public function index()
     {
-      $system = DB::table('system')->where('aid',session('user_id'))->get();
+      $system = DB::table('system')->where('aid',session('user_id'))->paginate(15);
       return view('Home.system',['system'=>$system]);
     }
 

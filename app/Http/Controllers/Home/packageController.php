@@ -11,7 +11,7 @@ class packageController extends Controller
 {
     public function index()
     {
-      $package = DB::table('package')->where('aid',session('user_id'))->get();
+      $package = DB::table('package')->where('aid',session('user_id'))->paginate(15);
       return view('Home.package',['package'=>$package]);
     }
 

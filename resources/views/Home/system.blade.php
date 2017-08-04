@@ -84,27 +84,27 @@
                         </div>
                       </div>
                       <tbody>
-                        <?php $a = 0 ?> @foreach ($system as $system)
+                        <?php $a = 0 ?> @foreach ($system as $systems)
                         <?php $a++ ?>
                         <tr>
                           <td>{{$a}}</td>
-                          <td>{{$system->port}}</td>
-                          <td>{{$system->template}}</td>
-                          <td>{{$system->title}}</td>
-                          <td>{{$system->nav}}</td>
-                          <td>{{$system->server}}</td>
-                          <td>{{$system->phone}}</td>
-                          <td>{{$system->website}}</td>
-                          <td>{{$system->email}}</td>
-                          <td>{{$system->address}}</td>
-                          <td>{{$system->company}}</td>
-                          <td><img width="50px" src="{{asset($system->img1)}}" /></td>
-                          <td><img width="50px" src="{{asset($system->img2)}}" /></td>
-                          <td><img width="50px" src="{{asset($system->img3)}}" /></td>
-                          <td>{{$system->time}}</td>
-                          <td>{{$system->state}}</td>
-                          <td>{{$system->number}}</td>
-                          <input type="hidden" name="id" value="{{$system->id}}">
+                          <td>{{$systems->port}}</td>
+                          <td>{{$systems->template}}</td>
+                          <td>{{$systems->title}}</td>
+                          <td>{{$systems->nav}}</td>
+                          <td>{{$systems->server}}</td>
+                          <td>{{$systems->phone}}</td>
+                          <td>{{$systems->website}}</td>
+                          <td>{{$systems->email}}</td>
+                          <td>{{$systems->address}}</td>
+                          <td>{{$systems->company}}</td>
+                          <td><img width="50px" src="{{asset($systems->img1)}}" /></td>
+                          <td><img width="50px" src="{{asset($systems->img2)}}" /></td>
+                          <td><img width="50px" src="{{asset($systems->img3)}}" /></td>
+                          <td>{{$systems->time}}</td>
+                          <td>{{$systems->state}}</td>
+                          <td>{{$systems->number}}</td>
+                          <input type="hidden" name="id" value="{{$systems->id}}">
                           <td>
                             <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
                           </td>
@@ -112,6 +112,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                      {{ $system->links() }}
                   </div>
                 </div>
               </div>
