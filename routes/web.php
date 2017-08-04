@@ -89,6 +89,10 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/user/edit','admin\userController@edit');//普通用户修改
     route::post('/admin/user/update','admin\userController@update');//普通用户修改
     route::post('/admin/user/delete','admin\userController@delete');//删除用户
+    route::get('/admin/system/update','admin\systemController@update');//系统修改
+    route::get('/admin/system/edit','admin\systemController@edit');//系统修改
+    route::get('/admin/package/update','admin\packageController@update');//系统修改
+    route::get('/admin/package/edit','admin\packageController@edit');//系统修改
     //后台xu路由
 
     route::get('/admin/work','admin\workController@index');//工单管理页面xu
@@ -99,11 +103,14 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/agent','admin\agentController@index');//代理商列表页面
     route::get('/admin/agent_audit','admin\agent_auditController@index');//代理商列表页面
     route::get('/admin/work','admin\workController@index');//工单管理页面
+    route::post('/admin/work/update','admin\workController@update');//工单回复页面
     route::get('/admin/capital','admin\capitalController@index');//资金管理页面
     route::get('/admin/admin','admin\adminController@index');//管理员页面
-    route::get('/admin/system','admin\systemController@index');//系统管理页面
+    route::get('/admin/sys','admin\sysController@index');//系统管理页面
     route::get('/admin/sign','admin\signController@index');//签到管理页面
     route::get('/admin/sign/sign','admin\signController@sign');//签到页面
+    route::get('/admin/system','admin\systemController@index');//系统管理
+    route::get('/admin/package','admin\packageController@index');//安装包管理
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui

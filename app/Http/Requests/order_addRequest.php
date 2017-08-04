@@ -35,8 +35,8 @@ class order_addRequest extends FormRequest
     public function messages()
     {
       return [
-        'port.required'=>'标题不能为空',
-        'port.digits_between'=>'标题为1-8位长度',
+        'port.required'=>'端口号不能为空',
+        'port.digits_between'=>'端口号为1-8位长度数字',
         'system.required'=>'系统不能为空',
         'system.max'=>'系统名称不能超过50位长度',
         'type.required'=>'问题类型不能为空',

@@ -95,7 +95,15 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{url('/admin/work')}}" data-title="工单管理" href="javascript:;">工单管理</a></li>
-					<li><a data-href="{{url('/admin/work')}}" data-title="工单页面" href="javascript:;">工单页面</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 业务处理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="{{url('/admin/system')}}" data-title="系统管理" href="javascript:;">系统管理</a></li>
+					<li><a data-href="{{url('/admin/package')}}" data-title="安装包管理" href="javascript:;">安装包管理</a></li>
 				</ul>
 			</dd>
 		</dl>

@@ -3,35 +3,34 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
-use DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\system_addRequest;
+use App\Http\Requests\package_addRequest;
+use DB;
 
-class systemController extends Controller
+class packageController extends Controller
 {
+  //安装包列表
     public function index()
     {
-        $system = DB::table('system')->paginate(10);
-        return view('Admin.system', ['system'=>$system]);
+      $package = DB::table('package')->where('aid',session('user_id'))->paginate(15);
+      return view('admin.package',['package'=>$package]);
     }
 
 
-    public function edit(Request $request)
-    {
-        $edit = DB::table('system')->where('id', $request->input('id'))->first();
-        $json = json_encode($edit);
-        return $json;
+    public function edit(Request $request){
+      $edit = DB::table('package')->where('id',$request->input('id'))->first();
+      $json = json_encode($edit);
+      return $json;
     }
 
-    public function update(Request $request)
-    {
-        $update = DB::table('system')->where('id', $request->input('id'))->first();
-        if ($update->state == 0) {
-            $update = DB::table('system')->where('id', $request->input('id'))->update(['state'=>1]);
-            return back()->with('success', '处理成功');
-        } elseif ($update->state == 1) {
-            return back()->with('error', '不能重复处理该信息');
-        }
+    public function update(Request $request){
+      $update = DB::table('package')->where('id',$request->input('id'))->first();
+      if($update->state == 0){
+        $update = DB::table('package')->where('id',$request->input('id'))->update(['state'=>1]);
+        return back()->with('success','处理成功');
+      }else if($update->state == 1){
+        return back()->with('error','不能重复处理该信息');
+      }
     }
 
     //上传图片

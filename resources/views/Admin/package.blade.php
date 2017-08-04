@@ -1,11 +1,5 @@
-@extends('Layout.admin')
-
-@section('title','我的系统')
-
-@section('hidden')
-@endsection
-
-@section('content')
+@extends('Layout.admin') @section('title','我的安装包') @section('hidden') @endsection @section('content')
+<div class="right_col" role="main">
         @if(session('success'))
             <div class="alert alert-success alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
@@ -26,7 +20,6 @@
                 </ul>
             </div>
         @endif
-<div class="right_col" role="main">
   <div class="">
     <div class="page-title">
       <div class="title_left">
@@ -66,8 +59,6 @@
                       <thead>
                         <tr>
                           <th>序号</th>
-                          <th>端口</th>
-                          <th>模板</th>
                           <th>标题</th>
                           <th>导航</th>
                           <th>系统</th>
@@ -104,35 +95,32 @@
                         </div>
                       </div>
                       <tbody>
-                        <?php $a = 0 ?> @foreach ($system as $systems)
+                        <?php $a = 0 ?> @foreach ($package as $packages)
                         <?php $a++ ?>
                         <tr>
                           <td>{{$a}}</td>
-                          <td>{{$systems->port}}</td>
-                          <td>{{$systems->template}}</td>
-                          <td>{{$systems->title}}</td>
-                          <td>{{$systems->nav}}</td>
-                          <td>{{$systems->server}}</td>
-                          <td>{{$systems->phone}}</td>
-                          <td>{{$systems->website}}</td>
-                          <td>{{$systems->email}}</td>
-                          <td>{{$systems->address}}</td>
-                          <td>{{$systems->company}}</td>
-                          <td><img width="50px" src="{{asset($systems->img1)}}" /></td>
-                          <td><img width="50px" src="{{asset($systems->img2)}}" /></td>
-                          <td><img width="50px" src="{{asset($systems->img3)}}" /></td>
-                          <td>{{$systems->time}}</td>
-                          <td>{!! $systems->state==1?'<span class="label label-success radius">已处理</span>':'<span class="label label-error radius">未处理</span>' !!}</td>
-                          <td>{{$systems->number}}</td>
-                          <input type="hidden" name="id" value="{{$systems->id}}">
+                          <td>{{$packages->title}}</td>
+                          <td>{{$packages->nav}}</td>
+                          <td>{{$packages->server}}</td>
+                          <td>{{$packages->phone}}</td>
+                          <td>{{$packages->website}}</td>
+                          <td>{{$packages->email}}</td>
+                          <td>{{$packages->address}}</td>
+                          <td>{{$packages->company}}</td>
+                          <td><img width="50px" src="{{asset($packages->img1)}}" /></td>
+                          <td><img width="50px" src="{{asset($packages->img2)}}" /></td>
+                          <td><img width="50px" src="{{asset($packages->img3)}}" /></td>
+                          <td>{{$packages->time}}</td>
+                          <td>{!! $packages->state==1?'<span class="label label-success radius">已处理</span>':'<span class="label label-error radius">未处理</span>' !!}</td>
+                          <td>{{$packages->number}}</td>
                           <td>
-                            <a href="{{url('admin/system/update').'?id='.$systems->id}}" type="button" class="btn btn-primary btn-sm update" data-toggle="modal">处理</a>
+                            <a href="{{url('admin/package/update').'?id='.$packages->id}}" type="button" class="btn btn-primary btn-sm update" data-toggle="modal">处理</a>
                           </td>
                         </tr>
                         @endforeach
                       </tbody>
                     </table>
-                      {{ $system->links() }}
+                    {{ $package->links() }}
                   </div>
                 </div>
               </div>
@@ -142,4 +130,5 @@
       </div>
     </div>
   </div>
-        @endsection
+
+  @endsection
