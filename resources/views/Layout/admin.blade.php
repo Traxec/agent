@@ -119,7 +119,7 @@
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 模板管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="member-list.html" data-title="模板管理" href="javascript:;">模板管理</a></li>
+					<li><a data-href="{{url('/admin/template')}}" data-title="模板管理" href="javascript:;">模板管理</a></li>
 				</ul>
 			</dd>
 		</dl>

@@ -11,8 +11,8 @@ class systemController extends Controller
 {
     public function index()
     {
-      $system = DB::table('system')->where('aid',session('user_id'))->paginate(15);
-      return view('Home.system',['system'=>$system]);
+        $system = DB::table('system')->where('aid', session('user_id'))->paginate(15);
+        return view('Home.system', ['system'=>$system]);
     }
 
     public function add()
@@ -22,55 +22,90 @@ class systemController extends Controller
 
     public function insert(system_addRequest $request)
     {
-        // dd($request->all());
         date_default_timezone_set('Asia/Shanghai');
-        $img1=$this->upload($request, 'img1');
-        $img2=$this->upload($request, 'img2');
-        $img3=$this->upload($request, 'img3');
+        $sel = DB::table('pay')->where('aid', session('user_id'))->first();
+        if ($sel) {
+            if ($sel->pay>$request->input('price')) {
+                DB::beginTransaction(); //开启事务
+                $a = DB::table('pay')->where('aid', session('user_id'))->decrement('pay', $request->input('price'), ['paydate'=>date('Y-m-d H:i:s')]);
+                $b = DB::table('capital')->insert([
+                  'aid'=>session('user_id'),
+                  'money'=>-$request->input('price'),
+                  'used'=>'开设系统',
+                  'date'=>date('Y-m-d H:i:s'),
+                ]);
+                $img1=$this->upload($request, 'img1');
+                $img2=$this->upload($request, 'img2');
+                $img3=$this->upload($request, 'img3');
 
-        $system = DB::table('system')->insert([
-        'aid'=>session('user_id'),
-        'port'=>$request->input('port'),
-        'template'=>$request->input('template'),
-        'title'=>$request->input('title'),
-        'nav'=>$request->input('nav'),
-        'server'=>$request->input('server'),
-        'phone'=>$request->input('phone'),
-        'website'=>$request->input('website'),
-        'email'=>$request->input('email'),
-        'address'=>$request->input('address'),
-        'company'=>$request->input('company'),
-        'img1'=>$img1,
-        'img2'=>$img2,
-        'img3'=>$img3,
-        'state'=>0,
-        'time'=>date('Y-m-d H:i:s'),
-        'number'=>'0',
-      ]);
+                $system = DB::table('system')->insertGetId([
+                  'aid'=>session('user_id'),
+                  'port'=>$request->input('port'),
+                  'template'=>$request->input('template'),
+                  'title'=>$request->input('title'),
+                  'nav'=>$request->input('nav'),
+                  'server'=>$request->input('server'),
+                  'phone'=>$request->input('phone'),
+                  'website'=>$request->input('website'),
+                  'email'=>$request->input('email'),
+                  'address'=>$request->input('address'),
+                  'company'=>$request->input('company'),
+                  'img1'=>$img1,
+                  'img2'=>$img2,
+                  'img3'=>$img3,
+                  'state'=>0,
+                  'time'=>date('Y-m-d H:i:s'),
+                  'number'=>'0',
+                ]);
 
-        if ($system) {
-            return back()->with('success', '提交成功');
+                $c = DB::table('spend')->insert([
+                  'sid' => $system,
+                  'pay' => $request->input('price'),
+                  'day'=>$request->input('time'),
+                  'startdate'=>date('Y-m-d H:i:s'),
+                  'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$request->input('time').' day')),
+                ]);
+
+
+                if ($a && $b && $system && $c) {
+                    DB::commit();
+                    return back()->with('success', '开设成功');
+                } else {
+                    DB::rollback();
+                    return back()->with('error', '开设失败');
+                }
+            } else {
+                return back()->with('error', '账户余额不足，请先充值');
+            }
         } else {
-            return back()->with('error', '提交失败');
+            return back()->with('error', '账户余额不足，请先充值');
         }
     }
 
-    public function edit(Request $request){
-      $edit = DB::table('system')->where('id',$request->input('id'))->first();
-      $json = json_encode($edit);
-      return $json;
+    public function edit(Request $request)
+    {
+        $edit = DB::table('system')->where('id', $request->input('id'))->first();
+        $json = json_encode($edit);
+        return $json;
     }
 
-    public function update(system_addRequest $request){
+    public function update(system_addRequest $request)
+    {
         // dd($request->all());
         date_default_timezone_set('Asia/Shanghai');
         $img1=$this->upload($request, 'img1');
         $img2=$this->upload($request, 'img2');
         $img3=$this->upload($request, 'img3');
         $data = array();
-        if($img1){ $data['img1'] = $img1; }
-        if($img2){ $data['img2'] = $img2; }
-        if($img3){ $data['img3'] = $img3; }
+        if ($img1) {
+            $data['img1'] = $img1;
+        }
+        if ($img2) {
+            $data['img2'] = $img2;
+        }
+        if ($img3) {
+            $data['img3'] = $img3;
+        }
         $data['title']=$request->input('title');
         $data['nav']=$request->input('nav');
         $data['server']=$request->input('server');
@@ -81,15 +116,14 @@ class systemController extends Controller
         $data['company']=$request->input('company');
         $data['state']=0;
         $data['time']=date('Y-m-d H:i:s');
-        $system = DB::table('system')->where('id',$request->input('id'))->increment('number',1,$data);
+        $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
 
         if ($system) {
             return back()->with('success', '修改成功');
         } else {
             return back()->with('error', '提交失败');
         }
-
-      }
+    }
 
     //上传图片
     public function Upload($request, $name)

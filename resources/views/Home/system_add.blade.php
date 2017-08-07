@@ -33,14 +33,7 @@
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <select class="select2_multiple form-control" name="template" multiple="multiple">
-                    <option value="Choose option">Choose option</option>
-                    <option value="Option one">Option one</option>
-                    <option value="Option two">Option two</option>
-                    <option value="Option three">Option three</option>
-                    <option value="Option four">Option four</option>
-                    <option value="Option five">Option five</option>
-                    <option value="Option six">Option six</option>
+                  <select class="select2_multiple form-control" id="sel" name="template" multiple="multiple">
                   </select>
                 </div>
               </div>
@@ -91,6 +84,21 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="company" placeholder="company">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" readonly class="form-control" name="price" placeholder="company">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <label for="one">30天</label><input id="one" type="radio" name="time" value="30">　　
+                  <label for="three">90天</label><input id="three" type="radio" name="time" value="90">　　
+                  <label for="six">180天</label><input id="six" type="radio" name="time" value="180">　　
+                  <label for="twelve">360天</label><input id="twelve" type="radio" name="time" value="360">　　
                 </div>
               </div>
               <div class="form-group">
@@ -155,4 +163,25 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$.ajax({
+  type: 'POST',
+  url: '{{action('admin\templateController@show')}}',
+  dataType: 'json',
+  data: {
+    _token: "{{csrf_token()}}",
+  },
+  success: function (data) {
+    $.each(data,function(name,value){
+      $('#sel').append("<option value='"+value.title+"' price='"+value.price+"'>"+value.title+"</option>");
+    })
+    $('#sel').change(function(){
+      $('input[name="price"]').val($('#sel').find("option:selected").attr("price"))
+    })
+  },
+  error: function (data) {
+    alert('系统错误')
+  },
+});
+</script>
 @endsection

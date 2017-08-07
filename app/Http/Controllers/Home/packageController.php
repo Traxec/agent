@@ -9,11 +9,11 @@ use DB;
 
 class packageController extends Controller
 {
-  //安装包列表
+    //安装包列表
     public function index()
     {
-      $package = DB::table('package')->where('aid',session('user_id'))->paginate(15);
-      return view('Home.package',['package'=>$package]);
+        $package = DB::table('package')->where('aid', session('user_id'))->paginate(15);
+        return view('Home.package', ['package'=>$package]);
     }
 
     public function add()
@@ -23,7 +23,6 @@ class packageController extends Controller
 
     public function insert(package_addRequest $request)
     {
-        // dd($request->all());
         date_default_timezone_set('Asia/Shanghai');
         $img1=$this->upload($request, 'img1');
         $img2=$this->upload($request, 'img2');
@@ -54,41 +53,52 @@ class packageController extends Controller
         }
     }
 
-    public function edit(Request $request){
-      $edit = DB::table('package')->where('id',$request->input('id'))->first();
-      $json = json_encode($edit);
-      return $json;
+    public function edit(Request $request)
+    {
+        $edit = DB::table('package')->where('id', $request->input('id'))->first();
+        $json = json_encode($edit);
+        return $json;
     }
 
-    public function update(package_addRequest $request){
-        // dd($request->all());
-        date_default_timezone_set('Asia/Shanghai');
-        $img1=$this->upload($request, 'img1');
-        $img2=$this->upload($request, 'img2');
-        $img3=$this->upload($request, 'img3');
-        $data = array();
-        if($img1){ $data['img1'] = $img1; }
-        if($img2){ $data['img2'] = $img2; }
-        if($img3){ $data['img3'] = $img3; }
-        $data['title']=$request->input('title');
-        $data['nav']=$request->input('nav');
-        $data['server']=$request->input('server');
-        $data['phone']=$request->input('phone');
-        $data['website']=$request->input('website');
-        $data['email']=$request->input('email');
-        $data['address']=$request->input('address');
-        $data['company']=$request->input('company');
-        $data['state']=0;
-        $data['time']=date('Y-m-d H:i:s');
-        $package = DB::table('package')->where('id',$request->input('id'))->increment('number',1,$data);
-
+    public function update(package_addRequest $request)
+    {
+      date_default_timezone_set('Asia/Shanghai');
+      $img1=$this->upload($request, 'img1');
+      $img2=$this->upload($request, 'img2');
+      $img3=$this->upload($request, 'img3');
+      $data = array();
+      if ($img1) {
+        $data['img1'] = $img1;
+      }
+      if ($img2) {
+        $data['img2'] = $img2;
+      }
+      if ($img3) {
+        $data['img3'] = $img3;
+      }
+      $data['title']=$request->input('title');
+      $data['nav']=$request->input('nav');
+      $data['server']=$request->input('server');
+      $data['phone']=$request->input('phone');
+      $data['website']=$request->input('website');
+      $data['email']=$request->input('email');
+      $data['address']=$request->input('address');
+      $data['company']=$request->input('company');
+      $data['state']=0;
+      $data['time']=date('Y-m-d H:i:s');
+      $sel = DB::table('package')->where('id',$request->input('id'))->first();
+      if($sel->num < 3){
+        $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
         if ($package) {
-            return back()->with('success', '修改成功');
+          return back()->with('success', '修改成功');
         } else {
-            return back()->with('error', '提交失败');
+          return back()->with('error', '提交失败');
         }
+      }else{
 
       }
+
+    }
 
     //上传图片
     public function Upload($request, $name)
