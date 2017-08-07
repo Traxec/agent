@@ -62,42 +62,64 @@ class packageController extends Controller
 
     public function update(package_addRequest $request)
     {
-      date_default_timezone_set('Asia/Shanghai');
-      $img1=$this->upload($request, 'img1');
-      $img2=$this->upload($request, 'img2');
-      $img3=$this->upload($request, 'img3');
-      $data = array();
-      if ($img1) {
-        $data['img1'] = $img1;
-      }
-      if ($img2) {
-        $data['img2'] = $img2;
-      }
-      if ($img3) {
-        $data['img3'] = $img3;
-      }
-      $data['title']=$request->input('title');
-      $data['nav']=$request->input('nav');
-      $data['server']=$request->input('server');
-      $data['phone']=$request->input('phone');
-      $data['website']=$request->input('website');
-      $data['email']=$request->input('email');
-      $data['address']=$request->input('address');
-      $data['company']=$request->input('company');
-      $data['state']=0;
-      $data['time']=date('Y-m-d H:i:s');
-      $sel = DB::table('package')->where('id',$request->input('id'))->first();
-      if($sel->num < 3){
-        $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
-        if ($package) {
-          return back()->with('success', '修改成功');
-        } else {
-          return back()->with('error', '提交失败');
+        date_default_timezone_set('Asia/Shanghai');
+        $img1=$this->upload($request, 'img1');
+        $img2=$this->upload($request, 'img2');
+        $img3=$this->upload($request, 'img3');
+        $data = array();
+        if ($img1) {
+            $data['img1'] = $img1;
         }
-      }else{
+        if ($img2) {
+            $data['img2'] = $img2;
+        }
+        if ($img3) {
+            $data['img3'] = $img3;
+        }
+        $data['title']=$request->input('title');
+        $data['nav']=$request->input('nav');
+        $data['server']=$request->input('server');
+        $data['phone']=$request->input('phone');
+        $data['website']=$request->input('website');
+        $data['email']=$request->input('email');
+        $data['address']=$request->input('address');
+        $data['company']=$request->input('company');
+        $data['state']=0;
+        $data['time']=date('Y-m-d H:i:s');
+        $sel = DB::table('package')->where('id', $request->input('id'))->first();
+        if ($sel->number < 3) {
+            $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
+            if ($package) {
+                return back()->with('success', '修改成功');
+            } else {
+                return back()->with('error', '提交失败');
+            }
+        } else {
+            $price = 10000;
+            $pay= DB::table('pay')->where('aid', session('user_id'))->first();
+            if ($pay && $pay->pay>$price) {
+              DB::beginTransaction(); //开启事务
+              $a = DB::table('pay')->where('aid', session('user_id'))->decrement('pay', $price, ['paydate'=>date('Y-m-d H:i:s')]);
+              $b = DB::table('capital')->insert([
+                'aid'=>session('user_id'),
+                'money'=>-$price,
+                'used'=>'修改安装包',
+                'date'=>date('Y-m-d H:i:s'),
+              ]);
+              $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
 
-      }
+              if ($a && $b && $package) {
+                DB::commit();
+                return back()->with('success', '修改成功');
+              } else {
+                DB::rollback();
+                return back()->with('error', '修改失败');
+              }
 
+            } else {
+                return back()->with('error', '您的余额不足，请先充值');
+            }
+        }
     }
 
     //上传图片

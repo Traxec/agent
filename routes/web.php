@@ -32,6 +32,7 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::post('/home/system/insert', 'home\systemController@insert');//执行生成系统
     route::post('/home/system/edit', 'home\systemController@edit');//修改系统
     route::post('/home/system/update', 'home\systemController@update');//执行修改系统
+    route::post('/home/system/renew', 'home\systemController@renew');//执行修改系统
     route::get('/home/package', 'home\packageController@index');//安装包列表
     route::get('/home/package/add', 'home\packageController@add');//生成安装包
     route::post('/home/package/insert', 'home\packageController@insert');//执行生成安装包

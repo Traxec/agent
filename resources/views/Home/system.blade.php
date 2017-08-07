@@ -107,6 +107,7 @@
                           <input type="hidden" name="id" value="{{$systems->id}}">
                           <td>
                             <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
+                            <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal4">续费</button>
                           </td>
                         </tr>
                         @endforeach
@@ -252,6 +253,35 @@
             </div>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="modal fade" style="z-index='9999'" id="demoModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content show">
+          <form class="form-horizontal form-label-left" action="{{action('home\systemController@renew')}}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <div class="control-label col-md-12" style="text-align:center">系统价格(1个月等于30天)</div>
+              <div class="col-md-12">　</div>
+              <div class="col-md-offset-2">
+                <label for="one">一个月</label><input id="one" type="radio" name="time" value="30">　　
+                <label for="three">三个月</label><input id="three" type="radio" name="time" value="90">　　
+                <label for="six">六个月</label><input id="six" type="radio" name="time" value="180">　　
+                <label for="twelve">一年</label><input id="twelve" type="radio" name="time" value="360">　　
+              </div>
+            </div>
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-success">提交</button>
+                <button type="reset" class="btn btn-primary">重置</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   <script type="text/javascript">

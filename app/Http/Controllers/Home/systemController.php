@@ -125,6 +125,11 @@ class systemController extends Controller
         }
     }
 
+    public function renew(Request $request)
+    {
+      dd($request->all());
+    }
+
     //上传图片
     public function Upload($request, $name)
     {

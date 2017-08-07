@@ -32,9 +32,6 @@
                       </div>
                     </div>
                   </div>
-
-
-
                     <table id="datatable-keytable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -256,9 +253,7 @@
       error: function() {
         alert('系统错误，请联系管理员')
       },
-
     })
   })
   </script>
-
   @endsection
