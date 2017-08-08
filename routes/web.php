@@ -60,6 +60,8 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::post('/home/register_email/send', 'home\register_emailController@send');//前台发邮件
     route::get('/home/my_users', 'home\my_usersController@index');//前台我的用户列表
     route::get('/home/exit', 'home\exit_signController@exit');//前台我的用户列表
+    route::post('/home/template', 'home\templateController@show');//模板展示
+    route::post('/home/template/reshow', 'home\templateController@reshow');//模板续费
 });
 
 

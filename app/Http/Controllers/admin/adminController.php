@@ -53,7 +53,7 @@ class adminController extends Controller
                 'phone'    => $request->input('phone'),
                 'email'    => $request->input('email'),
                 'password' => hash::make('123456'),
-                'key'      => '0,0',
+                'key'      => '0,0,0',
             ]
         );
         if ($admin) {

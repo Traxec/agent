@@ -15,23 +15,30 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="col-md-offset-1 col-lg-8">
-                            @if(session('success'))
-                                <div class="alert alert-success alert-dismissable">
-                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×
-                                    </button>
-                                    {{session('success')}}
-                                </div>
-                            @elseif(session('error'))
-                                <div class="alert alert-danger alert-dismissable">
-                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×
-                                    </button>
-                                    {{session('error')}}
-                                </div>
-                            @endif
+  @if(session('success'))
+  <div class="alert alert-success alert-dismissable">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    {{session('success')}}
+  </div>
+  @elseif(session('error'))
+  <div class="alert alert-danger alert-dismissable">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    {{session('error')}}
+  </div>
+  @endif
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
                             <form action="{{action('admin\personController@update')}}" method="post">
                                 <input type="hidden" name="id" value="{{$id}}">
                                 <div class="container">
-                                    <label for="exampleInputEmail1">昵称</label>
+                                    <label for="exampleInputEmail1">姓名</label>
                                     <input type="account-type" class="form-control" name="nick" id="account-type"
                                            value="{{$nick}}">
                                 </div>

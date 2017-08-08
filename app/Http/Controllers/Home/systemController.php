@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\system_addRequest;
+use App\Http\Requests\resystemRequest;
 
 class systemController extends Controller
 {
@@ -125,9 +126,46 @@ class systemController extends Controller
         }
     }
 
-    public function renew(Request $request)
+    public function renew(resystemRequest $request)
     {
-      dd($request->all());
+      // dd($request->all());
+      date_default_timezone_set('Asia/Shanghai');
+      $sel = DB::table('pay')->where('aid', session('user_id'))->first();
+      if ($sel) {
+        if ($sel->pay>$request->input('price')) {
+          DB::beginTransaction(); //开启事务
+          $a = DB::table('pay')->where('aid', session('user_id'))->decrement('pay', $request->input('price'), ['paydate'=>date('Y-m-d H:i:s')]);
+          $b = DB::table('capital')->insert([
+            'aid'=>session('user_id'),
+            'money'=>-$request->input('price'),
+            'used'=>'系统续费',
+            'date'=>date('Y-m-d H:i:s'),
+          ]);
+
+          $sel_c = DB::table('spend')->where('sid',$request->input('id'))->first();
+          // dd($sel_c);
+          $retime = $request->input('time')*30;
+          $c = DB::table('spend')->where('sid',$request->input('id'))->increment('day',$request->input('time'),[
+            'pay' => $sel_c->pay+$request->input('price'),
+            'day'=>$sel_c->day+$request->input('time')*30,
+            'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$retime.' day', strtotime($sel_c->enddate))),
+          ]);
+
+
+          if ($a && $b && $c) {
+            DB::commit();
+            return back()->with('success', '续费成功');
+          } else {
+            DB::rollback();
+            return back()->with('error', '续费失败');
+          }
+        } else {
+          return back()->with('error', '账户余额不足，请先充值');
+        }
+      } else {
+        return back()->with('error', '账户余额不足，请先充值');
+      }
+
     }
 
     //上传图片

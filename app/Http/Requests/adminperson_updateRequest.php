@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class person_updateRequest extends FormRequest
+class adminperson_updateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class person_updateRequest extends FormRequest
      public function rules()
    {
        return [
-         'nick'        =>  'required|alpha_num|between:4,8',
+         'nick'        =>  'required|alpha_num|between:1,4',
          'phone'       =>  'regex:/^1[34578][0-9]{9}$/',
-         'email'       =>  'email', 
+         'email'       =>  'email',
        ];
    }
 
@@ -38,9 +38,9 @@ class person_updateRequest extends FormRequest
     */
    public function messages(){
        return [
-           'nick.required'         =>  '客户名称不能为空',
-           'nick.alpha_num'        =>  '客户名称必须是中文或数字或字母，请重新输入',
-           'nick.between'          =>  '请输入4~8位的用户名',
+           'nick.required'         =>  '姓名不能为空',
+           'nick.alpha_num'        =>  '姓名格式不对请重新输入',
+           'nick.between'          =>  '请输入1~4位的姓名',
            'phone.regex'           =>  '手机号码格式不正确',
            'email.email'           =>  '邮箱格式不正确',
        ];

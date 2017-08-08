@@ -10,7 +10,7 @@ class roleController extends Controller
 {
     public function show(Request $request)
     {
-      dd($request->all());
+      // dd($request->all());
         $user = DB::table('users')->where('id',$request->input('id'))->first();
         $key= explode(',',$user->keys);
         $data['agent'] = $key[0];

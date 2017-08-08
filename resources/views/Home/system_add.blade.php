@@ -87,18 +87,18 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">购买时间</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" readonly class="form-control" name="price" placeholder="company">
+                  <label for="one">1个月</label><input id="one" checked type="radio" name="time" value="1">　　
+                  <label for="three">3个月(98折)</label><input id="three" type="radio" name="time" value="2.94">　　
+                  <label for="six">6个月(95折)</label><input id="six" type="radio" name="time" value="5.7">　　
+                  <label for="twelve">1年(9折)</label><input id="twelve" type="radio" name="time" value="10.8">　　
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格(/月)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <label for="one">30天</label><input id="one" type="radio" name="time" value="30">　　
-                  <label for="three">90天</label><input id="three" type="radio" name="time" value="90">　　
-                  <label for="six">180天</label><input id="six" type="radio" name="time" value="180">　　
-                  <label for="twelve">360天</label><input id="twelve" type="radio" name="time" value="360">　　
+                  <input type="text" readonly class="form-control" name="price" placeholder="company">
                 </div>
               </div>
               <div class="form-group">
@@ -166,7 +166,7 @@
 <script type="text/javascript">
 $.ajax({
   type: 'POST',
-  url: '{{action('admin\templateController@show')}}',
+  url: '{{action('home\templateController@show')}}',
   dataType: 'json',
   data: {
     _token: "{{csrf_token()}}",
@@ -176,7 +176,10 @@ $.ajax({
       $('#sel').append("<option value='"+value.title+"' price='"+value.price+"'>"+value.title+"</option>");
     })
     $('#sel').change(function(){
-      $('input[name="price"]').val($('#sel').find("option:selected").attr("price"))
+      $('input[name="price"]').val(Number($('#sel').find("option:selected").attr("price")*$("input[type='radio']:checked").val()).toFixed(2))
+    })
+    $('input[name="time"]').change(function(){
+      $('input[name="price"]').val(Number($('#sel').find("option:selected").attr("price")*$("input[type='radio']:checked").val()).toFixed(2))
     })
   },
   error: function (data) {

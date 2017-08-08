@@ -105,9 +105,10 @@
                           <td>{{$systems->state}}</td>
                           <td>{{$systems->number}}</td>
                           <input type="hidden" name="id" value="{{$systems->id}}">
+                          <input type="hidden" name="template" value="{{$systems->template}}">
                           <td>
                             <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
-                            <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal4">续费</button>
+                            <button type="button" class="btn btn-primary btn-sm renew" data-toggle="modal" data-target="#demoModal4">续费</button>
                           </td>
                         </tr>
                         @endforeach
@@ -266,10 +267,18 @@
               <div class="control-label col-md-12" style="text-align:center">系统价格(1个月等于30天)</div>
               <div class="col-md-12">　</div>
               <div class="col-md-offset-2">
-                <label for="one">一个月</label><input id="one" type="radio" name="time" value="30">　　
-                <label for="three">三个月</label><input id="three" type="radio" name="time" value="90">　　
-                <label for="six">六个月</label><input id="six" type="radio" name="time" value="180">　　
-                <label for="twelve">一年</label><input id="twelve" type="radio" name="time" value="360">　　
+                <label for="one">一个月</label><input id="one" type="radio" name="time" value="1">　　
+                <label for="three">三个月</label><input id="three" type="radio" name="time" value="3">　　
+                <label for="six">六个月</label><input id="six" type="radio" name="time" value="6">　　
+                <label for="twelve">一年</label><input id="twelve" type="radio" name="time" value="12">　　
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格(/月)</label>
+              <div class="col-md-9 col-sm-9 col-xs-12" id="reshow">
+                <input type="text" readonly class="form-control" name="price" placeholder="company">
+                <input type="hidden" readonly class="form-control" name="id" placeholder="company">
+                <input type="hidden" readonly class="form-control" name="template" placeholder="company">
               </div>
             </div>
             <div class="ln_solid"></div>
@@ -323,5 +332,32 @@
 
     })
   })
+
+  $('.renew').click(function(){
+    var id = $(this).parent().parent().find("input[name='id']").val();
+    var template = $(this).parent().parent().find("input[name='template']").val();
+    $('#reshow').find('input[name="id"]').val(id)
+    $('#reshow').find('input[name="template"]').val(template)
+
+    $.ajax({
+      type: 'POST',
+      url: '{{action('home\templateController@reshow')}}',
+      dataType: 'json',
+      data: {
+        template:template,
+        id:id,
+        _token: "{{csrf_token()}}",
+      },
+      success: function (data) {
+        $('input[name="time"]').change(function(){
+          $('input[name="price"]').val(Number(data.price*$("input[type='radio']:checked").val()).toFixed(2))
+        })
+      },
+      error: function (data) {
+        alert('系统错误')
+      },
+    });
+  })
+
   </script>
         @endsection

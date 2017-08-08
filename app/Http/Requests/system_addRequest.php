@@ -24,7 +24,8 @@ class system_addRequest extends FormRequest
     public function rules()
     {
         return [
-          'port'=>'required|digits_between:1,8', 'template'=>'required',
+          'port'=>'required|digits_between:1,8',
+          'template'=>'required',
           'title'=>'required|max:8',
           'nav'=>'required|max:50',
           'server'=>'required|max:50',

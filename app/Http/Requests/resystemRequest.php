@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class templateRequest extends FormRequest
+class resystemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,19 +24,14 @@ class templateRequest extends FormRequest
     public function rules()
     {
         return [
-          'price'=>'required|digits_between:1,8',
-          'title'=>'required|max:50|unique:template',
+          'price'=>'required',
         ];
     }
 
     public function messages()
     {
       return [
-        'price.required'=>'价格不能为空',
-        'price.digits_between'=>'价格为1-8位长度数字',
-        'title.required'=>'模板名不能为空',
-        'title.max'=>'模板名名称不能超过50位长度',
-        'title.unique'=>'模板名不能重复',
+        'price.required'=>'请选择续费时间',
       ];
     }
 }

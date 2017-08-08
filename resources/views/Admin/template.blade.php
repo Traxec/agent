@@ -39,7 +39,7 @@
             <tr class="text-c">
                 <th width="40">模板编号</th>
                 <th width="40">模板名称</th>
-                <th width="40">模板价格</th>
+                <th width="40">模板价格(/月)</th>
                 <th width="40">功能</th>
             </tr>
             </thead>
