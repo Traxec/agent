@@ -39,6 +39,18 @@
   <link href="{{asset('admin/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
   <!-- jQuery -->
   <script src="{{asset('home/vendors/jquery/dist/jquery.min.js')}}"></script>
+
+  <link href="{{asset('home/vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+
+  <!-- bootstrap-progressbar -->
+  <link href="{{asset('home/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+  <!-- JQVMap -->
+  <link href="{{asset('home/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
+  <!-- bootstrap-daterangepicker -->
+  <link href="{{asset('home/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="{{asset('home/build/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">

@@ -117,13 +117,43 @@ class systemController extends Controller
         $data['company']=$request->input('company');
         $data['state']=0;
         $data['time']=date('Y-m-d H:i:s');
-        $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
 
-        if ($system) {
-            return back()->with('success', '修改成功');
-        } else {
+        $sel = DB::table('price_set')->where('id',1)->first();
+        $price = $sel->s_update;
+        $sel = DB::table('system')->where('id', $request->input('id'))->first();
+        if ($sel->number < 3) {
+          $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
+          if ($system) {
+            return back()->with('success', "修改成功(修改前三次免费，之后每次收取.$price.元)");
+          } else {
             return back()->with('error', '提交失败');
+          }
+        } else {
+          $pay= DB::table('pay')->where('aid', session('user_id'))->first();
+          if ($pay && $pay->pay>$price) {
+            DB::beginTransaction(); //开启事务
+            $a = DB::table('pay')->where('aid', session('user_id'))->decrement('pay', $price, ['paydate'=>date('Y-m-d H:i:s')]);
+            $b = DB::table('capital')->insert([
+              'aid'=>session('user_id'),
+              'money'=>-$price,
+              'used'=>'修改系统',
+              'date'=>date('Y-m-d H:i:s'),
+            ]);
+            $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
+
+            if ($a && $b && $system) {
+              DB::commit();
+              return back()->with('success', "修改成功,收取您.$price.元");
+            } else {
+              DB::rollback();
+              return back()->with('error', '修改失败');
+            }
+
+          } else {
+            return back()->with('error', '您的余额不足，请先充值');
+          }
         }
+
     }
 
     public function renew(resystemRequest $request)

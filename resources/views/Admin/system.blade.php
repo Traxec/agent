@@ -41,24 +41,33 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-box table-responsive">
-                  <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">生成链接</button> -->
-                  <!--生成链接 -->
-                  <div class="modal fade" style="z-index='9999'" id="demoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                          </button>
-                          <h4 style="margin-left:10px; font-weight:bold;">普通账户注册链接</h4>
-                        </div>
-                        <h4 style="margin-left:30px;">http://fnksadhjkewhfkasjksjafkafkjahfkjasfh.com</h4>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                  <button type="button" class="btn btn-primary btn-sm" style="margin:10px" data-toggle="modal" data-target="#demoModal2">修改系统价格</button>
+                  <!--修改安装包价格-->
+                  <form class="" action="{{ action('admin\systemController@update_system') }}" method="post">
+                    <div class="modal fade" style="z-index='9999'" id="demoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                              aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 style="margin-left:10px; font-weight:bold;">修改系统价格</h4>
+                          </div>
+                          <h4 style="margin-left:30px;">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">价格(元/每次)</label>
+                              <input type="text" autocomplete="off" class="form-control" name="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" id="exampleInputEmail1" placeholder="">
+                            </div>
+                          </h4>
+                          <div class="modal-footer">
+                            {{csrf_field()}}
+                            <button type="submit" class="btn btn-default">确定</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </form>
 
 
 
