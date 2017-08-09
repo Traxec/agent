@@ -9,6 +9,14 @@ use DB;
 
 class templateController extends Controller
 {
+
+  public function index()
+  {
+    $res = DB::table('template')->where('aid','admin')->get();
+    $my_res = DB::table('template')->where('aid',session('user_id'))->get();
+      return view('home.template',['res'=>$res,'my_res'=>$my_res]);
+  }
+
   public function show(Request $request){
     $template = DB::table('template')->get();
     if($template){
