@@ -34,6 +34,41 @@ class systemController extends Controller
         }
     }
 
+    public function update_system(Request $request)
+    {
+      if($request->input('price')==''){
+        return back()->with('error','请输入有效金额');
+      }
+      $res = DB::table('price_set')->where('id',1)->first();
+      if($res){
+        $result = DB::table('price_set')->where('id',1)->update([
+          's_update'=>$request->input('price'),
+        ]);
+        if($result){
+          return back()->with('success','编辑成功');
+        }else{
+          return back()->with('error','编辑失败');
+        }
+      }else{
+        $result = DB::table('price_set')->insert([
+          'id'=>1,
+        ]);
+        if($result){
+          $result = DB::table('price_set')->where('id',1)->update([
+            's_update'=>$request->input('price'),
+          ]);
+          if($result){
+            return back()->with('success','编辑成功');
+          }else{
+            return back()->with('error','编辑失败');
+          }
+        }else{
+          return back()->with('error','编辑失败');
+        }
+
+      }
+    }
+
     //上传图片
     public function Upload($request, $name)
     {

@@ -95,7 +95,8 @@ class packageController extends Controller
                 return back()->with('error', '提交失败');
             }
         } else {
-            $price = 10000;
+            $sel = DB::table('price_set')->where('id',1)->first();
+            $price = $sel->p_update;
             $pay= DB::table('pay')->where('aid', session('user_id'))->first();
             if ($pay && $pay->pay>$price) {
               DB::beginTransaction(); //开启事务

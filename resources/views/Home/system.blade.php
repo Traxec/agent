@@ -134,20 +134,13 @@
               <input type="text" class="form-control" name="port" placeholder="port" value="">
             </div>
           </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <select id="temp" class="select2_multiple form-control" name="template" multiple="multiple">
-                <option value="Choose option">Choose option</option>
-                <option value="Option one">Option one</option>
-                <option value="Option two">Option two</option>
-                <option value="Option three">Option three</option>
-                <option value="Option four">Option four</option>
-                <option value="Option five">Option five</option>
-                <option value="Option six">Option six</option>
-              </select>
-            </div>
-          </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_multiple form-control" id="sel" name="template" multiple="multiple">
+                  </select>
+                </div>
+              </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
@@ -268,9 +261,9 @@
               <div class="col-md-12">　</div>
               <div class="col-md-offset-2">
                 <label for="one">一个月</label><input id="one" type="radio" name="time" value="1">　　
-                <label for="three">三个月</label><input id="three" type="radio" name="time" value="3">　　
-                <label for="six">六个月</label><input id="six" type="radio" name="time" value="6">　　
-                <label for="twelve">一年</label><input id="twelve" type="radio" name="time" value="12">　　
+                <label for="three">三个月</label><input id="three" type="radio" name="time" value="2.94">　　
+                <label for="six">六个月</label><input id="six" type="radio" name="time" value="5.7">　　
+                <label for="twelve">一年</label><input id="twelve" type="radio" name="time" value="10.8">　　
               </div>
             </div>
             <div class="form-group">
@@ -359,5 +352,27 @@
     });
   })
 
+$.ajax({
+  type: 'POST',
+  url: '{{action('home\templateController@show')}}',
+  dataType: 'json',
+  data: {
+    _token: "{{csrf_token()}}",
+  },
+  success: function (data) {
+    $.each(data,function(name,value){
+      $('#sel').append("<option value='"+value.title+"' price='"+value.price+"'>"+value.title+"</option>");
+    })
+    $('#sel').change(function(){
+      $('input[name="price"]').val(Number($('#sel').find("option:selected").attr("price")*$("input[type='radio']:checked").val()).toFixed(2))
+    })
+    $('input[name="time"]').change(function(){
+      $('input[name="price"]').val(Number($('#sel').find("option:selected").attr("price")*$("input[type='radio']:checked").val()).toFixed(2))
+    })
+  },
+  error: function (data) {
+    alert('系统错误')
+  },
+});
   </script>
         @endsection

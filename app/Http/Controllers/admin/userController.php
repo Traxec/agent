@@ -49,7 +49,7 @@ class userController extends Controller
 				'path'=>$data->path.','.session('id'),
 				'audit'=>'1',
 				'catid'=>$type,
-				'keys'	=>'0,0,0',
+				'keys'=>'0,0,0',
 			]);
 			if($admin){
 				return back()->with('success','添加成功');
