@@ -17,6 +17,7 @@ class templateController extends Controller
   public function insert(templateRequest $request)
   {
     $template = DB::table('template')->insert([
+      'aid'=>'admin',
       'title'=>$request->input('title'),
       'price'=>$request->input('price'),
     ]);
