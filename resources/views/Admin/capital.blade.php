@@ -13,7 +13,7 @@
 				<th scope="col" colspan="9">系统信息</th>
 			</tr>
 			<tr class="text-c">
-				<th width="150">代理商信息</th>
+				<th width="150">用户名</th>
 				<th width="150">系统单价(元)</th>
 				<th width="150">结算方式</th>
 				<th width="150">开始时间</th>
@@ -67,7 +67,12 @@
                               </div><br/>
                               <div class="container col-lg-12">
                                 <label for="exampleInputEmail1">结算方式</label>
-                                <input type="iphone" class="form-control" id="iphone" placeholder="">
+																<select class="form-control">
+																  <option>1月/1000元</option>
+																  <option>3月/3000元</option>
+																  <option>6月/6000元</option>
+																  <option>1年/12000元</option>
+																</select>
                               </div><br/><br/><br/><br/><br/><br/><br/>
                               <div class="container col-lg-12">
                                 <label for="exampleInputEmail1">开始时间:</label>

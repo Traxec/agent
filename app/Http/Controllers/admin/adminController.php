@@ -40,7 +40,7 @@ class adminController extends Controller
         $this->validate($request, [
             'username' => 'required|unique:admin|max:255|alpha',
             'nick'     => 'required',
-//            'phone'    => 'regex:/^1[34578][0-9]{9}$/',
+            'phone'    => 'regex:/^1[34578][0-9]{9}$/',
         ]);
 
 
@@ -84,7 +84,7 @@ class adminController extends Controller
             ['phone', $request->input('phone')],
             ['username', '<>', $request->input('username')],
         ])->first();
-        dd($unique_phone);
+        //dd($unique_phone);
         $unique_email = DB::table('admin')->where([
             ['email', $request->input('email')],
             ['username', '<>', $request->input('username')],

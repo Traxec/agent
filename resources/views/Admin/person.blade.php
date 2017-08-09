@@ -38,7 +38,7 @@
                             <form action="{{action('admin\personController@update')}}" method="post">
                                 <input type="hidden" name="id" value="{{$id}}">
                                 <div class="container">
-                                    <label for="exampleInputEmail1">姓名</label>
+                                    <label for="exampleInputEmail1">管理员名称</label>
                                     <input type="account-type" class="form-control" name="nick" id="account-type"
                                            value="{{$nick}}">
                                 </div>

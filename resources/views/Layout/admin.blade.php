@@ -72,7 +72,7 @@
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-member">
+		<!-- <dl id="menu-member">
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户审核<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
@@ -80,7 +80,7 @@
 					<li><a data-href="{{url('/admin/agent_audit')}}" data-title="代理商审核" href="javascript:;">代理商审核</a></li>
 				</ul>
 			</dd>
-		</dl>
+		</dl> -->
 		<dl id="menu-member">
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -149,14 +149,14 @@
 			</dd>
 		</dl>
 
-		<dl id="menu-system">
+		<!-- <dl id="menu-system">
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a data-href="{{url('/admin/system')}}" data-title="系统管理" href="javascript:void(0)">系统管理</a></li>
 				</ul>
 			</dd>
-		</dl>
+		</dl> -->
 </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

@@ -44,8 +44,8 @@
 				<th width="40">客户编号</th>
 				<th width="40">目录树</th>
 				<th width="40">用户名</th>
-				<th width="40">客户名称</th>
-				<th width="40">联系方式</th>
+				<th width="40">姓名</th>
+				<th width="40">手机</th>
 				<th width="40">邮箱</th>
 				<th width="40">开户行</th>
 				<th width="40">支行</th>
@@ -103,7 +103,7 @@
 														</select>
 												</div>
 												<div class="container col-lg-12">
-														<label for="exampleInputEmail1">用户ID</label>
+														<label for="exampleInputEmail1">用户名</label>
 														<input type="text" name="username" class="form-control" id="username" placeholder="">
 												</div>
 												<div class="container col-lg-12">
@@ -139,11 +139,11 @@
 								<input type="text" class="form-control" name="username" id="username" disabled />
 							</div><br/>
 							<div class="container col-lg-12">
-								<label for="exampleInputEmail1">客户名称</label>
+								<label for="exampleInputEmail1">姓名</label>
 								<input type="text" class="form-control" name="nick" id="nick" placeholder="">
 							</div><br/>
 							<div class="container col-lg-12">
-								<label for="exampleInputEmail1">联系方式</label>
+								<label for="exampleInputEmail1">手机</label>
 								<input type="text" class="form-control" name="phone" id="phone" placeholder="">
 							</div><br/>
 							<div class="container col-lg-12">
@@ -183,27 +183,27 @@
 				<div class="modal-dialog" role="document">
 					<div id="table3" class="modal-content table3"><br/><br/>
 						<div class="col-lg-12">
-							<h3 class="col-md-offset-3">修改普通用户权限</h3>
+							<h3 class="col-md-offset-4">修改普通用户权限</h3>
 						</div>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
+						<label class="checkbox-inline col-lg-4 col-offset-3">
 							<input type="checkbox" name="agent" id="inlineCheckbox1" value="1"> 开代理账户
 							<input type="hidden" name="id" value="">
 						</label>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
+						<label class="checkbox-inline col-lg-4 col-offset-3">
 							<input type="checkbox" name="template" id="inlineCheckbox1" value="1"> 新建模板
 						</label>
 						<br>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
+						<label class="checkbox-inline col-lg-4 col-offset-3">
 							<input type="checkbox" name="package_add" id="inlineCheckbox3" value="1"> 生成安装包
 						</label>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
+						<label class="checkbox-inline col-lg-4 col-offset-3">
 							<input type="checkbox" name="package_update" id="inlineCheckbox4" value="1"> 修改安装包
 						</label>
 						<br>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
+						<label class="checkbox-inline col-lg-4 col-offset-3">
 							<input type="checkbox" name="system_add" id="inlineCheckbox5" value="1"> 生成系统
 						</label>
-						<label class="checkbox-inline col-lg-4 col-offset-2">
+						<label class="checkbox-inline col-lg-4 col-offset-3">
 							<input type="checkbox" name="system_update" id="inlineCheckbox6" value="1"> 修改系统
 						</label>　　　　　　　　　　　　　　
 						<div class="modal-footer">

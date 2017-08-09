@@ -39,7 +39,7 @@
             <tr class="text-c">
                 <th width="40">管理员编号</th>
                 <th width="40">用户名</th>
-                <th width="40">管理员名称</th>
+                <th width="40">姓名</th>
                 <th width="40">手机</th>
                 <th width="40">邮箱</th>
                 <th width="40">功能</th>
@@ -139,12 +139,12 @@
                                 <input type="text" name="username" class="form-control" id="username" placeholder="">
                             </div>
                             <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">管理员名称</label>
+                                <label for="exampleInputEmail1">姓名</label>
                                 <input type="text" name="nick" class="form-control" id="nick" placeholder="">
                             </div>
                             <br/>
                             <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">联系方式</label>
+                                <label for="exampleInputEmail1">手机</label>
                                 <input type="iphone" name="phone" class="form-control" id="phone" placeholder="">
                             </div>
                             <br/>
@@ -176,13 +176,13 @@
                         </div>
                         <div class="modal-body" id="table2">
                             <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">管理员名称</label>
+                                <label for="exampleInputEmail1">姓名</label>
                                 <input type="hidden" name="id" class="form-control" placeholder="">
                                 <input type="text" name="nick" class="form-control" id="nick" placeholder="">
                             </div>
                             <br/>
                             <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">联系方式</label>
+                                <label for="exampleInputEmail1">手机</label>
                                 <input type="text" name="phone" class="form-control" id="phone" placeholder="">
                             </div>
                             <br/>

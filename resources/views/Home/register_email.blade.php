@@ -41,7 +41,7 @@
       <p>请在以下输入新客户的邮箱地址</p>
       <a href="#" class="signup">Sign up right now!</a>
       <form action="{{ action('home\register_emailController@send') }}" method="post">
-        <input type="text" name="email" value="Enter Your email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your email address';}">
+        <input type="text" name="email" value="请输入您的邮件地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入您的邮件地址';}">
         <br>
         <div class="col-md-12">
           <input type="radio" id='catid' name="catid" value="1" checked>
@@ -54,19 +54,16 @@
           </label>
         </div>
         {{ csrf_field() }}
-        <input type="submit" value="Get Goodies">
+        <input type="submit" value="发送">
       </form>
       <div class="design">
         <img src="../admin/images/design.png">
       </div>
       <div class="tlg">
         <div class="tlg-img">
-          <img src="../admin/images/tlg.png">
+          <img src="../admin/images/design.png">
         </div>
-        <div class="tlg-text">
-          <h3>This Looks Great</h3>
-          <h4>By Barin Cristian Doru</h4>
-        </div>
+
         <div class="clear"> </div>
       </div>
     </div>

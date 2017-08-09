@@ -29,7 +29,7 @@
         <p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
         <table class="table table-border table-bordered table-bg">
             <thead>
-            <tr>
+            <!-- <tr>
                 <th colspan="7" scope="col">信息统计</th>
             </tr>
             <tr class="text-c">
@@ -192,6 +192,5 @@
                 Copyright &copy;2015-2017 H-ui.admin 3.0 All Rights Reserved.<br>
                 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
         </div>
-    </footer>
+    </footer> -->
 @endsection
-

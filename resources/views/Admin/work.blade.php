@@ -37,7 +37,7 @@
             <thead>
               <tr>
                 <th class="col-lg-1">序号</th>
-                <th class="col-lg-1">用户</th>
+                <th class="col-lg-1">用户名</th>
                 <th class="col-lg-1">系统端口号</th>
                 <th class="col-lg-1">系统简称</th>
                 <th class="col-lg-1">问题类型</th>

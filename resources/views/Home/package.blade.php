@@ -3,7 +3,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>系统管理</h3>
+        <h3>安装包管理</h3>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -36,11 +36,11 @@
                       <thead>
                         <tr>
                           <th>序号</th>
-                          <th>标题</th>
-                          <th>导航</th>
-                          <th>系统</th>
+                          <th>安装包标题</th>
+                          <th>安装包导航</th>
+                          <th>安装包服务器名称</th>
                           <th>电话</th>
-                          <th>网址</th>
+                          <th>官网网址</th>
                           <th>邮箱</th>
                           <th>地址</th>
                           <th>公司名称</th>

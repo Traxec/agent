@@ -39,7 +39,7 @@ public function messages(){
     return [
         'username.required' => '用户名不能为空',
         'username.unique' => '用户名已存在',
-        'username.regex'=> '用户名格式不正确，请输入6到18位字母',
+        'username.regex'=> '用户名格式不正确，请输入4-8字母数字',
         'nick.required'  => '客户名称不能为空',
     ];
 }
