@@ -18,7 +18,7 @@
                 <tr class="text-c">
                     <th width="40">编号</th>
                     <th width="40">客服名称</th>
-                    <th width="40">签到年月日</th>
+                    <th width="40">签到日期</th>
                     <th width="60">签到时间</th>
                     <th width="60">签到ip</th>
 

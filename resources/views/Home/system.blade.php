@@ -42,17 +42,17 @@
 
 
 
-                    <table id="datatable-keytable" class="table table-striped table-bordered">
+                    <table id="datatable-keytable" class="table table-striped table-bordered" >
                       <thead>
                         <tr>
                           <th>序号</th>
-                          <th>端口</th>
-                          <th>模板</th>
-                          <th>标题</th>
-                          <th>导航</th>
-                          <th>系统</th>
+                          <th>系统端口号</th>
+                          <th>穿品模板</th>
+                          <th>客户端标题</th>
+                          <th>客户端导航</th>
+                          <th>客户端服务器地址</th>
                           <th>电话</th>
-                          <th>网址</th>
+                          <th>官网网址</th>
                           <th>邮箱</th>
                           <th>地址</th>
                           <th>公司名称</th>

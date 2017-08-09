@@ -312,8 +312,8 @@ a.signup {
         点击<a href="{{ url('/register').$json}}">此处</a>注册您的账号
       </span>
       <div class="tlg">
-        <div class="tlg-img">
-          <img src="{{asset('admin/images/tlg.png')}}">
+        <div>
+          <img src="{{asset('admin/images/design.png')}}">
         </div>
         <!-- <div class="tlg-text">
           <h3>This Looks Great</h3>
