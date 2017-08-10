@@ -102,8 +102,8 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 安装包管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{url('/home/package/add')}}">生成安装包</a></li>
-                      <li><a href="{{url('/home/package')}}">我的安装包</a></li>
+                      <!-- <li><a href="{{url('/home/package/add')}}">生成安装包</a></li> -->
+                      <li><a href="{{url('/home/package')}}">安装包管理</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> 缴费管理<span class="fa fa-chevron-down"></span></a>

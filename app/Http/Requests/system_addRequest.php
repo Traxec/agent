@@ -43,7 +43,7 @@ class system_addRequest extends FormRequest
     public function messages()
     {
       return [
-        'template'=>'请选择一个系统模板',
+        'template.required'=>'请选择一个系统模板',
         'port.required'=>'标题不能为空',
         'port.digits_between'=>'标题为1-8位长度',
         'title.required'=>'标题不能为空',

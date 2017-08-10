@@ -67,6 +67,24 @@ class systemController extends Controller
                   'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$request->input('time').' day')),
                 ]);
 
+                $e = DB::table('package')->insert([
+                'aid'=>session('user_id'),
+                'title'=>$request->input('title'),
+                'nav'=>$request->input('nav'),
+                'server'=>$request->input('server'),
+                'phone'=>$request->input('phone'),
+                'website'=>$request->input('website'),
+                'email'=>$request->input('email'),
+                'address'=>$request->input('address'),
+                'company'=>$request->input('company'),
+                'img1'=>$img1,
+                'img2'=>$img2,
+                'img3'=>$img3,
+                'state'=>0,
+                'time'=>date('Y-m-d H:i:s'),
+                'number'=>'0',
+              ]);
+
 
                 if ($a && $b && $system && $c) {
                     DB::commit();
