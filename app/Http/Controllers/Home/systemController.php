@@ -73,8 +73,26 @@ class systemController extends Controller
                   'used'=>'开设系统',
                   'time'=>date('Y-m-d H:i:s'),
                 ]);
+                $e = DB::table('package')->insert([
+                'aid'=>session('user_id'),
+                'title'=>$request->input('title'),
+                'nav'=>$request->input('nav'),
+                'server'=>$request->input('server'),
+                'phone'=>$request->input('phone'),
+                'website'=>$request->input('website'),
+                'email'=>$request->input('email'),
+                'address'=>$request->input('address'),
+                'company'=>$request->input('company'),
+                'img1'=>$img1,
+                'img2'=>$img2,
+                'img3'=>$img3,
+                'state'=>0,
+                'time'=>date('Y-m-d H:i:s'),
+                'number'=>'0',
+              ]);
 
-                if ($a && $b && $system && $c && $d) {
+
+                if ($a && $b && $system && $c && $d && $e) {
                     DB::commit();
                     return back()->with('success', '开设成功');
                 } else {
