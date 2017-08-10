@@ -87,16 +87,16 @@ class packageController extends Controller
         $data['state']=0;
         $data['time']=date('Y-m-d H:i:s');
         $sel = DB::table('package')->where('id', $request->input('id'))->first();
+        $select = DB::table('price_set')->where('id',1)->first();
+        $price = $select->p_update;
         if ($sel->number < 3) {
             $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
             if ($package) {
-                return back()->with('success', '修改成功');
+                return back()->with('success', "修改成功(修改前三次免费，之后每次收取.$price.元)");
             } else {
                 return back()->with('error', '提交失败');
             }
         } else {
-            $sel = DB::table('price_set')->where('id',1)->first();
-            $price = $sel->p_update;
             $pay= DB::table('pay')->where('aid', session('user_id'))->first();
             if ($pay && $pay->pay>$price) {
               DB::beginTransaction(); //开启事务
@@ -108,10 +108,16 @@ class packageController extends Controller
                 'date'=>date('Y-m-d H:i:s'),
               ]);
               $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
+              $d = DB::table('profit')->insert([
+                'aid'=>session('user_id'),
+                'price'=>$price,
+                'used'=>'修改安装包',
+                'time'=>date('Y-m-d H:i:s'),
+              ]);
 
-              if ($a && $b && $package) {
+              if ($a && $b && $package && $d) {
                 DB::commit();
-                return back()->with('success', '修改成功');
+                return back()->with('success', "修改成功收取您.$price.元");
               } else {
                 DB::rollback();
                 return back()->with('error', '修改失败');

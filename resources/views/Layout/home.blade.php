@@ -98,6 +98,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{{url('/home/system/add')}}">生成系统</a></li>
                       <li><a href="{{url('/home/system')}}">系统列表</a></li>
+                      <li><a href="{{url('/home/template/index')}}">模板管理</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 安装包管理 <span class="fa fa-chevron-down"></span></a>

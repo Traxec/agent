@@ -10,7 +10,7 @@ use DB;
 class templateController extends Controller
 {
   public function index(){
-    $template = DB::table('template')->paginate(10);
+    $template = DB::table('template')->where('aid','admin')->paginate(10);
     return view('admin/template',['template'=>$template]);
   }
 

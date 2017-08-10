@@ -62,6 +62,9 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/exit', 'home\exit_signController@exit');//前台我的用户列表
     route::post('/home/template', 'home\templateController@show');//模板展示
     route::post('/home/template/reshow', 'home\templateController@reshow');//模板续费
+    route::get('/home/template/index','home\templateController@index');//模板金额修改
+    route::post('/home/template/agent_template','home\templateController@agent_template');//代理商模板价格金额修改数据
+    route::post('/home/template/agent_template_show','home\templateController@agent_template_show');//代理商模板价格金额修改数据显示
 });
 
 
