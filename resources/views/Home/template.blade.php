@@ -6,29 +6,9 @@
 @endsection
 
 @section('content')
-    @if(session('success'))
-        <div class="alert alert-success alert-dismissable">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            {{session('success')}}
-        </div>
-    @elseif(session('error'))
-        <div class="alert alert-danger alert-dismissable">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            {{session('error')}}
-        </div>
-    @endif
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="right_col" role="main">
         <!-- <div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','admin_add.html','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div> -->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demoModal">添加模板</button>
+        <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demoModal">添加模板</button> -->
         <br/><br/>
 
         <table class="table table-border table-bordered table-hover table-bg">
@@ -40,9 +20,7 @@
                 <th width="40">模板编号</th>
                 <th width="40">模板名称</th>
                 <th width="40">模板价格(/月)</th>
-              @foreach($my_res as $k => $v)
-                <th width="40">我的模板价格(/月)</th>
-              @endforeach  
+                <th width='40'>代理模板价格(/月)</th>
                 <th width="40">功能</th>
             </tr>
             </thead>
@@ -51,20 +29,19 @@
             @foreach($res as $key => $value)
                 <?php $a++ ?>
                 <tr class="text-c">
-                    <input type="hidden" name="id" value="{{$value->id}}">
-                    <td>{{$a}}</td>
-                    <td>{{$value->title}}</td>
-                    <td>{{$value->price}}</td>
-              @foreach($my_res as $k => $v)
-                    @if($v->title==$value->title)
-                    <td>{{$v->price}}</td>
-                    @else
-                    <td></td>
-                    @endif
-              @endforeach
-                    <td>
-                        <a title="删除" href="javascript:;" onclick="admin_role_del(this,{{$value->id}})" class="ml-5"
-                           style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;删除</i></a></td>
+                  <input type="hidden" name="id" value="{{$value->id}}">
+                  <td>{{$a}}</td>
+                  <td>{{$value->title}}</td>
+                  <td>{{$value->price}}</td>
+                  <td>
+                  @foreach($my_res as $k => $v)
+                  {!! $v->title==$value->title?"$v->price":""; !!}
+                  @endforeach
+                  </td>
+                  <td>
+                    <input type="hidden" name="title" value="{{$value->title}}">
+                    <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal">设置代理价格</button>
+                  </td>
                 </tr>
             @endforeach
             </tbody>
@@ -73,23 +50,19 @@
         <!-- 添加模板 -->
         <div class="modal fade" style="z-index='9999'" id="demoModal" tabindex="-1" role="dialog"
              aria-labelledby="myMaodalLabel">
-            <form action="{{action('admin\templateController@insert')}}" method="post">
+            <form action="{{action('home\templateController@agent_template')}}" method="post">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            <button type="button" class="close" data-dismisprices="modal" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">模板编号</h4>
+                            <h2 class="modal-title" id="myModalLabel">请设置代理系统价格</h2>
                         </div>
                         <div class="modal-body">
                             <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">模板名称</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="">
-                            </div>
-                            <br/>
-                            <div class="container col-lg-12">
-                                <label for="exampleInputEmail1">模板价格</label>
-                                <input type="text" name="price" class="form-control" id="price" placeholder="">
+                                <label for="exampleInputEmail1">系统价格</label>
+                                <input type="text" name="price" class="form-control" id="price" placeholder="" onkeyup="this.value=this.value.replace(/[\D]/g,'');">
+                                <input type="hidden" name="title" class="form-control" id="title" placeholder="">
                             </div>
                             <br/>
                         </div>　　　　　　　　
@@ -104,6 +77,25 @@
         </div>
 
     <script type="text/javascript">
+
+  $('.update').click(function() {
+    var title = $(this).parent().parent().find("input[name='title']").val();
+    $('#title').val($(this).parent().find("input[name='title']").val())
+    $.ajax({
+      type: 'post',
+      url: "{{action('home\templateController@agent_template_show')}}",
+      dataType: 'json',
+      async:false,
+      data: {
+        _token: "{{ csrf_token() }}",
+        title: title,
+      },
+      success: function(data) {
+        $('#price').val(data.price)
+      },
+
+    })
+  })
         /*模板-角色-添加*/
         /*模板-角色-删除*/
         function admin_role_del(obj, id) {

@@ -67,8 +67,14 @@ class systemController extends Controller
                   'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$request->input('time').' day')),
                 ]);
 
+                $d = DB::table('profit')->insert([
+                  'aid'=>session('user_id'),
+                  'price'=>$request->input('price'),
+                  'used'=>'开设系统',
+                  'time'=>date('Y-m-d H:i:s'),
+                ]);
 
-                if ($a && $b && $system && $c) {
+                if ($a && $b && $system && $c && $d) {
                     DB::commit();
                     return back()->with('success', '开设成功');
                 } else {
@@ -140,8 +146,14 @@ class systemController extends Controller
               'date'=>date('Y-m-d H:i:s'),
             ]);
             $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
+            $d = DB::table('profit')->insert([
+              'aid'=>session('user_id'),
+              'price'=>$price,
+              'used'=>'修改系统',
+              'time'=>date('Y-m-d H:i:s'),
+            ]);
 
-            if ($a && $b && $system) {
+            if ($a && $b && $system && $d) {
               DB::commit();
               return back()->with('success', "修改成功,收取您.$price.元");
             } else {

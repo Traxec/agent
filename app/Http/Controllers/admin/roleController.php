@@ -24,6 +24,7 @@ class roleController extends Controller
 
     public function update(Request $request)
     {
+      // dd($request->all());
         $arr['agent'] = $request->input('agent')??0;
         $arr['template']  = $request->input('template')??0;
         $arr['package_add'] = $request->input('package_add')??0;
