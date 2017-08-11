@@ -28,6 +28,26 @@ class templateController extends Controller
     }
   }
 
+  public function edit(Request $request)
+  {
+    $template = DB::table('template')->where('id',$request->input('id'))->first();
+    $data = json_encode($template);
+    return $data;
+  }
+
+  public function update(templateRequest $request)
+  {
+    $template = DB::table('template')->where('id',$request->input('id'))->update([
+      'price'=>$request->input('price'),
+    ]);
+    if($template){
+      return back()->with('success','修改成功');
+    }else{
+      return back()->with('error','修改失败');
+    }
+
+  }
+
   public function delete(Request $request)
   {
     // dd($request->all());

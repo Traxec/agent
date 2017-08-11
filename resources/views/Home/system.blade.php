@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+﻿@inject('judge', 'App\Http\Controllers\home\exit_signController')
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
@@ -107,7 +108,9 @@
                           <input type="hidden" name="id" value="{{$systems->id}}">
                           <input type="hidden" name="template" value="{{$systems->template}}">
                           <td>
+                            @if($judge->sign()['system_update']==1)
                             <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
+                            @endif
                             <button type="button" class="btn btn-primary btn-sm renew" data-toggle="modal" data-target="#demoModal4">续费</button>
                           </td>
                         </tr>

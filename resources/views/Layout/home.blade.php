@@ -96,14 +96,18 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 系统管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      @if($judge->sign()['system_add']==1)
                       <li><a href="{{url('/home/system/add')}}">生成系统</a></li>
+                      @endif
                       <li><a href="{{url('/home/system')}}">系统列表</a></li>
                       <li><a href="{{url('/home/template/index')}}">模板管理</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 安装包管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <!-- <li><a href="{{url('/home/package/add')}}">生成安装包</a></li> -->
+                      @if($judge->sign()['package_add']==1)
+                      <li><a href="{{url('/home/package/add')}}">生成安装包</a></li>
+                      @endif
                       <li><a href="{{url('/home/package')}}">安装包管理</a></li>
                     </ul>
                   </li>
@@ -148,6 +152,8 @@
                   </li> -->
                 </ul>
               </div>
+
+              @if($judge->sign()['agent']==1)
               <div class="menu_section">
                 <h3>我的客户</h3>
                 <ul class="nav side-menu">
@@ -181,11 +187,12 @@
                   </li> -->
                   <!-- <li><a href="{{url('/home/customer')}}"><i class="fa fa-desktop"></i>客户系统管理 <span class="fa fa-chevron-down"></span></a> -->
 
-                  </li>
+                  <!-- </li> -->
 
 
                 </ul>
               </div>
+              @endif
 
             </div>
 

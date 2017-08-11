@@ -54,7 +54,9 @@
                     <td>{{$value->price}}</td>
                     <td>
                         <a title="删除" href="javascript:;" onclick="admin_role_del(this,{{$value->id}})" class="ml-5"
-                           style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;删除</i></a></td>
+                           style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;删除</i></a>|
+                        <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
+                   </td>
                 </tr>
             @endforeach
             </tbody>
@@ -80,7 +82,40 @@
                             <br/>
                             <div class="container col-lg-12">
                                 <label for="exampleInputEmail1">模板价格</label>
-                                <input type="text" name="price" class="form-control" id="price" placeholder="">
+                                <input type="text" name="price" class="form-control" id="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" placeholder="">
+                            </div>
+                            <br/>
+                        </div>　　　　　　　　
+                        <div class="modal-footer">
+                            {{csrf_field()}}
+                            <button type="submit" class="btn btn-default">确定</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 修改模板 -->
+        <div class="modal fade" style="z-index='9999'" id="demoModal3" tabindex="-1" role="dialog"
+             aria-labelledby="myMaodalLabel">
+            <form action="{{action('admin\templateController@update')}}" id="table2" method="post">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">模板编号</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container col-lg-12">
+                                <label for="exampleInputEmail1">模板名称</label>
+                                <input type="text" name="title" disabled class="form-control" id="title" placeholder="">
+                            </div>
+                            <br/>
+                            <div class="container col-lg-12">
+                                <label for="exampleInputEmail1">模板价格</label>
+                                <input type="text" name="price" class="form-control" id="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" placeholder="">
+                                <input type="hidden" name="id" value="">
                             </div>
                             <br/>
                         </div>　　　　　　　　
@@ -94,7 +129,30 @@
             </form>
         </div>
 
+
     <script type="text/javascript">
+        //调用修改页面数据
+        $('.update').click(function () {
+            var id = $(this).parent().parent().find('input[name="id"]').val();
+            $.ajax({
+                type: 'post',
+                url: "{{action('admin\templateController@edit')}}",
+                dataType: 'json',
+                async: false,
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: id,
+                },
+                success: function (data) {
+                    $('#table2').children().find('input[name="id"]').val(data.id)
+                    $('#table2').children().find('input[name="title"]').val(data.title)
+                    $('#table2').children().find('input[name="price"]').val(data.price)
+                },
+                error: function (date) {
+                    alert('系统错误,请联系管理员')
+                }
+            })
+        })
         /*模板-角色-添加*/
         /*模板-角色-删除*/
         function admin_role_del(obj, id) {

@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+﻿@inject('judge', 'App\Http\Controllers\home\exit_signController')
     <div class="right_col" role="main">
         <!-- <div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','admin_add.html','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div> -->
         <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demoModal">添加模板</button> -->
@@ -21,7 +22,9 @@
                 <th width="40">模板名称</th>
                 <th width="40">模板价格(/月)</th>
                 <th width='40'>代理模板价格(/月)</th>
+                @if($judge->sign()['template']==1)
                 <th width="40">功能</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -38,10 +41,12 @@
                   {!! $v->title==$value->title?"$v->price":""; !!}
                   @endforeach
                   </td>
+                  @if($judge->sign()['template']==1)
                   <td>
                     <input type="hidden" name="title" value="{{$value->title}}">
                     <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal">设置代理价格</button>
                   </td>
+                  @endif
                 </tr>
             @endforeach
             </tbody>
