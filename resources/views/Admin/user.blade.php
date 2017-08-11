@@ -111,8 +111,7 @@
 														<input type="text" name="nick" class="form-control" id="nick" placeholder="">
 												</div>
 												<br/>
-										</div>
-										　　　　　　　
+										</div><br/><br/><br/><br/><br/><br/><br/><br/>
 										<div class="modal-footer">
 												{{csrf_field()}}
 												<button type="submit" class="btn btn-default">确定</button>
@@ -167,7 +166,7 @@
 								<input type="text" class="form-control" name="b_master" id="b_master" placeholder="">
 							</div><br/>
 
-						</div>　　　　　　　
+						</div><br/><br/><br/><br/><br/><br/><br/><br/>　　　　　　　　
 						<div class="modal-footer">
 						{{csrf_field()}}
 							<button type="submit" class="btn btn-default">确定</button>

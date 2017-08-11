@@ -24,7 +24,7 @@ class usersRequest extends FormRequest
     public function rules()
     {
         return [
-          'username' => 'required|unique:users|regex:/\w{6,18}/',
+          'username' => 'required|unique:users|regex:/\w{4,8}/',
           'nick' => 'required',
         ];
     }
@@ -40,7 +40,7 @@ public function messages(){
         'username.required' => '用户名不能为空',
         'username.unique' => '用户名已存在',
         'username.regex'=> '用户名格式不正确，请输入4-8字母数字',
-        'nick.required'  => '客户名称不能为空',
+        'nick.required'  => '姓名不能为空',
     ];
 }
 }

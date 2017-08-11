@@ -89,11 +89,7 @@ class adminController extends Controller
             ['email', $request->input('email')],
             ['username', '<>', $request->input('username')],
         ])->first();
-        if ($unique_phone) {
-            return back()->with('error', '手机号已被占用');
-        } elseif ($unique_email) {
-            return back()->with('error', '该邮箱已被占用');
-        } else {
+
             $admin = DB::table('admin')->where('id', $request->input('id'))->update(
                 [
                     'nick'  => $request->input('nick'),
@@ -101,7 +97,6 @@ class adminController extends Controller
                     'email' => $request->input('email'),
                 ]
             );
-        }
         if ($admin) {
             return back()->with('success', '修改成功');
         } else {

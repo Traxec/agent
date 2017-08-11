@@ -110,8 +110,8 @@
                   <li><a><i class="fa fa-table"></i> 缴费管理<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('/home/pay/add')}}">充值</a></li>
-                      <li><a href="{{url('/home/pay')}}">缴费</a></li>
-                      <li><a href="{{url('/home/contribution')}}">缴费记录</a></li>
+                      <!-- <li><a href="{{url('/home/pay')}}">缴费</a></li> -->
+                      <li><a href="{{url('/home/contribution')}}">资金流动</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i> 工单管理 <span class="fa fa-chevron-down"></span></a>
