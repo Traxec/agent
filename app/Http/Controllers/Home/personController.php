@@ -5,7 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\person_updateRequest;
-use App\Http\Controllers\admin\adminController;
+use App\Http\Controllers\home\exit_signController;
 use DB;
 use Hash;
 
@@ -54,12 +54,17 @@ class personController extends Controller
             if ($request->input('new_password') == $request->input('re_password'))
             {
                 $admin  = DB::table('users')
-                    ->where('id', session('id'))
+                    ->where('id', session('user_id'))
                     ->update([
                         'password' => Hash::make($request->input('new_password')),
                     ]);
-                // $reload = new adminController();
-                // $reload->exit_admin();
+                if($admin){
+                  $reload = new exit_signController();
+                  $reload->exit();
+                  return back()->with('success','修改成功');
+                }else{
+                  return back()->with('error','修改失败');
+                }
                 return back();
             } else
             {
