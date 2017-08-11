@@ -60,6 +60,7 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::post('/home/register_email/send', 'home\register_emailController@send');//前台发邮件
     route::get('/home/my_users', 'home\my_usersController@index');//前台我的用户列表
     route::get('/home/exit', 'home\exit_signController@exit');//前台我的用户列表
+    route::post('/home/exit/sign', 'home\exit_signController@sign');//前台权限设置
     route::post('/home/template', 'home\templateController@show');//模板展示
     route::post('/home/template/reshow', 'home\templateController@reshow');//模板续费
     route::get('/home/template/index','home\templateController@index');//模板金额修改
@@ -105,6 +106,8 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/package/edit', 'admin\packageController@edit');//系统修改
     route::post('/admin/work/update', 'admin\workController@update');//工单回复页面
     route::post('/admin/template/insert', 'admin\templateController@insert');//执行模板添加
+    route::post('/admin/template/edit', 'admin\templateController@edit');//模板修改
+    route::post('/admin/template/update', 'admin\templateController@update');//执行模板修改
     route::post('/admin/template/delete', 'admin\templateController@delete');//执行模板删除
     route::post('/admin/template/show', 'admin\templateController@show');//模板使用
 

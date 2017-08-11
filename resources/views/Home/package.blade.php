@@ -1,4 +1,5 @@
 @extends('Layout.home') @section('title','我的安装包') @section('hidden') @endsection @section('content')
+﻿@inject('judge', 'App\Http\Controllers\home\exit_signController')
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
@@ -50,7 +51,9 @@
                           <th>修改时间</th>
                           <th>状态</th>
                           <th>修改次数</th>
+                          @if($judge->sign()['package_update']==1)
                           <th>功能</th>
+                          @endif
                         </tr>
                       </thead>
                       <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="demoModal5">
@@ -91,9 +94,11 @@
                           <td>{{$packages->state}}</td>
                           <td>{{$packages->number}}</td>
                           <input type="hidden" name="id" value="{{$packages->id}}">
+                            @if($judge->sign()['package_update']==1)
                           <td>
                             <button type="button" class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#demoModal3">修改</button>
                           </td>
+                            @endif
                         </tr>
                         @endforeach
                       </tbody>
