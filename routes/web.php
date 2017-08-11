@@ -112,7 +112,6 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/template/show', 'admin\templateController@show');//模板使用
 
     route::get('/admin/work', 'admin\workController@index');//工单管理页面xu
-    route::get('/admin/capital', 'admin\capitalController@index');//资金管理页面xu
     route::get('/admin/person', 'admin\personController@index');//个人简介页面
     route::get('/admin/user', 'admin\userController@index');//用户列表页面
     route::get('/admin/user_audit', 'admin\user_auditController@index');//用户审核列表页面
@@ -127,6 +126,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/system', 'admin\systemController@index');//系统管理
     route::get('/admin/package', 'admin\packageController@index');//安装包管理
     route::get('/admin/template', 'admin\templateController@index');//模板管理
+    route::get('/admin/capital', 'admin\capitalController@index');//资金流动页面
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui

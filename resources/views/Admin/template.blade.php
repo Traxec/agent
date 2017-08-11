@@ -156,7 +156,7 @@
         /*模板-角色-添加*/
         /*模板-角色-删除*/
         function admin_role_del(obj, id) {
-            layer.confirm('角色删除须谨慎，确认要删除吗？', function (index) {
+            layer.confirm('模板删除须谨慎，确认要删除吗？', function (index) {
                 $.ajax({
                     type: 'POST',
                     url: '{{action('admin\templateController@delete')}}',
