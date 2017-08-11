@@ -28,7 +28,9 @@ class systemController extends Controller
         if ($sel) {
             if ($sel->pay>$request->input('price')) {
                 DB::beginTransaction(); //开启事务
+                //个人资金扣除
                 $a = DB::table('pay')->where('aid', session('user_id'))->decrement('pay', $request->input('price'), ['paydate'=>date('Y-m-d H:i:s')]);
+                //个人消费记录
                 $b = DB::table('capital')->insert([
                   'aid'=>session('user_id'),
                   'money'=>-$request->input('price'),
@@ -39,6 +41,7 @@ class systemController extends Controller
                 $img2=$this->upload($request, 'img2');
                 $img3=$this->upload($request, 'img3');
 
+                //开设系统
                 $system = DB::table('system')->insertGetId([
                   'aid'=>session('user_id'),
                   'port'=>$request->input('port'),
@@ -59,6 +62,7 @@ class systemController extends Controller
                   'number'=>'0',
                 ]);
 
+                //系统有效时间
                 $c = DB::table('spend')->insert([
                   'sid' => $system,
                   'pay' => $request->input('price'),
@@ -67,12 +71,55 @@ class systemController extends Controller
                   'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$request->input('time').' day')),
                 ]);
 
-                $d = DB::table('profit')->insert([
-                  'aid'=>session('user_id'),
-                  'price'=>$request->input('price'),
-                  'used'=>'开设系统',
-                  'time'=>date('Y-m-d H:i:s'),
-                ]);
+
+
+                //分配开设系统的钱
+
+                $sel_user = DB::table('users')->where('id',session('user_id'))->first();
+                $arr_path = explode(',',$sel_user->path);
+                $arr_path['admin']='admin';
+                $arr_path = array_reverse($arr_path);
+                // dd($arr_path);
+                foreach ($arr_path as $key => $value) {
+                  $sel_template[$value] = DB::table('template')->where([['aid',$value],['title',$request->input('template')]])->get();
+                }
+                foreach ($sel_template as $key => $value) {
+                  foreach ($value as $k => $v) {
+                    if($key=='admin'){
+                      //分配管理员的钱
+                      $d = DB::table('profit')->insert([
+                        'aid'=>session('user_id'),
+                        'price'=>$v->price,
+                        'used'=>'开设系统',
+                        'time'=>date('Y-m-d H:i:s'),
+                      ]);
+                      $new_price = $v->price;
+                      $add_price = $v->price;
+                    }
+                    if($key!='admin'){
+                      $v->price = $v->price-$new_price;
+                      //分配代理商明细记录
+                      $f = DB::table('capital')->insert([
+                        'aid'=>$key,
+                        'money'=>$v->price,
+                        'used'=>'开系统奖金',
+                        'date'=>date('Y-m-d H:i:s'),
+                      ]);
+                      //分配代理商钱到个人账号
+                      $g = DB::table('pay')->where('aid',$key)->update([
+                        'pay'=>$v->price,
+                        'paydate'=>date('Y-m-d H:i:s'),
+                      ]);
+                      $new_price = $v->price;
+                      $add_price += $v->price;
+                    }
+                  }
+                }
+                // dd($sel_template);
+
+                //------------------------------------------------------------------------
+
+                //自动生成安装包
                 $e = DB::table('package')->insert([
                 'aid'=>session('user_id'),
                 'title'=>$request->input('title'),
@@ -91,10 +138,14 @@ class systemController extends Controller
                 'number'=>'0',
               ]);
 
-
-                if ($a && $b && $system && $c && $d && $e) {
+                if ($a && $b && $system && $c && $d && $e && $f && $g) {
+                  if($add_price == $request->input('price')){
                     DB::commit();
                     return back()->with('success', '开设成功');
+                  }else{
+                    DB::rollback();
+                    return back()->with('error', '开设失败');
+                  }
                 } else {
                     DB::rollback();
                     return back()->with('error', '开设失败');
