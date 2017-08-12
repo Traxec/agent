@@ -40,6 +40,8 @@
             <tr class="text-c">
                 <th width="40">序号</th>
                 <th width="40">姓名</th>
+                <th width="40">手机</th>
+                <th width="40">邮箱</th>
                 <th width="40">金额</th>
                 <th width="40">时间</th>
                 <th width="40">功能</th>
@@ -54,6 +56,8 @@
                     <input type="hidden" name="id" value="">
                     <td>{{$a}}</td>
                     <td>{{$value->nick}}</td>
+                    <td>{{$value->phone}}</td>
+                    <td>{{$value->email}}</td>
                     <td>{{$value->price}}</td>
                     <td>{{$value->time}}</td>
                     <td>

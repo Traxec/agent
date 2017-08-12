@@ -90,6 +90,7 @@
                           <th>图1</th>
                           <th>图2</th>
                           <th>图3</th>
+                          <th>到期时间</th>
                           <th>修改时间</th>
                           <th>状态</th>
                           <th>修改次数</th>
@@ -132,6 +133,7 @@
                           <td><img width="50px" src="{{asset($systems->img1)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img2)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img3)}}" /></td>
+                          <td>{{$systems->enddate}}</td>
                           <td>{{$systems->time}}</td>
                           <td>{!! $systems->state==1?'<span class="label label-success radius">已处理</span>':'<span class="label label-error radius">未处理</span>' !!}</td>
                           <td>{{$systems->number}}</td>
