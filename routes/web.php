@@ -129,6 +129,8 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/package', 'admin\packageController@index');//安装包管理
     route::get('/admin/template', 'admin\templateController@index');//模板管理
     route::get('/admin/capital', 'admin\capitalController@index');//资金流动页面
+    route::get('/admin/pay_api','admin\pay_apiController@index');//后台绑定支付url
+    route::post('/admin/pay_api/update','admin\pay_apiController@update');//执行后台绑定支付url
     route::get('/admin/charge','admin\capitalController@charge');//提现审核
     route::post('/admin/charge/delete', 'admin\capitalController@delete');//删除提现记录
     route::get('/admin/capital/audit','admin\capitalController@update');//审核页面

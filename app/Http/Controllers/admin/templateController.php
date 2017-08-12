@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\templateRequest;
+use App\Http\Requests\payRequest;
 use DB;
 
 class templateController extends Controller
@@ -14,7 +14,7 @@ class templateController extends Controller
     return view('admin/template',['template'=>$template]);
   }
 
-  public function insert(templateRequest $request)
+  public function insert(payRequest $request)
   {
     $template = DB::table('template')->insert([
       'aid'=>'admin',

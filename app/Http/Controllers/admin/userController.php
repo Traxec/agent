@@ -40,6 +40,7 @@ class userController extends Controller
     public function add(usersRequest $request)
     {
 			$type = $request->input('type')=='普通用户'?1:2;
+			$keys= $request->input('type')=='普通用户'?'0,0,1,1,1,1':'1,1,1,1,1,1';
 			$data = DB::table('users')->where('id',session('id'))->first();
     	$admin = DB::table('users')->insert([
 				'username'=>$request->input('username'),
@@ -49,7 +50,7 @@ class userController extends Controller
 				'path'=>$data->path.','.session('id'),
 				'audit'=>'1',
 				'catid'=>$type,
-				'keys'=>'0,0,0,0,0,0',
+				'keys'=>$keys,
 			]);
 			if($admin){
 				return back()->with('success','添加成功');
