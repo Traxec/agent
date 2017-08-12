@@ -13,6 +13,7 @@ class systemController extends Controller
     {
         $system = DB::table('system')
                     ->join('spend','system.id','spend.sid')
+                    ->join('users', 'system.aid', 'users.id')
         ->paginate(10);
         $s = DB::table('price_set')->where('id',session('id'))->first();
         //dd($s);

@@ -24,7 +24,7 @@ class registerRequest extends FormRequest
     public function rules()
     {
         return [
-          'username' => 'required|unique:users|regex:/\w{6,18}/',
+          'username' => 'required|unique:users|regex:/\w{4,18}/',
           'email'=>'required|unique:users|email',
           'phone'=>'required|unique:users|digits_between:1,12',
           'password'=>'required|regex:/\w{6,18}/',
@@ -37,7 +37,7 @@ class registerRequest extends FormRequest
       return [
         'username.required'=>'用户名不能为空',
         'username.nuique'=>'用户名已占用，请输入其他用户名',
-        'username.regex'=>'用户名格式错误，请输入6到18位字母数字下划线',
+        'username.regex'=>'用户名格式错误，请输入4到18位字母数字下划线',
         'email.required'=>'邮箱地址不能为空',
         'email.nuique'=>'邮箱地址已占用，请输入其他邮箱地址',
         'email.email'=>'邮箱地址格式错误',

@@ -36,6 +36,7 @@
                             <thead>
                               <tr>
                                 <th>序号</th>
+                                <th>用户名</th>
                                 <th>姓名</th>
                                 <th>邮箱</th>
                                 <th>手机</th>
@@ -50,6 +51,7 @@
                               <?php $a++ ?>
                               <tr>
                                 <td>{{ $a }}</td>
+                                <td>{{ $value->username}}</td>
                                 <td>{{ $value->nick }}</td>
                                 <td>{{ $value->phone}}</td>
                                 <td>{{ $value->email}}</td>

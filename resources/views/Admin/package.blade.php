@@ -69,6 +69,7 @@
                       <thead>
                         <tr>
                           <th>序号</th>
+                          <th>用户名</th>
                           <th>安装包标题</th>
                           <th>安装包导航</th>
                           <th>安装包服务器名称</th>
@@ -109,6 +110,7 @@
                         <?php $a++ ?>
                         <tr>
                           <td>{{$a}}</td>
+                          <td>{{$packages->username}}</td>
                           <td>{{$packages->title}}</td>
                           <td>{{$packages->nav}}</td>
                           <td>{{$packages->server}}</td>

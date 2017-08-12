@@ -33,10 +33,10 @@ class chargeController extends Controller
         //dd($char);
         if($char)
         {
-          return back()->with('success','提现成功');
+          return back()->with('success','申请提现成功');
         }else
         {
-          return back()->with('error','提现失败');
+          return back()->with('error','申请提现失败');
         }
     }
 }
