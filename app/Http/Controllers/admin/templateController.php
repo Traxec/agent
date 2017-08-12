@@ -35,7 +35,7 @@ class templateController extends Controller
     return $data;
   }
 
-  public function update(templateRequest $request)
+  public function update(Request $request)
   {
     $template = DB::table('template')->where('id',$request->input('id'))->update([
       'price'=>$request->input('price'),
