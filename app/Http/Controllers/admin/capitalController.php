@@ -12,7 +12,7 @@ class capitalController extends Controller
   {
     $capital = DB::table('capital')
                   ->join('users', 'capital.aid', '=', 'users.id')
-                  ->select('capital.*', 'users.nick','users.phone','users.email')
+                  ->select('capital.*','users.username','users.nick','users.phone','users.email')
                   ->paginate(15);
     $sum =DB::table('profit')->sum('price');
     //dd($sum);
@@ -22,7 +22,7 @@ class capitalController extends Controller
   {
     $c =DB::table('char')
           ->join('users', 'char.aid', '=', 'users.id')
-          ->select('char.*', 'users.nick','users.phone','users.email')
+          ->select('char.*','users.username','users.nick','users.phone','users.email')
     ->get();
     return view('Admin.charge',['c'=>$c]);
   }

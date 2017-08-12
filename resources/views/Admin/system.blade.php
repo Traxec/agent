@@ -77,6 +77,7 @@
                       <thead>
                         <tr>
                           <th>序号</th>
+                          <th>用户名</th>
                           <th>系统端口号</th>
                           <th>产品模板</th>
                           <th>客户端标题</th>
@@ -120,6 +121,7 @@
                         <?php $a++ ?>
                         <tr>
                           <td>{{$a}}</td>
+                          <td>{{$systems->username}}</td>
                           <td>{{$systems->port}}</td>
                           <td>{{$systems->template}}</td>
                           <td>{{$systems->title}}</td>

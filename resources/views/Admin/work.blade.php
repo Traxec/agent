@@ -53,7 +53,7 @@
               <?php $a++ ?>
               <tr>
                 <td>{{$a}}</td>
-                <td>{{$orders->port}}</td>
+                <td>{{$orders->nick}}</td>
                 <td>{{$orders->port}}</td>
                 <td>{{$orders->system}}</td>
                 <td>{{$orders->type}}</td>
