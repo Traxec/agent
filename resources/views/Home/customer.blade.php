@@ -13,10 +13,10 @@
                 <h3>客户系统管理</h3>
               </div>
 
-              
+
             </div>
             <div class="clearfix"></div>
-      
+
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -26,8 +26,8 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      
-                      
+
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -35,7 +35,7 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="card-box table-responsive">
-                          
+
                           <table id="datatable-keytable" class="table table-striped table-bordered">
                             <thead>
                               <tr>
@@ -48,7 +48,7 @@
                               </tr>
                             </thead>
 
-							
+
                             <tbody>
                               <tr>
                                 <td>1</td>
@@ -67,15 +67,15 @@
                                 <h4 style="margin-left:10px; font-weight:bold; ">生成系统</h4>
                             </div>
                             <div class="modal-body">
-                         
+
                              <form class="form-horizontal form-label-left">
-					 
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input" value="123456">
-                     
+
                       </div>
-                     
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <select class="select2_multiple form-control" multiple="multiple">
@@ -87,64 +87,64 @@
                             <option>Option five</option>
                             <option>Option six</option>
                           </select>
-                     
-                      
+
+
                      </div>
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户端标题名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
-                   
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
-                     
-                      
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称 
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <textarea class="form-control" rows="5" placeholder="Five lines of information"></textarea>
                         </div>
-                    
-                      
-                     
+
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="phone">
                         </div>
-                     
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="web sites">
                         </div>
-                   
-                     
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="Email">
                         </div>
-                     
-                    
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">地址</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="address">
                         </div>
-                     
-                     
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
 
-                      
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">140*140 bmp图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                            
+
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
@@ -152,12 +152,12 @@
                                 </div>
                             </div>
                         </div>
-              
-            
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">500*60 bmp图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                            
+
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
@@ -165,12 +165,12 @@
                                 </div>
                             </div>
                         </div>
-                    
-                   
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                            
+
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
@@ -178,15 +178,15 @@
                                 </div>
                             </div>
                         </div>
-                
-                      
 
 
-                      
+
+
+
 
                     </form>
-                     
-                              
+
+
                             </div>　　　　　　　
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
@@ -195,9 +195,9 @@
                         </div>
                     </div>
          </div>
-                                 
+
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
-                                   
+
                                      <!--修改系统 -->
                                 <div class="modal fade" style="z-index='9999'" id="demoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
                     <div class="modal-dialog" role="document">
@@ -208,15 +208,15 @@
                                 <h4 style="margin-left:10px; font-weight:bold; ">修改系统</h4><small>（剩余免费次数：5次）</small>
                             </div>
                             <div class="modal-body">
-                         
+
                              <form class="form-horizontal form-label-left">
-					 
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input" value="123456">
-                     
+
                       </div>
-                     
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <select class="select2_multiple form-control" multiple="multiple">
@@ -228,64 +228,64 @@
                             <option>Option five</option>
                             <option>Option six</option>
                           </select>
-                     
-                      
+
+
                      </div>
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户端标题名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
-                   
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
-                     
-                      
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称 
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <textarea class="form-control" rows="5" placeholder="Five lines of information"></textarea>
                         </div>
-                    
-                      
-                     
+
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="phone">
                         </div>
-                     
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="web sites">
                         </div>
-                   
-                     
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="Email">
                         </div>
-                     
-                    
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">地址</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="address">
                         </div>
-                     
-                     
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
 
-                      
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">140*140 bmp图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                            
+
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
@@ -293,12 +293,12 @@
                                 </div>
                             </div>
                         </div>
-              
-            
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">500*60 bmp图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                            
+
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
@@ -306,12 +306,12 @@
                                 </div>
                             </div>
                         </div>
-                    
-                   
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                            
+
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换图片</span><input type="file"></span>
@@ -319,15 +319,15 @@
                                 </div>
                             </div>
                         </div>
-                
-                      
 
 
-                      
+
+
+
 
                     </form>
-                     
-                              
+
+
                             </div>　　　　　　　
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
@@ -347,40 +347,40 @@
                                 <h4 style="margin-left:10px; font-weight:bold; ">系统设置</h4>
                             </div>
                             <div class="modal-body">
-                         
+
                              <form class="form-horizontal form-label-left">
-                      
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" value="123.123.123.123:123" >
-                          
-                     
-                        
+
+
+
                       </div>
-                      
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">系统价格（元）</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control"  value="" >
-                          
+
                         </div>
-                        
-                 
-                    
+
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">起始时间 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" value="2017/07/01" >
-                          
+
                         </div>
-                   
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">到期时间 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" value="2017/09/09">
-                          
+
                         </div>
-                        
-                
-					  
+
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">结算方式</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <select class="select2_multiple form-control" multiple="multiple">
@@ -388,34 +388,34 @@
                             <option>3个月*元</option>
                             <option>6个月*元</option>
                             <option>12个月*元</option>
-                          
+
                           </select>
                         </div>
-                  
-                      
+
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >缴费金额</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" value="10000" >
-                      
-                        
+
+
                       </div>
-                      
+
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">系统状态</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" disabled="disabled" value="正常" >
-                          
+
                         </div>
-                        
-                  
-                      
-                      
 
 
-                   
+
+
+
+
+
 
                     </form>
-                     
-                              
+
+
                             </div>　　　　　　　
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
@@ -423,13 +423,13 @@
                             </div>
                         </div>
                     </div>
-         </div>    
-                                    
-                                    
-                                    
+         </div>
+
+
+
                                    <!-- -->
-                                   
-                                
+
+
                                 </td>
 
                               </tr>
@@ -442,7 +442,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -455,7 +455,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -468,7 +468,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -481,7 +481,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -494,7 +494,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -507,7 +507,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -520,7 +520,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -533,7 +533,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -546,7 +546,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -559,7 +559,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -572,7 +572,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -585,7 +585,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -598,7 +598,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -611,7 +611,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -624,7 +624,7 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -637,14 +637,14 @@
                                 <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal">生成系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
-                          
-                             
+
+
                             </tbody>
-                            
+
                           </table>
                         </div>
                       </div>
@@ -659,14 +659,14 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      
-                      
+
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                     
+
                     </p>
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                       <thead>
@@ -709,7 +709,7 @@
                               <div class="container col-lg-12">
                                     <label >户主</label><br>
                                     <input type="text" class="form-control"  placeholder="">
-                            </div>  
+                            </div>
                              <div class="container col-lg-12">
                                     <label >开户行</label><br>
                                     <input type="text" class="form-control"  placeholder="">
@@ -741,8 +741,8 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
-                                    
+
+
                                 </td>
 
                               </tr>
@@ -756,7 +756,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -770,7 +770,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -784,7 +784,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -798,7 +798,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -812,7 +812,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -826,7 +826,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -840,7 +840,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -854,7 +854,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -868,7 +868,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -882,7 +882,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -896,7 +896,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -910,7 +910,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -924,7 +924,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -938,7 +938,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -952,7 +952,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -966,7 +966,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -980,7 +980,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
@@ -994,14 +994,14 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal2">修改系统</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demoModal4">查看详情</button>
                                     <i type="button" class="fa fa-wrench" data-toggle="modal" data-target="#demoModal3"></i>
-                                    
+
                                 </td>
 
                               </tr>
                       <tbody>
-                        
-                              
-                        
+
+
+
                       </tbody>
                     </table>
                   </div>
@@ -1009,12 +1009,12 @@
               </div>
             </div>
 
-              
-            </div>
-            
-                
 
-           
+            </div>
+
+
+
+
           </div>
 
 @endsection

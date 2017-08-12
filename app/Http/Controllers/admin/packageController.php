@@ -13,7 +13,8 @@ class packageController extends Controller
     public function index()
     {
       $package = DB::table('package')->where('aid',session('user_id'))->paginate(15);
-      return view('admin.package',['package'=>$package]);
+      $s = DB::table('price_set')->where('id',session('id'))->first();
+      return view('admin.package',['package'=>$package],['s'=>$s]);
     }
 
 

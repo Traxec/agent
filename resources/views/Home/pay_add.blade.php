@@ -1,6 +1,6 @@
 @extends('Layout.home')
 
-@section('title','缴费')
+@section('title','充值')
 
 @section('hidden')
 @endsection

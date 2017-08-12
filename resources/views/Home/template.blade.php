@@ -56,13 +56,13 @@
         <div class="modal fade" style="z-index='9999'" id="demoModal" tabindex="-1" role="dialog"
              aria-labelledby="myMaodalLabel">
             <form action="{{action('home\templateController@agent_template')}}" method="post">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismisprices="modal" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
-                            <h2 class="modal-title" id="myModalLabel">请设置代理系统价格</h2>
-                        </div>
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                      aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">请设置代理系统价格</h4>
+                      </div>
                         <div class="modal-body">
                             <div class="container col-lg-12">
                                 <label for="exampleInputEmail1">系统价格</label>

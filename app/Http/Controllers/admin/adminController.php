@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Http\Request;
 use Hash;
+use App\Http\Requests\admin_addRequest;
 
 class adminController extends Controller
 {
@@ -78,7 +79,7 @@ class adminController extends Controller
      * @return function name update
      * 修改管理员信息
      */
-    public function update(Request $request)
+    public function update(admin_addRequest $request)
     {
         $unique_phone = DB::table('admin')->where([
             ['phone', $request->input('phone')],

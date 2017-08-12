@@ -60,7 +60,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+            <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>代理系统</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -106,15 +106,16 @@
                   <li><a><i class="fa fa-desktop"></i> 安装包管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       @if($judge->sign()['package_add']==1)
-                      <li><a href="{{url('/home/package/add')}}">生成安装包</a></li>
+                      <!-- <li><a href="{{url('/home/package/add')}}">生成安装包</a></li> -->
                       @endif
                       <li><a href="{{url('/home/package')}}">安装包管理</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> 缴费管理<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> 资金管理<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('/home/pay/add')}}">充值</a></li>
                       <!-- <li><a href="{{url('/home/pay')}}">缴费</a></li> -->
+                      <li><a href="{{url('/home/char')}}">提现</a></li>
                       <li><a href="{{url('/home/contribution')}}">资金流动</a></li>
                     </ul>
                   </li>

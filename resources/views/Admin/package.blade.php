@@ -35,6 +35,7 @@
               <div class="col-sm-12">
                 <div class="card-box table-responsive">
                   <button type="button" class="btn btn-primary btn-sm" style="margin:10px" data-toggle="modal" data-target="#demoModal2">修改安装包价格</button>
+                  <h5 style="margin-right:20px;float:right; color:red">注意：系统修改超出3次后下次修改价格{{$s->p_update}}元/次</h5>
                   <!--修改安装包价格-->
                   <form class="" action="{{ action('admin\packageController@update_package') }}" method="post">
                     <div class="modal fade" style="z-index='9999'" id="demoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
@@ -49,7 +50,7 @@
                           <h4 style="margin-left:30px;">
                             <div class="form-group">
                               <label for="exampleInputEmail1">价格(元/每次)</label>
-                              <input type="text" autocomplete="off" class="form-control" name="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" id="exampleInputEmail1" placeholder="">
+                              <input type="text" autocomplete="off" class="form-control" name="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" id="exampleInputEmail1" placeholder="" value="{{$s->p_update}}">
                             </div>
                           </h4>
                           <div class="modal-footer">

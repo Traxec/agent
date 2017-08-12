@@ -12,7 +12,9 @@ class systemController extends Controller
     public function index()
     {
         $system = DB::table('system')->paginate(10);
-        return view('Admin.system', ['system'=>$system]);
+        $s = DB::table('price_set')->where('id',session('id'))->first();
+        //dd($s);
+        return view('Admin.system', ['system'=>$system],['s'=>$s]);
     }
 
 

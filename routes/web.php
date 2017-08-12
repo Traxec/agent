@@ -42,7 +42,9 @@ route::group(['middleware' => 'homeLogin'], function () {
     route::get('/home/pay', 'home\payController@index');//缴费页面
     route::get('/home/pay/add', 'home\payController@add');//充值
     route::post('/home/pay/insert', 'home\payController@insert');//执行充值
-    route::get('/home/contribution', 'home\contributionController@index');//缴费记录页面
+    route::get('/home/contribution', 'home\contributionController@index');//资金流动页面
+    route::post('/home/add', 'home\chargeController@add');//提现
+    route::get('/home/char', 'home\chargeController@char');//提现页面
     route::get('/home/work/order', 'home\workController@order');//工单发布
     route::post('/home/work/insert', 'home\workController@insert');//执行工单发布
     route::get('/home/work/record', 'home\workController@record');//工单记录
@@ -127,6 +129,10 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/package', 'admin\packageController@index');//安装包管理
     route::get('/admin/template', 'admin\templateController@index');//模板管理
     route::get('/admin/capital', 'admin\capitalController@index');//资金流动页面
+    route::get('/admin/charge','admin\capitalController@charge');//提现审核
+    route::post('/admin/charge/delete', 'admin\capitalController@delete');//删除提现记录
+    route::get('/admin/capital/audit','admin\capitalController@update');//审核页面
+
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui
