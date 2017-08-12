@@ -116,6 +116,12 @@
   <div class="modal fade" style="z-index='9999'" id="demoModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
     <div class="modal-dialog" role="document">
       <div class="modal-content show">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">修改安装包</h4>
+          </div>
+
         <form class="form-horizontal form-label-left" action="{{action('home\packageController@update')}}" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
