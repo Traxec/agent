@@ -77,12 +77,12 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">140*140 bmp图片</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <div class="fileupload fileupload-new" data-provides="fileupload">
-                    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                  <img id="imageview1" style="width: 200px; height: 150px;">
                     <div>
                       <span class="btn btn-file btn-success">
                         <span class="fileupload-new">选择图片</span>
                         <span class="fileupload-exists">更换图片</span>
-                        <input type="file" name="img1">
+                        <input type="file" name="img1" id="fileupload1">
                       </span>
                     </div>
                   </div>
@@ -92,12 +92,12 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">500*60 bmp图片</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <div class="fileupload fileupload-new" data-provides="fileupload">
-                    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                    <img id="imageview2" style="width: 200px; height: 150px;">
                     <div>
                       <span class="btn btn-file btn-success">
                         <span class="fileupload-new">选择图片</span>
                         <span class="fileupload-exists">更换图片</span>
-                        <input type="file" name="img2">
+                        <input type="file" name="img2" id="fileupload2">
                       </span>
                       <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
                     </div>
@@ -108,12 +108,12 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <div class="fileupload fileupload-new" data-provides="fileupload">
-                    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                    <img id="imageview3" style="width: 200px; height: 150px;">
                     <div>
                       <span class="btn btn-file btn-success">
                         <span class="fileupload-new">选择图片</span>
                         <span class="fileupload-exists">更换图片</span>
-                        <input type="file" name="img3">
+                        <input type="file" name="img3" id="fileupload3">
                       </span>
                       <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">重置</a>
                     </div>
@@ -135,4 +135,48 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+//显示图片1
+$(function() {
+    /*原理是把本地图片路径："D(盘符):/image/..."转为"http://..."格式路径来进行显示图片*/
+    $("#fileupload1").change(function() {
+        var $file = $(this);
+        var objUrl = $file[0].files[0];
+        //获得一个http格式的url路径:mozilla(firefox)||webkit or chrome
+        var windowURL = window.URL || window.webkitURL;
+        //createObjectURL创建一个指向该参数对象(图片)的URL
+        var dataURL;
+        dataURL = windowURL.createObjectURL(objUrl);
+        $("#imageview1").attr("src",dataURL);
+    });
+});
+//显示图片2
+$(function() {
+    /*原理是把本地图片路径："D(盘符):/image/..."转为"http://..."格式路径来进行显示图片*/
+    $("#fileupload2").change(function() {
+        var $file = $(this);
+        var objUrl = $file[0].files[0];
+        //获得一个http格式的url路径:mozilla(firefox)||webkit or chrome
+        var windowURL = window.URL || window.webkitURL;
+        //createObjectURL创建一个指向该参数对象(图片)的URL
+        var dataURL;
+        dataURL = windowURL.createObjectURL(objUrl);
+        $("#imageview2").attr("src",dataURL);
+    });
+});
+//显示图片3
+$(function() {
+    /*原理是把本地图片路径："D(盘符):/image/..."转为"http://..."格式路径来进行显示图片*/
+    $("#fileupload3").change(function() {
+        var $file = $(this);
+        var objUrl = $file[0].files[0];
+        //获得一个http格式的url路径:mozilla(firefox)||webkit or chrome
+        var windowURL = window.URL || window.webkitURL;
+        //createObjectURL创建一个指向该参数对象(图片)的URL
+        var dataURL;
+        dataURL = windowURL.createObjectURL(objUrl);
+        $("#imageview3").attr("src",dataURL);
+    });
+});
+</script>
 @endsection

@@ -44,7 +44,7 @@ class users_updateRequest extends FormRequest
     public function messages()
     {
         return [
-            'nick.required'         =>  '客户名称不能为空',
+            'nick.required'         =>  '姓名不能为空',
             'nick.alpha_num'        =>  '客户名称必须是中文或数字或字母，请重新输入',
             'nick.between'          =>  '请输入4~8位的用户名',
             'phone.digits_between'=>'请输入1-12位电话',

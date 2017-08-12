@@ -37,6 +37,8 @@
                               <tr>
                                 <th>序号</th>
                                 <th>姓名</th>
+                                <th>邮箱</th>
+                                <th>手机</th>
                                 <th>流动时间</th>
                                 <th>明细</th>
                                 <th>类型</th>
@@ -49,7 +51,10 @@
                               <tr>
                                 <td>{{ $a }}</td>
                                 <td>{{ $value->nick }}</td>
+                                <td>{{ $value->phone}}</td>
+                                <td>{{ $value->email}}</td>
                                 <td>{{ $value->date }}</td>
+
                                 <td>{{ $value->money}}</td>
                                 <td>{{ $value->used }}</td>
                                 @endforeach

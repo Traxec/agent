@@ -112,6 +112,7 @@
 			<dd>
 				<ul>
 					<!-- <li><a data-href="{{url('/admin/capital')}}" data-title="资金管理" href="javascript:;">资金管理</a></li> -->
+					<li><a data-href="{{url('/admin/charge')}}" data-title="提现审核" href="javascript:;">提现审核</a></li>
 					<li><a data-href="{{url('/admin/capital')}}" data-title="资金管理" href="javascript:;">资金流动</a></li>
 				</ul>
 			</dd>

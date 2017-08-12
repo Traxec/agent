@@ -45,8 +45,8 @@ class system_addRequest extends FormRequest
     {
       return [
         'template.required'=>'请选择一个系统模板',
-        'port.required'=>'标题不能为空',
-        'port.digits_between'=>'标题为1-8位长度',
+        'port.required'=>'端口号不能为空',
+        'port.digits_between'=>'端口号为1-8位长度',
         'title.required'=>'标题不能为空',
         'title.max'=>'标题最多8位长度',
         'nav.required'=>'导航不能为空',
