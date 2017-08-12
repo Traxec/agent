@@ -24,7 +24,7 @@ class users_updateRequest extends FormRequest
     public function rules()
     {
         return [
-          'nick'        =>  'required|alpha_num|between:4,8',
+          'nick'        =>  'required|alpha_num|between:2,6',
           'phone'       =>  'required|digits_between:1,12',
           'email'       =>  'email',
           'b_bank'      =>  'alpha_num|between:2,40|nullable',
@@ -45,9 +45,9 @@ class users_updateRequest extends FormRequest
     {
         return [
             'nick.required'         =>  '姓名不能为空',
-            'nick.alpha_num'        =>  '客户名称必须是中文或数字或字母，请重新输入',
-            'nick.between'          =>  '请输入4~8位的用户名',
-            'phone.digits_between'=>'请输入1-12位电话',
+            'nick.alpha_num'        =>  '姓名必须是中文或数字或字母，请重新输入',
+            'nick.between'          =>  '请输入2~6位的姓名',
+            'phone.digits_between'  =>  '请输入1-12位电话',
             'email.email'           =>  '邮箱格式不正确',
             'b_bank.alpha_num'      =>  '开户行名称必须是中文或数字或字母，请重新输入',
             'b_bank.between'        =>  '请输入2~40位的开户行名称',

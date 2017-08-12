@@ -20,7 +20,10 @@ class capitalController extends Controller
   }
   public function charge()
   {
-    $c =DB::table('char')->get();
+    $c =DB::table('char')
+          ->join('users', 'char.aid', '=', 'users.id')
+          ->select('char.*', 'users.nick','users.phone','users.email')
+    ->get();
     return view('Admin.charge',['c'=>$c]);
   }
   //审核
