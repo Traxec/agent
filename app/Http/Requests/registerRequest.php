@@ -26,7 +26,7 @@ class registerRequest extends FormRequest
         return [
           'username' => 'required|unique:users|regex:/\w{6,18}/',
           'email'=>'required|unique:users|email',
-          'phone'=>'required|unique:users|regex:/^1[34578][0-9]{9}$/',
+          'phone'=>'required|unique:users|digits_between:1,12',
           'password'=>'required|regex:/\w{6,18}/',
           'repassword'=>'required|regex:/\w{6,18}/',
         ];
@@ -43,7 +43,7 @@ class registerRequest extends FormRequest
         'email.email'=>'邮箱地址格式错误',
         'phone.required'=>'电话号码不能为空',
         'phone.nuique'=>'电话号码已占用，请输入其他电话号码',
-        'phone.regex'=>'电话号码格式错误',
+        'phone.digits_between'=>'请输入1-12位电话',
         'password.required'=>'密码不能为空',
         'password.regex'=>'密码格式错误，请输入6到18位字母数字下划线',
         'repassword.required'=>'重复密码不能为空',

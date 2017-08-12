@@ -33,6 +33,7 @@ class registerController extends Controller
     if($data['password']!=$data['repassword']){
       return back()->with('error','两次密码不一致');
     }
+		$keys= $data['catid']==1?'0,0,1,1,1,1':'1,1,1,1,1,1';
     $users = DB::table('users')->insert([
       'username'=>$data['username'],
       'phone'=>$data['phone'],
@@ -43,7 +44,7 @@ class registerController extends Controller
       'path'=>$data['path'],
       'audit'=>'1',
       'date'=>date('Y-m-d H:i:s'),
-      'keys'=>'0,0,0,0,0,0',
+      'keys'=>$keys,
     ]);
     if($users){
       return redirect('/login')->with('success','恭喜'.$data['username'].',您已注册成功,请登录');

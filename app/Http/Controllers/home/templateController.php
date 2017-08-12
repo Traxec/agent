@@ -80,10 +80,9 @@ class templateController extends Controller
         ['aid',session('user_id')],
         ])->first();
         if ($sel) {
-          $res = DB::table('template')->where([
-            ['title',$request->input('title')],
-            ['aid',session('user_id')],
-            ])->update('price', $request->input('price'));
+          $res = DB::table('template')->where('id',$sel->id)->update([
+            'price'=>$request->input('price'),
+          ]);
             if ($res) {
               return back()->with('success', '设置成功');
             } else {

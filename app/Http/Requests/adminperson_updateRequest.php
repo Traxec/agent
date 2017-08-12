@@ -25,7 +25,7 @@ class adminperson_updateRequest extends FormRequest
    {
        return [
          'nick'        =>  'required|alpha_num|between:1,4',
-         'phone'       =>  'regex:/^1[34578][0-9]{9}$/',
+         'phone'=>'required|digits_between:1,12',
          'email'       =>  'email',
        ];
    }
@@ -41,7 +41,7 @@ class adminperson_updateRequest extends FormRequest
            'nick.required'         =>  '姓名不能为空',
            'nick.alpha_num'        =>  '姓名格式不对请重新输入',
            'nick.between'          =>  '请输入1~4位的姓名',
-           'phone.regex'           =>  '手机号码格式不正确',
+           'phone.digits_between'=>'请输入1-12位电话',
            'email.email'           =>  '邮箱格式不正确',
        ];
    }
