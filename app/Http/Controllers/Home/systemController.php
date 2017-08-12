@@ -108,8 +108,7 @@ class systemController extends Controller
                         'date'=>date('Y-m-d H:i:s'),
                       ]);
                       //分配代理商钱到个人账号
-                      $g = DB::table('pay')->where('aid',$key)->update([
-                        'pay'=>$v->price,
+                      $g = DB::table('pay')->where('aid',$key)->increment('pay',$v->price,[
                         'paydate'=>date('Y-m-d H:i:s'),
                       ]);
                       $new_price = $v->price;
@@ -196,7 +195,7 @@ class systemController extends Controller
         $data['time']=date('Y-m-d H:i:s');
 
         $sel = DB::table('price_set')->where('id',1)->first();
-        $price = $sel->s_update;
+        $price = $sel->s_update??'10000';
         $sel = DB::table('system')->where('id', $request->input('id'))->first();
         if ($sel->number < 3) {
           $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
@@ -263,9 +262,15 @@ class systemController extends Controller
             'day'=>$sel_c->day+$request->input('time')*30,
             'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$retime.' day', strtotime($sel_c->enddate))),
           ]);
+          $d = DB::table('profit')->insert([
+            'aid'=>session('user_id'),
+            'price' => $request->input('price'),
+            'used'=>'系统续费',
+            'time'=>date('Y-m-d H:i:s'),
+          ]);
 
 
-          if ($a && $b && $c) {
+          if ($a && $b && $c && $d) {
             DB::commit();
             return back()->with('success', '续费成功');
           } else {

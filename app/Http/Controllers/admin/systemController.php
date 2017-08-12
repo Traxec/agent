@@ -15,7 +15,6 @@ class systemController extends Controller
                     ->join('spend','system.id','spend.sid')
         ->paginate(10);
         $s = DB::table('price_set')->where('id',session('id'))->first();
-        //dd($s);
 
         return view('Admin.system', ['system'=>$system],['s'=>$s]);
     }
