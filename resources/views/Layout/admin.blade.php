@@ -86,7 +86,9 @@
 			<dd>
 				<ul>
 					<li><a data-href="{{ url('/admin/user')}}" data-title="用户列表" href="javascript:;">用户列表</a></li>
+	        @if($judge->judge_keys(session('id'))['user']==1)
 					<li><a data-href="{{ url('/admin/register_email')}}" data-title="邮件开户" href="javascript:;">邮件开户</a></li>
+					@endif
 				</ul>
 			</dd>
 		</dl>
