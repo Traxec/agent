@@ -11,7 +11,10 @@ class workController extends Controller
 {
     public function index()
     {
-      $order = DB::table('order')->paginate(10);
+      $order = DB::table('order')
+                  ->join('users','order.aid','users.id')
+                  ->select('order.*','users.username','users.nick')
+      ->paginate(10);
     	return view('Admin.work',['order'=>$order]);
     }
 
