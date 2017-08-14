@@ -39,7 +39,7 @@ define("MAX_SIZE", -2);
 */
 
 
-function ImageCreateFromIco($filename,$icoColorCount=256,$icoSize=128,$AlphaBgR=255,$AlphaBgG=255,$AlphaBgB=255)
+function ImageCreateFromIco($filename,$icoColorCount=256,$icoSize=48,$AlphaBgR=255,$AlphaBgG=255,$AlphaBgB=255)
 {
 $Ikona=GetIconsInfo($filename);
 
@@ -151,7 +151,7 @@ for($x=0;$x<$Ikona[$IconID]["Width"];$x++)
  imagesetpixel($img,$x,$y,$Paleta[$Ikona[$IconID]["Data"][$x][$y]]);
  };
 };
-$IsTransparent=false;  
+$IsTransparent=false;
 for($y=0;$y<$Ikona[$IconID]["Height"];$y++)
 for($x=0;$x<$Ikona[$IconID]["Width"];$x++)
  if($Ikona[$IconID]["Maska"][$x][$y]==1)

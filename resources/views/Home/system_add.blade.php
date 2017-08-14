@@ -133,7 +133,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">48*48 ico图片</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <div class="fileupload fileupload-new" data-provides="fileupload">
                     <img id="imageview3" style="width: 200px; height: 150px;">
