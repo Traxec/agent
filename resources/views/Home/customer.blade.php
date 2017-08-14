@@ -167,7 +167,7 @@
                         </div>
 
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">48*48 ico图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
 
@@ -308,7 +308,7 @@
                         </div>
 
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">128*128 ico图片</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">48*48 ico图片</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
 
