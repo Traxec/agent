@@ -59,8 +59,8 @@
                 <input type="password" name="password" class="form-control" placeholder="密码" required="" />
               </div>
               <div>
-                <input style="width:50%;float:left;margin-right:30px" name="vcode" type="text" class="form-control" placeholder="验证码" required="" />
-                <img src="/vcode" style="width:30%;float:left" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
+                <input style="width:50%;float:left;margin-right:30px" name="captcha" type="text" class="form-control" placeholder="验证码" required="" />
+                <img src="{!! captcha_src('flat') !!}" style="float:left" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
                 <div class="clearfix">
                 </div>
               </div>

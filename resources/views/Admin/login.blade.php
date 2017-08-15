@@ -37,12 +37,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                @if(session('error'))
-                    <div class="alert alert-danger alert-dismissable">
-                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                        {{session('error')}}
-                    </div>
-                @endif
+  @if(session('success'))
+  <div class="alert alert-success alert-dismissable">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    {{session('success')}}
+  </div>
+  @elseif(session('error'))
+  <div class="alert alert-danger alert-dismissable">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    {{session('error')}}
+  </div>
+  @endif
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">请登录</h3>
@@ -58,8 +72,8 @@
                                 </div>
                                 <div class="checkbox">
                                     <label style="padding-left: 0px">
-                                        <input type="text" name="vcode" placeholder="验证码" class="form-control" style="width:210px;float:left" id="exampleInputPassword1">
-                                        <img src="/vcode" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
+                                        <input type="text" name="captcha" placeholder="验证码" class="form-control" style="width:210px;float:left" id="exampleInputPassword1">
+                                        <img src="{!! captcha_src('mini') !!}" onclick="this.src=this.src+'?a=1'" style="cursor:pointer;padding-left:10px;" alt="请输入验证码">
                                     </label>
                                 </div>
                                 <div class="checkbox">
@@ -94,4 +108,3 @@
 </body>
 
 </html>
-

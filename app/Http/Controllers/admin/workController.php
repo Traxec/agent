@@ -23,7 +23,11 @@ class workController extends Controller
       date_default_timezone_set('Asia/Shanghai');
       $judge = DB::table('order')->where('id',$request->input('id'))->first();
       if($judge->recontent){
-        return back()->with('error','不能重复回复');
+        $work = DB::table('order')->where('id',$request->input('id'))->update([
+          'recontent'=>$request->input('recontent'),
+          'retime'=>date('Y-m-d h:i:s')
+        ]);
+        return back()->with('success','回复成功');
       }
 
       $update = DB::table('order')->where('id',$request->input('id'))->update([

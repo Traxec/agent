@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CaptchaRequest;
 use DB;
 use Gregwar\Captcha\CaptchaBuilder;
 use Hash;
@@ -24,7 +25,7 @@ class loginController extends Controller
      * @return function name check
      * 检查登录
      */
-    public function check(Request $request)
+    public function check(CaptchaRequest $request)
     {
         date_default_timezone_set('Asia/Shanghai');
         $admin = DB::table('users')->where('username', $request->input('username'))->first();
@@ -32,21 +33,22 @@ class loginController extends Controller
             return back()->with('error', '用户名不存在');
         }
         if (Hash::check($request->input('password'), $admin->password)) {
-            $v     = $request->input('vcode');
-            $vcode = $request->session()->get('Vcode');
+            // $v     = $request->input('vcode');
+            // $vcode = $request->session()->get('Vcode');
             // dd($vcode);
-            if ($v == $vcode) {
-                session(['user_id' => $admin->id]);
-                return redirect('/')->with('success', '欢迎' . $admin->nick . '登录');
-            } else {
-                return back()->with('error', '验证码不正确');
-            }
+            // if ($v == $vcode) {
+            session(['user_id' => $admin->id]);
+            return redirect('/')->with('success', '欢迎' . $admin->nick . '登录');
+            // } else {
+            //     return back()->with('error', '验证码不正确');
+            // }
         } else {
             return back()->with('error', '用户名或者密码不正确');
         }
 
     }
 
+    /*
     //验证码
     public function vcode()
     {
@@ -70,4 +72,5 @@ class loginController extends Controller
         //die;
 
     }
+    */
 }
