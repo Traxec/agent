@@ -29,8 +29,8 @@ class capitalController extends Controller
   //审核
   public function update(Request $request)
   {
+    // dd($request->all());
       $update = DB::table('char')->where('id', $request->input('id'))->first();
-      //dd($update);
       if ($update->audit == 0) {
 
           DB::beginTransaction(); //开启事务
@@ -52,9 +52,12 @@ class capitalController extends Controller
             return back()->with('success', '审核成功');
           }else{
             DB::rollback();
-            return back()->with('error', '不能重复审核该信息');
+            return back()->with('error', '审核失败');
           }
-  }
+      }else{
+        return back()->with('error', '不能重复审核该信息');
+      }
+
 }
   //删除
   public function delete(Request $request)

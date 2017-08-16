@@ -134,7 +134,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::get('/admin/charge','admin\capitalController@charge');//提现审核
     route::post('/admin/charge/delete', 'admin\capitalController@delete');//删除提现记录
     route::get('/admin/capital/audit','admin\capitalController@update');//审核页面
-
+    route::get('/message','admin\adminController@message');//测试短信
 });
 
 route::get('/admin/login', 'admin\loginController@index');//后台登录cui

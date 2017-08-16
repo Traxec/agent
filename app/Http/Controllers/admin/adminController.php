@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Http\Request;
 use Hash;
+use SmsManager;
+use \PhpSms;
+use Toplan\PhpSms\Sms;
 use App\Http\Requests\admin_addRequest;
 
 class adminController extends Controller
@@ -183,7 +186,8 @@ class adminController extends Controller
      */
     public function exit_admin()
     {
-        session()->forget('id');
-        return back();
+      session()->forget('id');
+      return back();
     }
+
 }
