@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\home;
 
+use App\Mail\pay_mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\payRequest;
 use DB;
+use Mail;
 
 class payController extends Controller
 {
@@ -28,7 +30,7 @@ class payController extends Controller
     {
       // dd($request->all());
       date_default_timezone_set('Asia/Shanghai');
-      $money = $request->input('order_amount');
+      $money = $request->input('pay');
       DB::beginTransaction(); //开启事务
       $sel = DB::table('pay')->where('aid',session('user_id'))->first();
       if($sel){
@@ -47,8 +49,15 @@ class payController extends Controller
         'used'=>'充值',
         'date'=>date('Y-m-d H:i:s'),
       ]);
+
       if($a && $b){
         DB::commit();
+        $e=DB::table('users')->where('id',session('user_id'))->first();
+        $message=array();
+        $message['user']=$e->nick;
+        $message['content'] = '您于'.date('Y-m-d H:i:s').'充值的'.$money.'已成功。';
+        Mail::to($e->email)
+            ->send(new pay_mail($message));
         return Redirect('home/pay/add')->withInput()->with('success','充值成功');
       }else{
         DB::rollback();
