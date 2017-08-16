@@ -5,6 +5,8 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Mail;
+use App\Mail\char_mail;
 
 class chargeController extends Controller
 {
@@ -33,7 +35,15 @@ class chargeController extends Controller
         //dd($char);
         if($char)
         {
+          $e=DB::table('users')->where('id',session('user_id'))->first();
+          $message=array();
+          $message['user']=$e->nick;
+          $message['content'] = '您于'.date('Y-m-d H:i:s').'申请提现金额为'.$request->input('pay').'元，我们已经成功收到您的申请，我们的工作人员将在1~2个工作日将款项打到您的账户中，请核对
+          您的账号信息并注意查收!';
+          Mail::to($e->email)
+              ->send(new char_mail($message));
           return back()->with('success','申请提现成功');
+
         }else
         {
           return back()->with('error','申请提现失败');

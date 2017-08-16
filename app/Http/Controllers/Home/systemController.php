@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\modify_mail;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\system_addRequest;
@@ -200,6 +202,12 @@ class systemController extends Controller
         if ($sel->number < 3) {
           $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
           if ($system) {
+            $e=DB::table('users')->where('id',session('user_id'))->first();
+            $message=array();
+            $message['user']=$e->nick;
+            $message['content'] = '您于'.date('Y-m-d H:i:s').'修改系统成功，每人免费修改次数为三次，您还剩下两次，免费修改次数使用完毕后，之后每次收取'.$price.'元';
+            Mail::to($e->email)
+                ->send(new modify_mail($message));
             return back()->with('success', "修改成功(修改前三次免费，之后每次收取.$price.元)");
           } else {
             return back()->with('error', '提交失败');
