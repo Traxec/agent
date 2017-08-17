@@ -42,6 +42,7 @@
               <div class="col-sm-12">
                 <div class="card-box table-responsive">
                   <button type="button" class="btn btn-primary btn-sm" style="margin:10px" data-toggle="modal" data-target="#demoModal2">修改系统价格</button>
+                  <a href="{{url('admin/system/send')}}" type="button" class="btn btn-primary btn-sm update" data-toggle="modal">发送邮件提醒</a>
                   <h5 style="margin-right:20px;float:right; color:red">注意：系统修改超出3次后下次修改价格{{$s->s_update}}元/次</h5>
                   <!--修改安装包价格-->
                   <form class="" action="{{ action('admin\systemController@update_system') }}" method="post">
@@ -80,18 +81,24 @@
                           <th>用户名</th>
                           <th>系统端口号</th>
                           <th>产品模板</th>
-                          <th>客户端标题</th>
-                          <th>客户端导航</th>
-                          <th>客户端服务器名称</th>
+                          <th>交易软件标题</th>
+                          <th>交易软件导航</th>
+                          <th>交易软件服务器名称</th>
                           <th>电话</th>
+                          <th>平台传真</th>
                           <th>官网网址</th>
                           <th>邮箱</th>
                           <th>地址</th>
                           <th>公司名称</th>
+                          <th>开模拟账户对话框公司名称</th>
+                          <th>MT4客户端-帮助-关于所需信息</th>
+                          <th>客户端软件所需信息</th>
+                          <th>桌面快捷方式名称</th>
                           <th>图1</th>
                           <th>图2</th>
                           <th>图3</th>
                           <th>到期时间</th>
+                          <th>剩余日期</th>
                           <th>修改时间</th>
                           <th>状态</th>
                           <th>修改次数</th>
@@ -128,14 +135,26 @@
                           <td>{{$systems->nav}}</td>
                           <td>{{$systems->server}}</td>
                           <td>{{$systems->phone}}</td>
+                          <td>{{$systems->fax}}</td>
                           <td>{{$systems->website}}</td>
                           <td>{{$systems->email}}</td>
                           <td>{{$systems->address}}</td>
                           <td>{{$systems->company}}</td>
+                          <td>{{$systems->usercomp}}</td>
+                          <td>{{$systems->help}}</td>
+                          <td>{{$systems->userinfo}}</td>
+                          <td>{{$systems->shortcut}}</td>
                           <td><img width="50px" src="{{asset($systems->img1)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img2)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img3)}}" /></td>
                           <td>{{$systems->enddate}}</td>
+                          @if($systems->last_day >= 7)
+                          <td>{{$systems->last_day}}</td>
+                          @elseif($systems->last_day < 7 && $systems->last_day >= 0)
+                          <td style="background:yellow">{{$systems->last_day}}</td>
+                          @elseif($systems->last_day <  0)
+                          <td style="background:red">{{$systems->last_day}}</td>
+                          @endif
                           <td>{{$systems->time}}</td>
                           <td>{!! $systems->state==1?'<span class="label label-success radius">已处理</span>':'<span class="label label-error radius">未处理</span>' !!}</td>
                           <td>{{$systems->number}}</td>

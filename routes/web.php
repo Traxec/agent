@@ -102,6 +102,7 @@ route::group(['middleware' => 'adminLogin'], function () {
     route::post('/admin/user/delete', 'admin\userController@delete');//删除用户
     route::get('/admin/system/update', 'admin\systemController@update');//系统修改
     route::get('/admin/system/edit', 'admin\systemController@edit');//系统修改
+    route::get('/admin/system/send', 'admin\systemController@send');//系统到期提醒
     route::post('/admin/system/update_system', 'admin\systemController@update_system');//修改系统价格
     route::post('/admin/package/update_package', 'admin\packageController@update_package');//修改安装包价格
     route::get('/admin/package/update', 'admin\packageController@update');//系统修改

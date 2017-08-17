@@ -124,20 +124,20 @@
 
         <form class="form-horizontal form-label-left" action="{{action('home\packageController@update')}}" method="post" enctype="multipart/form-data">
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件标题名称</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <input type="hidden" class="form-control" name="id" placeholder="title">
               <input type="text" class="form-control" name="title" placeholder="title">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件导航名称</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <input type="text" class="form-control" name="nav" placeholder="nav">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件服务器名称
             </label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <textarea class="form-control" rows="5" name="server" placeholder="Five lines of information"></textarea>

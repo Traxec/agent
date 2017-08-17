@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Mail;
 use App\Mail\modify_mail;
 use DB;
+use \PhpSms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\system_addRequest;
 use App\Http\Requests\resystemRequest;
@@ -58,6 +59,11 @@ class systemController extends Controller
                   'email'=>$request->input('email'),
                   'address'=>$request->input('address'),
                   'company'=>$request->input('company'),
+                  'fax'=>$request->input('fax'),
+                  'usercomp'=>$request->input('usercomp'),
+                  'help'=>$request->input('help'),
+                  'userinfo'=>$request->input('userinfo'),
+                  'shortcut'=>$request->input('shortcut'),
                   'img1'=>$img1,
                   'img2'=>$img2,
                   'img3'=>$img3,
@@ -201,13 +207,16 @@ class systemController extends Controller
         $sel = DB::table('system')->where('id', $request->input('id'))->first();
         if ($sel->number < 3) {
           $system = DB::table('system')->where('id', $request->input('id'))->increment('number', 1, $data);
-          if ($system) {
+          if ($sel->number == 2) {
             $e=DB::table('users')->where('id',session('user_id'))->first();
             $message=array();
             $message['user']=$e->nick;
-            $message['content'] = '您于'.date('Y-m-d H:i:s').'修改系统成功，每人免费修改次数为三次，您还剩下两次，免费修改次数使用完毕后，之后每次收取'.$price.'元';
-            Mail::to($e->email)
-                ->send(new modify_mail($message));
+            $message['content'] = '您的免费修改系统次数已使用完毕，之后每次收取'.$price.'元';
+            Mail::to($e->email) ->send(new modify_mail($message));
+            PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120986' ])->data(['nick' => $e->nick , 'price' => $price])->send();
+            // dd($res);
+          }
+          if ($system) {
             return back()->with('success', "修改成功(修改前三次免费，之后每次收取.$price.元)");
           } else {
             return back()->with('error', '提交失败');
@@ -280,6 +289,16 @@ class systemController extends Controller
 
           if ($a && $b && $c && $d) {
             DB::commit();
+            $e=DB::table('system')
+            ->join('spend','system.id','=','spend.sid')
+            ->join('users','system.aid','=','users.id')
+            ->select('users.email','users.phone','users.nick','system.title','spend.enddate')
+            ->where('system.id',$request->input('id'))->first();
+            $message=array();
+            $message['user']=$e->nick;
+            $message['content'] = '您的系统'.$e->title.'续费成功，收取您'.$request->input('price').'元，到期日期为'.$e->enddate;
+            Mail::to($e->email) ->send(new modify_mail($message));
+            $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120989' ])->data(['nick' => $e->nick ,'title' => $e->title , 'price' => $request->input('price') , 'enddate' => $e->enddate])->send();
             return back()->with('success', '续费成功');
           } else {
             DB::rollback();

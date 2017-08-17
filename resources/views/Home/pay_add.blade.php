@@ -29,7 +29,7 @@
           </div>
           <div class="x_content">
             <br />
-            <form class="form-horizontal form-label-left" action="{{action('home\payController@insert')}}" method="post" target="_blank">
+            <form class="form-horizontal form-label-left" action="{{$api->payweb}}" method="post" target="_blank">
               <div class="form-group">
               </div>
               <div class="form-group">

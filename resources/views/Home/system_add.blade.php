@@ -24,12 +24,13 @@
           <div class="x_content">
             <br />
             <form class="form-horizontal form-label-left" action="{{action('home\systemController@insert')}}" method="post"  enctype="multipart/form-data">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">系统端口号 </label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="port" placeholder="port" value="">
                 </div>
-              </div>
+              </div> -->
+                <input type="hidden" class="form-control" name="port" placeholder="port" value="443">
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">产品模板</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
@@ -38,52 +39,82 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端标题名称</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端软件所需信息</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="userinfo" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">桌面快捷方式名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="shortcut" placeholder="shortcut">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件标题名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="title" placeholder="title">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件导航名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="nav" placeholder="nav">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件服务器名称
                 </label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <textarea class="form-control" rows="5" name="server" placeholder="Five lines of information"></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" class="form-control" name="phone" placeholder="phone">
+                  <input type="text" class="form-control" name="company" placeholder="company">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" class="form-control" name="website" placeholder="website">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" class="form-control" name="email" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">地址</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台地址</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="address" placeholder="address">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">公司名称</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">开模拟账户对话框公司名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" class="form-control" name="company" placeholder="company">
+                  <input type="text" class="form-control" name="usercomp" placeholder="call">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">MT4客户端-帮助-关于所需信息</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="help" placeholder="help">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台电话</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="phone" placeholder="phone">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台传真</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="fax" placeholder="fax">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台网址</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="website" placeholder="website">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台邮箱</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group">

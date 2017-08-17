@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\modify_mail;
 use DB;
+use \PhpSms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\system_addRequest;
 
@@ -16,7 +19,11 @@ class systemController extends Controller
                     ->join('users', 'system.aid', 'users.id')
         ->paginate(10);
         $s = DB::table('price_set')->where('id',session('id'))->first();
-
+        foreach ($system as $key => $value) {
+        $last_day = ceil($this->diffBetweenTwoDays($value->enddate,date('Y-m-d H:i:s')));
+          $value -> last_day = $last_day;
+        }
+        // dd($system);
         return view('Admin.system', ['system'=>$system],['s'=>$s]);
     }
 
@@ -107,18 +114,65 @@ class systemController extends Controller
     //gd库重绘
     public function isimage($request, $imgpath)
     {
-        $mime_type = getimagesize($request->file($imgpath));
-        if ($mime_type['mime']=="image/gif") {
-            $img = imagecreatefromgif($_FILES[$imgpath]['tmp_name']);
-        } elseif ($mime_type['mime']=="image/png"||$mime_type['mime']=="image/x-png") {
-            $img = imagecreatefrompng($_FILES[$imgpath]['tmp_name']);
-        } else {
-            $img = imagecreatefromjpeg($_FILES[$imgpath]['tmp_name']);
+      $mime_type = getimagesize($request->file($imgpath));
+      if ($mime_type['mime']=="image/gif") {
+        $img = imagecreatefromgif($_FILES[$imgpath]['tmp_name']);
+      } elseif ($mime_type['mime']=="image/png"||$mime_type['mime']=="image/x-png") {
+        $img = imagecreatefrompng($_FILES[$imgpath]['tmp_name']);
+      } else {
+        $img = imagecreatefromjpeg($_FILES[$imgpath]['tmp_name']);
+      }
+      if ($img == false) {
+        return false;
+      } else {
+        return $img;
+      }
+    }
+
+    public function send()
+    {
+      $sel = DB::table('system')->join('spend','system.id','=','spend.sid')->get();
+      foreach ($sel as $key => $value) {
+        $last_day = ceil($this->diffBetweenTwoDays($value->enddate,date('Y-m-d H:i:s')));
+        $e=DB::table('system')
+        ->join('spend','system.id','=','spend.sid')
+        ->join('users','system.aid','=','users.id')
+        ->select('users.email','users.phone','users.nick','system.title','spend.enddate')
+        ->where('system.id',$value->id)->first();
+        if(7>$last_day&&$last_day>=0){
+          $message=array();
+          $message['user']=$e->nick;
+          $message['content'] = '您的系统'.$value->title.'还有'.$last_day.'天就到期了,为了不影响您的使用，请及时续费';
+          Mail::to($e->email) ->send(new modify_mail($message));
+          $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '121681' ])->data(['nick' => $e->nick ,'title' => $e->title , 'last_day' => $last_day])->send();
+        }elseif($last_day<0 && $last_day>-4){
+          $message=array();
+          $message['user']=$e->nick;
+          $message['content'] = '您的系统'.$value->title.'已到期，超过三天我们将删除您的系统，为了不影响您的使用，请及时续费';
+          Mail::to($e->email) ->send(new modify_mail($message));
+          $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '121847' ])->data(['nick' => $e->nick ,'title' => $e->title ])->send();
         }
-        if ($img == false) {
-            return false;
-        } else {
-            return $img;
-        }
+      }
+      return back()->with('success','发送成功');
+    }
+
+    /**
+    * 求两个日期之间相差的天数
+    * (针对1970年1月1日之后，求之前可以采用泰勒公式)
+    * @param string $day1
+    * @param string $day2
+    * @return number
+    */
+    public function diffBetweenTwoDays ($day1, $day2)
+    {
+      $second1 = strtotime($day1);
+      $second2 = strtotime($day2);
+
+      // if ($second1 < $second2) {
+      //   $tmp = $second2;
+      //   $second2 = $second1;
+      //   $second1 = $tmp;
+      // }
+      return ($second1 - $second2) / 86400;
     }
 }

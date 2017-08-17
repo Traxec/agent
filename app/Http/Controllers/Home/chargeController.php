@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Mail;
 use App\Mail\char_mail;
+use \PhpSms;
 
 class chargeController extends Controller
 {
@@ -40,8 +41,9 @@ class chargeController extends Controller
           $message['user']=$e->nick;
           $message['content'] = '您于'.date('Y-m-d H:i:s').'申请提现金额为'.$request->input('pay').'元，我们已经成功收到您的申请，我们的工作人员将在1~2个工作日将款项打到您的账户中，请核对
           您的账号信息并注意查收!';
-          Mail::to($e->email)
-              ->send(new char_mail($message));
+          // dd($e);
+          Mail::to($e->email) ->send(new char_mail($message));
+          PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120935' ])->data([ 'nick' => $e->nick , 'date' => date('Y-m-d H:i:s') , 'code' => $request->input('pay')])->send();
           return back()->with('success','申请提现成功');
 
         }else

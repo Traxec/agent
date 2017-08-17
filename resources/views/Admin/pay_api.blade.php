@@ -35,18 +35,15 @@
     </ul>
   </div>
   @endif
-  <form class="" action="{{ action('admin\pay_apiController@update') }}" method="post">
+  <form class="col-lg-offset-2" action="{{ action('admin\pay_apiController@update') }}" method="post">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-          aria-hidden="true">&times;</span>
-        </button>
         <h4 style="margin-left:10px; font-weight:bold;">支付接口</h4>
       </div>
       <h4 style="margin-left:30px;">
         <div class="form-group">
           <label for="exampleInputEmail1">设置支付接口</label>
-          <input type="text" autocomplete="off" class="form-control" style="width:900px" name="payweb" placeholder="" value="{{$config->payweb??''}}">
+          <input type="text" autocomplete="off" class="form-control" style="width:800px" name="payweb" placeholder="" value="{{$config->payweb??''}}">
         </div>
       </h4>
       <div class="modal-footer">

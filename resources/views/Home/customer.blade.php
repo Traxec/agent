@@ -90,19 +90,19 @@
 
 
                      </div>
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户端标题名称</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >交易软件标题名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
 
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件导航名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
 
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件服务器名称
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <textarea class="form-control" rows="5" placeholder="Five lines of information"></textarea>
@@ -231,19 +231,19 @@
 
 
                      </div>
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户端标题名称</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >交易软件标题名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
 
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端导航名称</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件导航名称</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <input type="text" class="form-control" placeholder="title">
                         </div>
 
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端服务器名称
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件服务器名称
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" style="margin-bottom:20px;">
                           <textarea class="form-control" rows="5" placeholder="Five lines of information"></textarea>

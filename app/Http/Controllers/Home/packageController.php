@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\package_addRequest;
 use DB;
+use \PhpSms;
+use Mail;
+use App\Mail\modify_mail;
 
 class packageController extends Controller
 {
@@ -91,6 +94,14 @@ class packageController extends Controller
         $price = $select->p_update;
         if ($sel->number < 3) {
             $package = DB::table('package')->where('id', $request->input('id'))->increment('number', 1, $data);
+            if ($sel->number == 2) {
+              $e=DB::table('users')->where('id',session('user_id'))->first();
+              $message=array();
+              $message['user']=$e->nick;
+              $message['content'] = '您的免费修改安装包次数已使用完毕，之后每次收取'.$price.'元';
+              Mail::to($e->email) ->send(new modify_mail($message));
+              $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '121466' ])->data(['nick' => $e->nick , 'price' => $price])->send();
+            }
             if ($package) {
                 return back()->with('success', "修改成功(修改前三次免费，之后每次收取.$price.元)");
             } else {

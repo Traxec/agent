@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Mail;
 use App\Mail\charge_mail;
+use \PhpSms;
 
 class capitalController extends Controller
 {
@@ -55,10 +56,10 @@ class capitalController extends Controller
             $e=DB::table('users')->where('id',session('user_id'))->first();
             $message=array();
             $message['user']=$e->nick;
-            $message['content'] = '您于'.date('Y-m-d H:i:s').'申请提现金额为'.$sel->price.'元，我们已经成功审核，款项已经打到您的账户中，请核对
+            $message['content'] =  '您申请的提现金额为'.$sel->price.'元的订单，我们已经成功审核，款项已经打到您的账户中，请核对
             您的账号信息并注意查收!';
-            Mail::to($e->email)
-                ->send(new charge_mail($message));
+            Mail::to($e->email) ->send(new charge_mail($message));
+            PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120946' ])->data([ 'nick' => $e->nick , 'code' => $sel->price])->send();
             return back()->with('success', '审核成功');
           }else{
             DB::rollback();
