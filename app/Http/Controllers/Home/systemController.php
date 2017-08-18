@@ -337,7 +337,7 @@ class systemController extends Controller
             $a = imagejpeg($img, $path.$fileName);
             // dd($a)
             //1,移动的目标目录  2,文件名字
-            // $request->file($name)->move($path, $fileName);
+            $request->file($name)->move($path, $fileName);
             return $path.$fileName;
         }        //echo '上传成功';
     }

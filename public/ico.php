@@ -26,23 +26,22 @@ define("MAX_SIZE", -2);
 
 /*
 *------------------------------------------------------------
-*                    ImageCreateFromIco
+*                    imagecreatefromico
 *------------------------------------------------------------
-*            - Reads image from a ICO file
+*            - reads image from a ico file
 *
-*         Parameters:  $filename - Target ico file to load
-*                 $icoColorCount - Icon color count (For multiple icons ico file)
-*                                - 2,16,256, TRUE_COLOR or XP_COLOR
-*                       $icoSize - Icon width       (For multiple icons ico file)
-*  $AlphaBgR,$AlphaBgG,$AlphaBgB - Background color for alpha-channel images (Default is White)
-*            Returns: Image ID
+*         parameters:  $filename - target ico file to load
+*                 $icocolorcount - icon color count (for multiple icons ico file)
+*                                - 2,16,256, true_color or xp_color
+*                       $icosize - icon width       (for multiple icons ico file)
+*  $alphabgr,$alphabgg,$alphabgb - background color for alpha-channel images (default is white)
+*            returns: image id
 */
 
 
 function ImageCreateFromIco($filename,$icoColorCount=256,$icoSize=48,$AlphaBgR=255,$AlphaBgG=255,$AlphaBgB=255)
 {
 $Ikona=GetIconsInfo($filename);
-
 $IconID=-1;
 
 $ColMax=-1;
@@ -69,8 +68,9 @@ if(($icoColorCount==$Ikona[$p]["NumberOfColors"])or($icoColorCount==MAX_COLOR))
    $SizeMax=$p;
  };
 
+ // dd($Ikona);
+if($Ikona[$p]["ColorCount"]==$icoColorCount)
 
-if($Ikona[$p]["NumberOfColors"]==$icoColorCount)
 if($Ikona[$p]["Width"]==$icoSize)
  {
 

@@ -81,9 +81,9 @@ class system_addRequest extends FormRequest
         'img1.max'=>'图片大小不能超过500k',
         'img1.mimes'=>'图片1格式不对,请上传bmp格式图片',
         'img2.max'=>'图片大小不能超过500k',
-        'img2.mimes'=>'图片1格式不对,请上传bmp格式图片',
+        'img2.mimes'=>'图片2格式不对,请上传bmp格式图片',
         'img3.max'=>'图片大小不能超过500k',
-        'img3.mimes'=>'图片1格式不对,请上传ico格式图片',
+        'img3.mimes'=>'图片3格式不对,请上传ico格式图片',
       ];
     }
 }
