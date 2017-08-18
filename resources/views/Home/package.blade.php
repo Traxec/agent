@@ -136,6 +136,7 @@
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端软件所需信息</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="hidden" class="form-control" name="id" placeholder="">
                   <input type="text" class="form-control" name="userinfo" placeholder="">
                 </div>
               </div>
