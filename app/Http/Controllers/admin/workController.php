@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\order_updateRequest;
 use Mail;
-use App\Mail\modify_mail;
+use App\Mail\template_mail;
 use DB;
 use \PhpSms;
 
@@ -32,9 +32,10 @@ class workController extends Controller
         $sel =DB::table('order')->where('id',$request->input('id'))->first();
         $e = DB::table('users')->where('id',$sel->aid)->first();
         $message=array();
+        $message['title']='工单回复';
         $message['user']=$e->nick;
         $message['content'] = '您的工单已回复，请注意查收';
-        Mail::to($e->email) ->send(new modify_mail($message));
+        Mail::to($e->email) ->send(new template_mail($message));
         $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120990' ])->data(['nick' => $e->nick])->send();
         return back()->with('success','回复成功');
       }else{

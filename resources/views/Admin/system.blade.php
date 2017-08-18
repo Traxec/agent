@@ -26,7 +26,7 @@
                 </ul>
             </div>
         @endif
-<div class="right_col" role="main">
+<div class="right_col" role="main" style="width:2500px">
   <div class="">
     <div class="page-title">
       <div class="title_left">
@@ -35,7 +35,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-12">
         <div class="x_panel">
           <div class="x_content">
             <div class="row">
@@ -74,35 +74,35 @@
 
 
 
-                    <table id="datatable-keytable" class="table table-striped table-bordered">
+                    <table id="datatable-keytable" width="2500px" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>序号</th>
-                          <th>用户名</th>
-                          <th>系统端口号</th>
-                          <th>产品模板</th>
-                          <th>交易软件标题</th>
-                          <th>交易软件导航</th>
-                          <th>交易软件服务器名称</th>
-                          <th>电话</th>
-                          <th>平台传真</th>
-                          <th>官网网址</th>
-                          <th>邮箱</th>
-                          <th>地址</th>
-                          <th>公司名称</th>
-                          <th>开模拟账户对话框公司名称</th>
-                          <th>MT4客户端-帮助-关于所需信息</th>
-                          <th>客户端软件所需信息</th>
-                          <th>桌面快捷方式名称</th>
-                          <th>图1</th>
-                          <th>图2</th>
-                          <th>图3</th>
-                          <th>到期时间</th>
-                          <th>剩余日期</th>
-                          <th>修改时间</th>
-                          <th>状态</th>
-                          <th>修改次数</th>
-                          <th>功能</th>
+                          <th width="40px">序号</th>
+                          <th width="40px">用户名</th>
+                          <th width="40px">系统端口号</th>
+                          <th width="40px">产品模板</th>
+                          <th width="40px">交易软件标题</th>
+                          <th width="40px">交易软件导航</th>
+                          <th width="40px">交易软件服务器名称</th>
+                          <th width="40px">电话</th>
+                          <th width="40px">平台传真</th>
+                          <th width="40px">官网网址</th>
+                          <th width="40px">邮箱</th>
+                          <th width="40px">地址</th>
+                          <th width="40px">公司名称</th>
+                          <th width="40px">开模拟账户对话框公司名称</th>
+                          <th width="40px">MT4客户端-帮助-关于所需信息</th>
+                          <th width="40px">客户端软件所需信息</th>
+                          <th width="40px">桌面快捷方式名称</th>
+                          <th width="40px">图1</th>
+                          <th width="40px">图2</th>
+                          <th width="40px">图3</th>
+                          <th width="40px">到期时间</th>
+                          <th width="40px">剩余日期</th>
+                          <th width="40px">修改时间</th>
+                          <th width="40px">状态</th>
+                          <th width="40px">修改次数</th>
+                          <th width="40px">功能</th>
                         </tr>
                       </thead>
                       <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="demoModal5">

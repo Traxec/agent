@@ -74,10 +74,15 @@
                           <th>安装包导航</th>
                           <th>安装包服务器名称</th>
                           <th>电话</th>
+                          <th>平台传真</th>
                           <th>官网网址</th>
                           <th>邮箱</th>
                           <th>地址</th>
                           <th>公司名称</th>
+                          <th>开模拟账户对话框公司名称</th>
+                          <th>MT4客户端-帮助-关于所需信息</th>
+                          <th>客户端软件所需信息</th>
+                          <th>桌面快捷方式名称</th>
                           <th>图1</th>
                           <th>图2</th>
                           <th>图3</th>
@@ -115,10 +120,15 @@
                           <td>{{$packages->nav}}</td>
                           <td>{{$packages->server}}</td>
                           <td>{{$packages->phone}}</td>
+                          <td>{{$systems->fax}}</td>
                           <td>{{$packages->website}}</td>
                           <td>{{$packages->email}}</td>
                           <td>{{$packages->address}}</td>
                           <td>{{$packages->company}}</td>
+                          <td>{{$systems->usercomp}}</td>
+                          <td>{{$systems->help}}</td>
+                          <td>{{$systems->userinfo}}</td>
+                          <td>{{$systems->shortcut}}</td>
                           <td><img width="50px" src="{{asset($packages->img1)}}" /></td>
                           <td><img width="50px" src="{{asset($packages->img2)}}" /></td>
                           <td><img width="50px" src="{{asset($packages->img3)}}" /></td>

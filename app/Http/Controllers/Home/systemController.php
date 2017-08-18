@@ -4,7 +4,7 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use Mail;
-use App\Mail\modify_mail;
+use App\Mail\template_mail;
 use DB;
 use \PhpSms;
 use App\Http\Controllers\Controller;
@@ -71,14 +71,14 @@ class systemController extends Controller
                   'time'=>date('Y-m-d H:i:s'),
                   'number'=>'0',
                 ]);
-
                 //系统有效时间
+                $time = $request->input('time')*30;
                 $c = DB::table('spend')->insert([
                   'sid' => $system,
                   'pay' => $request->input('price'),
-                  'day'=>$request->input('time'),
+                  'day'=>$time,
                   'startdate'=>date('Y-m-d H:i:s'),
-                  'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$request->input('time').' day')),
+                  'enddate'=>date('Y-m-d H:i:s', strtotime('+'.$time.' day')),
                 ]);
 
 
@@ -138,6 +138,11 @@ class systemController extends Controller
                 'website'=>$request->input('website'),
                 'email'=>$request->input('email'),
                 'address'=>$request->input('address'),
+                'fax'=>$request->input('fax'),
+                'usercomp'=>$request->input('usercomp'),
+                'help'=>$request->input('help'),
+                'userinfo'=>$request->input('userinfo'),
+                'shortcut'=>$request->input('shortcut'),
                 'company'=>$request->input('company'),
                 'img1'=>$img1,
                 'img2'=>$img2,
@@ -199,6 +204,11 @@ class systemController extends Controller
         $data['email']=$request->input('email');
         $data['address']=$request->input('address');
         $data['company']=$request->input('company');
+        $data['fax']=$request->input('fax');
+        $data['usercomp']=$request->input('usercomp');
+        $data['help']=$request->input('help');
+        $data['userinfo']=$request->input('userinfo');
+        $data['shortcut']=$request->input('shortcut');
         $data['state']=0;
         $data['time']=date('Y-m-d H:i:s');
 
@@ -210,9 +220,10 @@ class systemController extends Controller
           if ($sel->number == 2) {
             $e=DB::table('users')->where('id',session('user_id'))->first();
             $message=array();
+            $message['title']='修改系统';
             $message['user']=$e->nick;
             $message['content'] = '您的免费修改系统次数已使用完毕，之后每次收取'.$price.'元';
-            Mail::to($e->email) ->send(new modify_mail($message));
+            Mail::to($e->email) ->send(new template_mail($message));
             PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120986' ])->data(['nick' => $e->nick , 'price' => $price])->send();
             // dd($res);
           }
@@ -295,9 +306,10 @@ class systemController extends Controller
             ->select('users.email','users.phone','users.nick','system.title','spend.enddate')
             ->where('system.id',$request->input('id'))->first();
             $message=array();
+            $message['title']='系统续费';
             $message['user']=$e->nick;
             $message['content'] = '您的系统'.$e->title.'续费成功，收取您'.$request->input('price').'元，到期日期为'.$e->enddate;
-            Mail::to($e->email) ->send(new modify_mail($message));
+            Mail::to($e->email) ->send(new template_mail($message));
             $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '120989' ])->data(['nick' => $e->nick ,'title' => $e->title , 'price' => $request->input('price') , 'enddate' => $e->enddate])->send();
             return back()->with('success', '续费成功');
           } else {

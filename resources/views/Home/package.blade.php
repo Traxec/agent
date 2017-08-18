@@ -41,10 +41,15 @@
                           <th>安装包导航</th>
                           <th>安装包服务器名称</th>
                           <th>电话</th>
+                          <th>平台传真</th>
                           <th>官网网址</th>
                           <th>邮箱</th>
                           <th>地址</th>
                           <th>公司名称</th>
+                          <th>开模拟账户对话框公司名称</th>
+                          <th>MT4客户端-帮助-关于所需信息</th>
+                          <th>客户端软件所需信息</th>
+                          <th>桌面快捷方式名称</th>
                           <th>图1</th>
                           <th>图2</th>
                           <th>图3</th>
@@ -83,10 +88,15 @@
                           <td>{{$packages->nav}}</td>
                           <td>{{$packages->server}}</td>
                           <td>{{$packages->phone}}</td>
+                          <td>{{$packages->fax}}</td>
                           <td>{{$packages->website}}</td>
                           <td>{{$packages->email}}</td>
                           <td>{{$packages->address}}</td>
                           <td>{{$packages->company}}</td>
+                          <td>{{$packages->usercomp}}</td>
+                          <td>{{$packages->help}}</td>
+                          <td>{{$packages->userinfo}}</td>
+                          <td>{{$packages->shortcut}}</td>
                           <td><img width="50px" src="{{asset($packages->img1)}}" /></td>
                           <td><img width="50px" src="{{asset($packages->img2)}}" /></td>
                           <td><img width="50px" src="{{asset($packages->img3)}}" /></td>
@@ -123,6 +133,18 @@
           </div>
 
         <form class="form-horizontal form-label-left" action="{{action('home\packageController@update')}}" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客户端软件所需信息</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="userinfo" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">桌面快捷方式名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="shortcut" placeholder="shortcut">
+                </div>
+              </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">交易软件标题名称</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
@@ -143,12 +165,30 @@
               <textarea class="form-control" rows="5" name="server" placeholder="Five lines of information"></textarea>
             </div>
           </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">开模拟账户对话框公司名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="usercomp" placeholder="call">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">MT4客户端-帮助-关于所需信息</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="help" placeholder="help">
+                </div>
+              </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">电话</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <input type="text" class="form-control" name="phone" placeholder="phone">
             </div>
           </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台传真</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="fax" placeholder="fax">
+                </div>
+              </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">官网网址</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
@@ -254,6 +294,11 @@
         $('.show').children().find('input[name="email"]').val(data.email)
         $('.show').children().find('input[name="address"]').val(data.address)
         $('.show').children().find('input[name="company"]').val(data.company)
+        $('.show').children().find('input[name="usercomp"]').val(data.usercomp)
+        $('.show').children().find('input[name="help"]').val(data.help)
+        $('.show').children().find('input[name="userinfo"]').val(data.userinfo)
+        $('.show').children().find('input[name="shortcut"]').val(data.shortcut)
+        $('.show').children().find('input[name="fax"]').val(data.fax)
         var img1 = data.img1;
         var img2 = data.img2;
         var img3 = data.img3;

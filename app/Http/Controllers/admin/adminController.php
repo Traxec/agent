@@ -84,7 +84,6 @@ class adminController extends Controller
      */
     public function update(admin_addRequest $request)
     {
-      dd($request->all());
         $unique_phone = DB::table('admin')->where([
             ['phone', $request->input('phone')],
             ['username', '<>', $request->input('username')],

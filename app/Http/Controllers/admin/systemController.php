@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use Mail;
-use App\Mail\modify_mail;
+use App\Mail\template_mail;
 use DB;
 use \PhpSms;
 use App\Http\Controllers\Controller;
@@ -141,15 +141,17 @@ class systemController extends Controller
         ->where('system.id',$value->id)->first();
         if(7>$last_day&&$last_day>=0){
           $message=array();
+          $message['title']='续费提醒';
           $message['user']=$e->nick;
           $message['content'] = '您的系统'.$value->title.'还有'.$last_day.'天就到期了,为了不影响您的使用，请及时续费';
-          Mail::to($e->email) ->send(new modify_mail($message));
+          Mail::to($e->email) ->send(new template_mail($message));
           $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '121681' ])->data(['nick' => $e->nick ,'title' => $e->title , 'last_day' => $last_day])->send();
         }elseif($last_day<0 && $last_day>-4){
           $message=array();
+          $message['title']='到期提醒';
           $message['user']=$e->nick;
           $message['content'] = '您的系统'.$value->title.'已到期，超过三天我们将删除您的系统，为了不影响您的使用，请及时续费';
-          Mail::to($e->email) ->send(new modify_mail($message));
+          Mail::to($e->email) ->send(new template_mail($message));
           $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '121847' ])->data(['nick' => $e->nick ,'title' => $e->title ])->send();
         }
       }

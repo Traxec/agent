@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Hash;
 
-class char_mail extends Mailable
+class template_mail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,8 +33,9 @@ class char_mail extends Mailable
     public function build()
     {
       //dd($this->message);
-      return $this->view('Email.char_mail')
+      return $this->view('Email.template_email')
         ->with([
+          'title'=>$this->message['title'],
           'user'=>$this->message['user'],
           'content'=>$this->message['content'],
         ]);

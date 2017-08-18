@@ -70,18 +70,6 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台名称</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" class="form-control" name="company" placeholder="company">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台地址</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" class="form-control" name="address" placeholder="address">
-                </div>
-              </div>
-              <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">开模拟账户对话框公司名称</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="usercomp" placeholder="call">
@@ -91,6 +79,18 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">MT4客户端-帮助-关于所需信息</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="help" placeholder="help">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="company" placeholder="company">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">平台地址</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="address" placeholder="address">
                 </div>
               </div>
               <div class="form-group">

@@ -299,7 +299,7 @@ a.signup {
       <div class="stamp">
         <img src="{{asset('admin/images/stamp.png')}}" alt="">
       </div>
-      <h1>充值通知</h1>
+      <h1>{{$title}}</h1>
       <div class="design">
         <img src="{{asset('admin/images/design.png')}}">
       </div>

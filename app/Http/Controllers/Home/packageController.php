@@ -8,7 +8,7 @@ use App\Http\Requests\package_addRequest;
 use DB;
 use \PhpSms;
 use Mail;
-use App\Mail\modify_mail;
+use App\Mail\template_mail;
 
 class packageController extends Controller
 {
@@ -40,6 +40,11 @@ class packageController extends Controller
         'website'=>$request->input('website'),
         'email'=>$request->input('email'),
         'address'=>$request->input('address'),
+        'fax'=>$request->input('fax'),
+        'usercomp'=>$request->input('usercomp'),
+        'help'=>$request->input('help'),
+        'userinfo'=>$request->input('userinfo'),
+        'shortcut'=>$request->input('shortcut'),
         'company'=>$request->input('company'),
         'img1'=>$img1,
         'img2'=>$img2,
@@ -87,6 +92,11 @@ class packageController extends Controller
         $data['email']=$request->input('email');
         $data['address']=$request->input('address');
         $data['company']=$request->input('company');
+        $data['fax']=$request->input('fax');
+        $data['usercomp']=$request->input('usercomp');
+        $data['help']=$request->input('help');
+        $data['userinfo']=$request->input('userinfo');
+        $data['shortcut']=$request->input('shortcut');
         $data['state']=0;
         $data['time']=date('Y-m-d H:i:s');
         $sel = DB::table('package')->where('id', $request->input('id'))->first();
@@ -97,9 +107,10 @@ class packageController extends Controller
             if ($sel->number == 2) {
               $e=DB::table('users')->where('id',session('user_id'))->first();
               $message=array();
+              $message['title']='修改安装包';
               $message['user']=$e->nick;
               $message['content'] = '您的免费修改安装包次数已使用完毕，之后每次收取'.$price.'元';
-              Mail::to($e->email) ->send(new modify_mail($message));
+              Mail::to($e->email) ->send(new template_mail($message));
               $res = PhpSms::make()->to($e->phone)->template([ 'Ucpaas' => '121466' ])->data(['nick' => $e->nick , 'price' => $price])->send();
             }
             if ($package) {
