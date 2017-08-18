@@ -28,7 +28,7 @@ class order_addRequest extends FormRequest
           'system'=>'required|max:50',
           'type'=>'required|max:50',
           'content'=>'required|max:255',
-          'img'=>'image|max:2048',
+          'img1'=>'image|max:2048',
         ];
     }
 
@@ -43,8 +43,8 @@ class order_addRequest extends FormRequest
         'type.max'=>'问题类型不能超过50位长度',
         'content.required'=>'问题描述不能为空',
         'content.max'=>'问题描述不能超过255位长度',
-        'img.image'=>'图片格式不对',
-        'img.max'=>'图片不能超过2M',
+        'img1.image'=>'图片格式不对',
+        'img1.max'=>'图片不能超过2M',
       ];
     }
 }

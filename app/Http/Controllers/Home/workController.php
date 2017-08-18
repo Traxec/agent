@@ -22,7 +22,7 @@ class workController extends Controller
     {
       // dd($request->all());
       date_default_timezone_set('Asia/Shanghai');
-      $img=$this->upload($request, 'img');
+      $img=$this->upload($request, 'img1');
 
       $system = DB::table('order')->insert([
         'aid'=>session('user_id'),
@@ -44,7 +44,6 @@ class workController extends Controller
     //上传图片
     public function Upload($request, $name)
     {
-        // dd($request->all());
         date_default_timezone_set('Asia/Shanghai');
         //检测是否有文件上传
         if ($request->hasFile($name)) {
@@ -55,11 +54,10 @@ class workController extends Controller
             $fileName = $n.'.'.$suffix;
             $arr = array('jpg','png','jpeg');
             if (!in_array($suffix, $arr)) {
-                return back()->with('error', '文件类型不符合');
+              die('文件类型不符合,请上传jpg，png，jpeg格式图片');
             }
 
             $img = $this->isimage($request, $name);
-            // dd($path);
             if (!file_exists($path)) {
                 mkdir($path);
             }

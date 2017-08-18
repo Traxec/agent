@@ -12,7 +12,7 @@ class packageController extends Controller
   //安装包列表
     public function index()
     {
-      $package = DB::table('package')->where('aid',session('user_id'))
+      $package = DB::table('package')
                     ->join('users', 'package.aid', 'users.id')
                     ->select('package.*','users.username')
       ->paginate(15);
