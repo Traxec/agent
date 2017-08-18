@@ -117,7 +117,7 @@
                           <td>{{$systems->time}}</td>
                           <td>{{$systems->state}}</td>
                           <td>{{$systems->number}}</td>
-                          <input type="hidden" name="id" value="{{$systems->id}}">
+                          <input type="hidden" name="id" value="{{$systems->sid}}">
                           <input type="hidden" name="template" value="{{$systems->template}}">
                           <td>
                             @if($judge->sign()['system_update']==1)
