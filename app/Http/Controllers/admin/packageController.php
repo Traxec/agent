@@ -14,7 +14,9 @@ class packageController extends Controller
     {
       $package = DB::table('package')->where('aid',session('user_id'))
                     ->join('users', 'package.aid', 'users.id')
+                    ->select('package.*','users.username')
       ->paginate(15);
+      // dd($package);
       $s = DB::table('price_set')->where('id',session('id'))->first();
       return view('admin.package',['package'=>$package],['s'=>$s]);
     }
