@@ -49,19 +49,19 @@
                           <th>序号</th>
                           <th>系统端口号</th>
                           <th>产品模板</th>
-                          <th>交易软件标题</th>
-                          <th>交易软件导航</th>
-                          <th>交易软件服务器地址</th>
-                          <th>电话</th>
-                          <th>平台传真</th>
-                          <th>官网网址</th>
-                          <th>邮箱</th>
-                          <th>地址</th>
-                          <th>公司名称</th>
-                          <th>开模拟账户对话框公司名称</th>
-                          <th>MT4客户端-帮助-关于所需信息</th>
                           <th>客户端软件所需信息</th>
                           <th>桌面快捷方式名称</th>
+                          <th>交易软件标题名称</th>
+                          <th>交易软件导航名称</th>
+                          <th>交易软件服务器名称</th>
+                          <th>开模拟账户对话框公司名称</th>
+                          <th>MT4客户端-帮助-关于所需信息</th>
+                          <th>平台名称</th>
+                          <th>平台地址</th>
+                          <th>平台电话</th>
+                          <th>平台传真</th>
+                          <th>官网网址</th>
+                          <th>平台邮箱</th>
                           <th>图1</th>
                           <th>图2</th>
                           <th>图3</th>
@@ -97,19 +97,19 @@
                           <td>{{$a}}</td>
                           <td>{{$systems->port}}</td>
                           <td>{{$systems->template}}</td>
-                          <td>{{$systems->title}}</td>
-                          <td>{{$systems->fax}}</td>
-                          <td>{{$systems->nav}}</td>
-                          <td>{{$systems->server}}</td>
-                          <td>{{$systems->phone}}</td>
-                          <td>{{$systems->website}}</td>
-                          <td>{{$systems->email}}</td>
-                          <td>{{$systems->address}}</td>
-                          <td>{{$systems->company}}</td>
-                          <td>{{$systems->usercomp}}</td>
-                          <td>{{$systems->help}}</td>
                           <td>{{$systems->userinfo}}</td>
                           <td>{{$systems->shortcut}}</td>
+                          <td>{{$systems->title}}</td>
+                          <td>{{$systems->nav}}</td>
+                          <td>{{$systems->server}}</td>
+                          <td>{{$systems->usercomp}}</td>
+                          <td>{{$systems->help}}</td>
+                          <td>{{$systems->company}}</td>
+                          <td>{{$systems->address}}</td>
+                          <td>{{$systems->phone}}</td>
+                          <td>{{$systems->fax}}</td>
+                          <td>{{$systems->website}}</td>
+                          <td>{{$systems->email}}</td>
                           <td><img width="50px" src="{{asset($systems->img1)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img2)}}" /></td>
                           <td><img width="50px" src="{{asset($systems->img3)}}" /></td>

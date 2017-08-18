@@ -55,7 +55,7 @@ class capitalController extends Controller
             DB::commit();
             $e=DB::table('users')->where('id',session('user_id'))->first();
             $message=array();
-            $message['title']="提现成功";
+            $message['title']="提现审核成功";
             $message['user']=$e->nick;
             $message['content'] =  '您申请的提现金额为'.$sel->price.'元的订单，我们已经成功审核，款项已经打到您的账户中，请核对
             您的账号信息并注意查收!';
