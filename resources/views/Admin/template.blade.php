@@ -82,7 +82,7 @@
                             <br/>
                             <div class="container col-lg-12">
                                 <label for="exampleInputEmail1">模板价格</label>
-                                <input type="text" name="price" class="form-control" id="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" placeholder="">
+                                <input type="text" name="pay" class="form-control" id="price" onkeyup="this.value=this.value.replace(/[\D]/g,'');" placeholder="">
                             </div>
                             <br/>
                         </div>　　　　　　　　

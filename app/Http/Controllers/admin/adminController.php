@@ -44,7 +44,7 @@ class adminController extends Controller
         $this->validate($request, [
             'username' => 'required|unique:admin|max:255|alpha',
             'nick'     => 'required',
-            'phone'    => 'alpha_num|between:1,12',
+            'phone'       =>  'regex:/^1[34578][0-9]{9}$/',
         ]);
 
 
@@ -84,6 +84,7 @@ class adminController extends Controller
      */
     public function update(admin_addRequest $request)
     {
+      dd($request->all());
         $unique_phone = DB::table('admin')->where([
             ['phone', $request->input('phone')],
             ['username', '<>', $request->input('username')],

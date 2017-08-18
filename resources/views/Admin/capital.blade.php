@@ -38,8 +38,8 @@
                                 <th>序号</th>
                                 <th>用户名</th>
                                 <th>姓名</th>
-                                <th>邮箱</th>
                                 <th>手机</th>
+                                <th>邮箱</th>
                                 <th>流动时间</th>
                                 <th>明细</th>
                                 <th>类型</th>

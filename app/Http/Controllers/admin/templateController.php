@@ -19,7 +19,7 @@ class templateController extends Controller
     $template = DB::table('template')->insert([
       'aid'=>'admin',
       'title'=>$request->input('title'),
-      'price'=>$request->input('price'),
+      'price'=>$request->input('pay'),
     ]);
     if($template){
       return back()->with('success','添加成功');
